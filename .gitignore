@@ -15,8 +15,7 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-xcuserdata/*
-sunset.xcodeproj/xcuserdata
+xcuserdata/
 
 ## Other
 *.moved-aside
@@ -66,7 +65,4 @@ fastlane/screenshots
 fastlane/test_output
 
 # User files
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcworkspace/contents.xcworkspacedata
 .DS_Store
