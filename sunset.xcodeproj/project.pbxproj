@@ -17,6 +17,7 @@
 		332B1A5D1D8157A1007064CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332B1A5B1D8157A1007064CF /* LaunchScreen.storyboard */; };
 		332B1A5E1D8157A1007064CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332B1A5C1D8157A1007064CF /* Main.storyboard */; };
 		332B1A601D8157B5007064CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A5F1D8157B5007064CF /* ViewController.swift */; };
+		33E9AA7B1D98C47B005BBC04 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33E9AA7A1D98C47B005BBC04 /* Calendar.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		332B1A5B1D8157A1007064CF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		332B1A5C1D8157A1007064CF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		332B1A5F1D8157B5007064CF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		33E9AA7A1D98C47B005BBC04 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 			children = (
 				332B1A5B1D8157A1007064CF /* LaunchScreen.storyboard */,
 				332B1A5C1D8157A1007064CF /* Main.storyboard */,
+				33E9AA7A1D98C47B005BBC04 /* Calendar.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33E9AA7B1D98C47B005BBC04 /* Calendar.storyboard in Resources */,
 				332B1A5E1D8157A1007064CF /* Main.storyboard in Resources */,
 				332B1A2E1D815670007064CF /* Assets.xcassets in Resources */,
 				332B1A5D1D8157A1007064CF /* LaunchScreen.storyboard in Resources */,
