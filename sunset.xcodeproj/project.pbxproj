@@ -17,8 +17,11 @@
 		332B1A5D1D8157A1007064CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332B1A5B1D8157A1007064CF /* LaunchScreen.storyboard */; };
 		332B1A5E1D8157A1007064CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332B1A5C1D8157A1007064CF /* Main.storyboard */; };
 		332B1A601D8157B5007064CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A5F1D8157B5007064CF /* ViewController.swift */; };
+		3367C3601D98EFAA007A13AF /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3367C35F1D98EFAA007A13AF /* CalendarCell.swift */; };
+		3367C3621D98EFE5007A13AF /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3367C3611D98EFE5007A13AF /* CalendarViewController.swift */; };
 		33E9AA7B1D98C47B005BBC04 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33E9AA7A1D98C47B005BBC04 /* Calendar.storyboard */; };
 		33E9AA811D98D25C005BBC04 /* Micropost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33E9AA801D98D25C005BBC04 /* Micropost.storyboard */; };
+		33F3CD291D99103C00B8D7A5 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F3CD281D99103C00B8D7A5 /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +58,11 @@
 		332B1A5B1D8157A1007064CF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		332B1A5C1D8157A1007064CF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		332B1A5F1D8157B5007064CF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3367C35F1D98EFAA007A13AF /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		3367C3611D98EFE5007A13AF /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		33E9AA7A1D98C47B005BBC04 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		33E9AA801D98D25C005BBC04 /* Micropost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Micropost.storyboard; sourceTree = "<group>"; };
+		33F3CD281D99103C00B8D7A5 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				332B1A5F1D8157B5007064CF /* ViewController.swift */,
+				3367C3611D98EFE5007A13AF /* CalendarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,6 +178,7 @@
 		332B1A561D815749007064CF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3367C35F1D98EFAA007A13AF /* CalendarCell.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -178,6 +186,7 @@
 		332B1A571D815749007064CF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				33F3CD281D99103C00B8D7A5 /* DateManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -363,8 +372,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3367C3621D98EFE5007A13AF /* CalendarViewController.swift in Sources */,
+				33F3CD291D99103C00B8D7A5 /* DateManager.swift in Sources */,
 				332B1A601D8157B5007064CF /* ViewController.swift in Sources */,
 				332B1A271D815670007064CF /* AppDelegate.swift in Sources */,
+				3367C3601D98EFAA007A13AF /* CalendarCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
