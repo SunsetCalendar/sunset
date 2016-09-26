@@ -34,7 +34,7 @@ enum Endpoint {
     func path() -> String {
         switch self {
             case .micropostIndex:
-                return "/api/users/1"
+                return "/api/users/5" // とりあえずuser決め打ち
         }
     }
 }
