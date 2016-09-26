@@ -29,9 +29,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xa-6G-xxe">
-                                        <frame key="frameInset" minX="274" minY="16" width="46" height="30"/>
+                                        <frame key="frameInset" minX="228" minY="16" width="92" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="カレンダー"/>
                                         <connections>
                                             <segue destination="a6h-eg-hOs" kind="show" id="Pdy-xk-k14"/>
                                         </connections>
@@ -89,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="767" y="98"/>
+            <point key="canvasLocation" x="765.60000000000002" y="97.601199400299862"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="uTa-Py-J6J">
