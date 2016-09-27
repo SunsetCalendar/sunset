@@ -21,10 +21,35 @@ class sunsetTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testMoveMonth() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        
+        // 現在の日時を取得
+        let date = Date()
+        
+        // 1ヶ月前、後の日時を取得
+        let ago_date = date.monthAgoDate()
+        let later_date = date.monthLaterDate()
+        
+        // dateから月だけ抽出するようにする (1, 2など)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "M"
+        
+        let this_month = Int(formatter.string(from: date))!
+        let ago_month = Int(formatter.string(from: ago_date))!
+        let later_month = Int(formatter.string(from: later_date))!
+        
+        
+        let ago_diff_check = abs(this_month - ago_month % 11)
+        let later_diff_check = abs(later_month - this_month % 11)
+        
+        
+        XCTAssertEqual(ago_diff_check, 1)
+        XCTAssertEqual(later_diff_check, 1)
     }
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
