@@ -26,11 +26,10 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     //@IBOutlet weak var headerPrevBtn: UIButton!
     
     @IBOutlet weak var headerTitle: UILabel!
-    
     @IBOutlet weak var headerPrevBtn: UIButton!
     @IBOutlet weak var headerNextBtn: UIButton!
     
-    
+    @IBOutlet weak var calendarHeaderView: UIView!
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     
     
@@ -100,9 +99,9 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     //セルのサイズを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //let numberOfMargin: CGFloat = 8.0  //8.0
-        let width: CGFloat = (collectionView.frame.size.width) / CGFloat(daysPerWeek + 2)
+        let width: CGFloat = (collectionView.frame.size.width) / CGFloat(daysPerWeek + 1)
         
-        let height: CGFloat = width * 0.9// 正方形にしなくても良さそう
+        let height: CGFloat = width// 正方形にしなくても良さそう
         return CGSize(width: width, height: height)
     }
     
@@ -113,9 +112,9 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     //}
     
     //セルの水平方向のマージンを設定
-    //func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    //    return cellMargin
-    //}
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return cellMargin
+    }
     
     //headerの月を変更
     func changeHeaderTitle(_ date: Date) -> String {
