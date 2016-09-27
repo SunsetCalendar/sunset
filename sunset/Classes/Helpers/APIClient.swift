@@ -3,7 +3,7 @@ import Alamofire
 import SwiftyJSON
 
 class APIClient {
-    static fileprivate let baseUrl = "http://asuforce.xyz"
+    static fileprivate let baseUrl = "https://asuforce.xyz"
 
     static func request(_ endpoint: Endpoint, handler: @escaping (_ json: JSON) -> Void) {
         let method = endpoint.method()
