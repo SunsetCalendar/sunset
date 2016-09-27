@@ -27,10 +27,65 @@ class sunsetUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    // 年の切り替わりによる月の変更 (12から1月、またその逆の対策)
+    func calcDate(year: Int, month: Int, check: String) -> String {
+        if check == "+" {
+            if month == 12 {
+                return String(year + 1) + "/1"
+            }
+            else {
+                return String(year) + "/" + String(month + 1)
+            }
+        }
+        
+        else {
+            if month == 1 {
+                return String(year - 1) + "/12"
+            }
+            else {
+                return String(year) + "/" + String(month - 1)
+            }
+        }
     }
     
+    func testMoveMonthButton() {
+        let app = XCUIApplication()
+        
+        // Main.storyboardに集約する際には必要ない
+        let toCalendarButton = app.buttons["カレンダー"]
+        toCalendarButton.tap()
+        
+        
+        let agoButton = app.buttons["←"]
+        let laterButton = app.buttons["→"]
+        let dateLabel = app.staticTexts["dateLabel"]
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/M"
+        
+        let date = Date()
+        let this_year = Int(formatter.string(from: date).components(separatedBy: "/")[0])!
+        let this_month = Int(formatter.string(from: date).components(separatedBy: "/")[1])!
+        var expectedLabel = ""
+        
+        XCTAssertEqual(String(this_year) + "/" + String(this_month), dateLabel.label)
+        
+        // 1ヶ月戻る
+        agoButton.tap()
+        
+        expectedLabel = calcDate(year: this_year, month: this_month, check: "-")
+        XCTAssertEqual(expectedLabel, dateLabel.label)
+        
+        // スタート時に戻る
+        laterButton.tap()
+        
+        // 1ヶ月進む
+        laterButton.tap()
+        
+        expectedLabel = calcDate(year: this_year, month: this_month, check: "+")
+        XCTAssertEqual(expectedLabel, dateLabel.label)
+        
+    }
+
 }
