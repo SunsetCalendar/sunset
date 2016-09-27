@@ -42,14 +42,14 @@ class sunsetTests: XCTestCase {
         let later_month = Int(formatter.string(from: later_date))!
         
         
-        let ago_diff_check = abs(this_month - ago_month % 11)
-        let later_diff_check = abs(later_month - this_month % 11)
+        let ago_diff_check = abs(this_month - ago_month % 12)
+        let later_diff_check = abs(later_month - this_month % 12)
         
         
         XCTAssertEqual(ago_diff_check, 1)
         XCTAssertEqual(later_diff_check, 1)
     }
-    
+
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
