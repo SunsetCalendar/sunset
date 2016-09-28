@@ -22,5 +22,4 @@ class micropostUITests: XCTestCase {
 
         XCTAssertTrue(app.tables.staticTexts["Test Post"].exists)
     }
-
 }

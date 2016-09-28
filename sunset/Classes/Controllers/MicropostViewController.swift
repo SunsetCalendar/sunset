@@ -33,4 +33,3 @@ class MicropostViewController: UITableViewController {
         cell.textLabel?.text = self.microposts[indexPath.row].content
     }
 }
-
