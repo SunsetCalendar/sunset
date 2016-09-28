@@ -1,4 +1,6 @@
 import XCTest
+import Nimble
+
 @testable import sunset
 
 class micropostTests: XCTestCase {
@@ -12,6 +14,12 @@ class micropostTests: XCTestCase {
     }
 
     func testGetMicroposts() {
-        
+
+        waitUntil { done in
+            Micropost.fetchMicroposts { microposts in
+                XCTAssertEqual("SSL化できたよう", microposts[0].content)
+                done()
+            }
+        }
     }
 }
