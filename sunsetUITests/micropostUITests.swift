@@ -7,7 +7,9 @@ class micropostUITests: XCTestCase {
 
         continueAfterFailure = false
 
-        XCUIApplication().launch()
+        let app = XCUIApplication()
+        app.launchArguments = [ "STUB_HTTP_ENDPOINTS" ]
+        app.launch()
     }
 
     override func tearDown() {
@@ -18,8 +20,7 @@ class micropostUITests: XCTestCase {
         let app = XCUIApplication()
         app.buttons["Micropost"].tap()
 
-        XCTAssertTrue(app.tables.staticTexts["hoge"].exists)
-        //XCTAssertTrue(app.tables.staticTexts["わくわく"].exists)
+        XCTAssertTrue(app.tables.staticTexts["Test Post"].exists)
     }
 
 }
