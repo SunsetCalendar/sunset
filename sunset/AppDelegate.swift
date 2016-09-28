@@ -1,21 +1,23 @@
-//
-//  AppDelegate.swift
-//  sunset
-//
-//  Created by usr0600429 on 2016/09/08.
-//  Copyright © 2016年 GMO Pepabo. All rights reserved.
-//
-
 import UIKit
+import OHHTTPStubs
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        if (ProcessInfo.processInfo.arguments.contains("STUB_HTTP_ENDPOINTS")) {
+            stub(condition: isScheme("https") && isHost("asuforce.xyz") && isPath("/api/users/5") && isMethodGET()){ _ in
+                return OHHTTPStubsResponse(
+                    jsonObject: ["feeds" : [["content" : "Test Post"]]],
+                    statusCode: 200,
+                    headers: nil
+                )
+            }
+        }
         return true
     }
 
@@ -40,7 +42,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-
