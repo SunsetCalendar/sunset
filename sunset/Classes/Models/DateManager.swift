@@ -8,7 +8,7 @@ extension Date {
         let calendar = Calendar.current
         var dateComponents = DateComponents()
         dateComponents.month = addValue
-        return (calendar as NSCalendar).date(byAdding: dateComponents, to: self, options: NSCalendar.Options(rawValue: 0))!
+        return calendar.date(byAdding: dateComponents, to: self)!
     }
     
     func monthLaterDate() -> Date {
@@ -16,7 +16,7 @@ extension Date {
         let calendar = Calendar.current
         var dateComponents = DateComponents()
         dateComponents.month = addValue
-        return (calendar as NSCalendar).date(byAdding: dateComponents, to: self, options: NSCalendar.Options(rawValue: 0))!
+        return calendar.date(byAdding: dateComponents, to: self)!
     }
     
 }
@@ -29,15 +29,20 @@ class DateManager: NSObject {
     
     //月ごとのセルの数を返すメソッド
     func daysAcquisition() -> Int {
-        let rangeOfWeeks = (Calendar.current as NSCalendar).range(of: NSCalendar.Unit.weekOfMonth, in: NSCalendar.Unit.month, for: firstDateOfMonth())
-        let numberOfWeeks = rangeOfWeeks.length //月が持つ週の数
+        let rangeOfWeeks = Calendar.current.range(of: Calendar.Component.weekOfMonth, in: Calendar.Component.month, for: firstDateOfMonth())!
+        //let numberOfWeeks = rangeOfWeeks.length //月が持つ週の数
+        let numberOfWeeks = rangeOfWeeks.count //月が持つ週の数
+        
         numberOfItems = numberOfWeeks * daysPerWeek //週の数×列の数
         return numberOfItems
     }
+    
     //月の初日を取得
     func firstDateOfMonth() -> Date {
-        var components = (Calendar.current as NSCalendar).components([.year, .month, .day],
-                                                                     from: selectedDate)
+        //var components = (Calendar.current as NSCalendar).components([.year, .month, .day], from: selectedDate)
+        var components = Calendar.current.dateComponents([.year, .month, .day], from: selectedDate)
+        
+        
         components.day = 1
         let firstDateMonth = Calendar.current.date(from: components)!
         return firstDateMonth
@@ -46,14 +51,16 @@ class DateManager: NSObject {
     func dateForCellAtIndexPath(_ numberOfItems: Int) {
 
         // 月の初日が週の何日目か を計算する
-        let ordinalityOfFirstDay = (Calendar.current as NSCalendar).ordinality(of: NSCalendar.Unit.day, in: NSCalendar.Unit.weekOfMonth, for: firstDateOfMonth())
+        let ordinalityOfFirstDay = Calendar.current.ordinality(of: Calendar.Component.day, in: Calendar.Component.weekOfMonth, for: firstDateOfMonth())!
         
         for i in 0...numberOfItems {
             // 月の初日 と indexPath.item番目のセルに表示する日 の差を計算する
             var dateComponents = DateComponents()
             dateComponents.day = i - (ordinalityOfFirstDay - 1)
             //  表示する月の初日から②で計算した差を引いた日付を取得
-            let date = (Calendar.current as NSCalendar).date(byAdding: dateComponents, to: firstDateOfMonth(), options: NSCalendar.Options(rawValue: 0))!
+            //let date = Calendar.current.date(byAdding: dateComponents, to: firstDateOfMonth(), wrappingComponents: true)!
+            let date = Calendar.current.date(byAdding: dateComponents, to: firstDateOfMonth())!
+            
             // 配列に追加
             currentMonthOfDates.append(date)
         }
@@ -64,9 +71,10 @@ class DateManager: NSObject {
         dateForCellAtIndexPath(numberOfItems)
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = "d"
-        return formatter.string(from: currentMonthOfDates[(indexPath as NSIndexPath).row])
+        return formatter.string(from: currentMonthOfDates[indexPath.row])
     }
     
+    // 先月の表示
     func prevMonth(_ date: Date) -> Date {
         currentMonthOfDates = []
         selectedDate = date.monthAgoDate()
