@@ -22,9 +22,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     var today: Date!
     let weekArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     
-    
-    //@IBOutlet weak var headerPrevBtn: UIButton!
-    
     @IBOutlet weak var headerTitle: UILabel!
     @IBOutlet weak var headerPrevBtn: UIButton!
     @IBOutlet weak var headerNextBtn: UIButton!
@@ -78,17 +75,17 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCell
         //テキストカラー
-        if ((indexPath as NSIndexPath).row % 7 == 0) {
+        if (indexPath.row % 7 == 0) {
             cell.textLabel.textColor = UIColor.lightRed()
-        } else if ((indexPath as NSIndexPath).row % 7 == 6) {
+        } else if (indexPath.row % 7 == 6) {
             cell.textLabel.textColor = UIColor.lightBlue()
         } else {
             cell.textLabel.textColor = UIColor.gray
         }
         
         //テキスト配置
-        if (indexPath as NSIndexPath).section == 0 {
-            cell.textLabel.text = weekArray[(indexPath as NSIndexPath).row]
+        if indexPath.section == 0 {
+            cell.textLabel.text = weekArray[indexPath.row]
         } else {
             cell.textLabel.text = dateManager.conversionDateFormat(indexPath)
         }
