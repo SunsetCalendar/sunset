@@ -10,6 +10,8 @@
 		322AF8EF1D98EFC900E7034F /* Micropost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8EE1D98EFC900E7034F /* Micropost.swift */; };
 		322AF8F11D98FA1800E7034F /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F01D98FA1800E7034F /* APIClient.swift */; };
 		322AF8F31D99018C00E7034F /* MicropostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F21D99018C00E7034F /* MicropostViewController.swift */; };
+		322AF8F51D9B65A600E7034F /* micropostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F41D9B65A600E7034F /* micropostTests.swift */; };
+		322AF8F71D9B6AA300E7034F /* micropostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F61D9B6AA300E7034F /* micropostUITests.swift */; };
 		32CDE1021D9513EA00A57C02 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE0FF1D9513EA00A57C02 /* Alamofire.framework */; };
 		32CDE1031D9513EA00A57C02 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1001D9513EA00A57C02 /* AlamofireImage.framework */; };
 		32CDE1041D9513EA00A57C02 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1011D9513EA00A57C02 /* SwiftyJSON.framework */; };
@@ -45,6 +47,8 @@
 		322AF8EE1D98EFC900E7034F /* Micropost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Micropost.swift; sourceTree = "<group>"; };
 		322AF8F01D98FA1800E7034F /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		322AF8F21D99018C00E7034F /* MicropostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicropostViewController.swift; sourceTree = "<group>"; };
+		322AF8F41D9B65A600E7034F /* micropostTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = micropostTests.swift; sourceTree = "<group>"; };
+		322AF8F61D9B6AA300E7034F /* micropostUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = micropostUITests.swift; sourceTree = "<group>"; };
 		32CDE0FF1D9513EA00A57C02 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		32CDE1001D9513EA00A57C02 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		32CDE1011D9513EA00A57C02 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 			children = (
 				332B1A3B1D815670007064CF /* sunsetTests.swift */,
 				332B1A3D1D815670007064CF /* Info.plist */,
+				322AF8F41D9B65A600E7034F /* micropostTests.swift */,
 			);
 			path = sunsetTests;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			children = (
 				332B1A461D815670007064CF /* sunsetUITests.swift */,
 				332B1A481D815670007064CF /* Info.plist */,
+				322AF8F61D9B6AA300E7034F /* micropostUITests.swift */,
 			);
 			path = sunsetUITests;
 			sourceTree = "<group>";
@@ -384,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				322AF8F51D9B65A600E7034F /* micropostTests.swift in Sources */,
 				332B1A3C1D815670007064CF /* sunsetTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				322AF8F71D9B6AA300E7034F /* micropostUITests.swift in Sources */,
 				332B1A471D815670007064CF /* sunsetUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
