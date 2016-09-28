@@ -1,6 +1,3 @@
-
-// CalendarCell.swift
-
 import UIKit
 
 class CalendarCell: UICollectionViewCell {
