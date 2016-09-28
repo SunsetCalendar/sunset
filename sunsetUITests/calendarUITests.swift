@@ -56,7 +56,6 @@ class sunsetUITests: XCTestCase {
         let toCalendarButton = app.buttons["カレンダー"]
         toCalendarButton.tap()
         
-        
         let agoButton = app.buttons["←"]
         let laterButton = app.buttons["→"]
         let dateLabel = app.staticTexts["dateLabel"]

@@ -1,11 +1,3 @@
-//
-//  sunsetTests.swift
-//  sunsetTests
-//
-//  Created by usr0600429 on 2016/09/08.
-//  Copyright © 2016年 GMO Pepabo. All rights reserved.
-//
-
 import XCTest
 import Foundation
 
@@ -24,10 +16,6 @@ class sunsetTests: XCTestCase {
     }
     
     func testMoveMonth() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        
         // 現在の年月日を取得
         let date = Date()
         
@@ -76,7 +64,6 @@ class sunsetTests: XCTestCase {
         XCTAssertEqual(agoDate, this_year - 1)
         
     }
-    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

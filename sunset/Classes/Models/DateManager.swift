@@ -1,5 +1,3 @@
-
-
 import UIKit
 
 extension Date {
@@ -55,11 +53,11 @@ class DateManager: NSObject {
         
         for i in 0...numberOfItems {
             // 月の初日 と indexPath.item番目のセルに表示する日 の差を計算する
-            var dateComponents = DateComponents()
+            var dateComponents: DateComponents = DateComponents()
             dateComponents.day = i - (ordinalityOfFirstDay - 1)
             //  表示する月の初日から②で計算した差を引いた日付を取得
             //let date = Calendar.current.date(byAdding: dateComponents, to: firstDateOfMonth(), wrappingComponents: true)!
-            let date = Calendar.current.date(byAdding: dateComponents, to: firstDateOfMonth())!
+            let date: Date = Calendar.current.date(byAdding: dateComponents, to: firstDateOfMonth())!
             
             // 配列に追加
             currentMonthOfDates.append(date)
@@ -88,4 +86,3 @@ class DateManager: NSObject {
         return selectedDate
     }
 }
-

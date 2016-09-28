@@ -1,6 +1,3 @@
-//
-//  CalendarViewController.swift
-
 import UIKit
 
 extension UIColor {
@@ -29,7 +26,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var calendarHeaderView: UIView!
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     
-    
     @IBAction func tappedHeaderPrevBtn(_ sender: UIButton) {
         selectedDate = dateManager.prevMonth(selectedDate)
         calendarCollectionView.reloadData()
@@ -41,7 +37,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         calendarCollectionView.reloadData()
         headerTitle.text = changeHeaderTitle(selectedDate)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +87,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         return cell
     }
     
-    
     //セルのサイズを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //let numberOfMargin: CGFloat = 8.0  //8.0
@@ -101,7 +95,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         let height: CGFloat = width// 正方形にしなくても良さそう
         return CGSize(width: width, height: height)
     }
-    
     
     //セルの垂直方向のマージンを設定
     //func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -122,4 +115,3 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     }
 
 }
-
