@@ -19,6 +19,7 @@
 		32D0D7E51D9BA7AE00FF7F33 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D0D7E41D9BA7AE00FF7F33 /* OHHTTPStubs.framework */; };
 		32D0D7E81D9CBFEB00FF7F33 /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D0D7E71D9CBFEB00FF7F33 /* WebView.storyboard */; };
 		32D0D7EA1D9CC37D00FF7F33 /* webviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0D7E91D9CC37D00FF7F33 /* webviewUITests.swift */; };
+		32D0D7EC1D9CDA6500FF7F33 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0D7EB1D9CDA6500FF7F33 /* WebViewController.swift */; };
 		332B1A271D815670007064CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A261D815670007064CF /* AppDelegate.swift */; };
 		332B1A2E1D815670007064CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 332B1A2D1D815670007064CF /* Assets.xcassets */; };
 		332B1A3C1D815670007064CF /* calendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A3B1D815670007064CF /* calendarTests.swift */; };
@@ -61,6 +62,7 @@
 		32D0D7E41D9BA7AE00FF7F33 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		32D0D7E71D9CBFEB00FF7F33 /* WebView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WebView.storyboard; sourceTree = "<group>"; };
 		32D0D7E91D9CC37D00FF7F33 /* webviewUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webviewUITests.swift; sourceTree = "<group>"; };
+		32D0D7EB1D9CDA6500FF7F33 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		332B1A231D815670007064CF /* sunset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sunset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		332B1A261D815670007064CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		332B1A2D1D815670007064CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				332B1A5F1D8157B5007064CF /* ViewController.swift */,
 				322AF8F21D99018C00E7034F /* MicropostViewController.swift */,
 				3367C3611D98EFE5007A13AF /* CalendarViewController.swift */,
+				32D0D7EB1D9CDA6500FF7F33 /* WebViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				322AF8EF1D98EFC900E7034F /* Micropost.swift in Sources */,
+				32D0D7EC1D9CDA6500FF7F33 /* WebViewController.swift in Sources */,
 				3367C3621D98EFE5007A13AF /* CalendarViewController.swift in Sources */,
 				33F3CD291D99103C00B8D7A5 /* DateManager.swift in Sources */,
 				322AF8F11D98FA1800E7034F /* APIClient.swift in Sources */,
