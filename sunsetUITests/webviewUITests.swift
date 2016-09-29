@@ -18,6 +18,13 @@ class webviewUITests: XCTestCase {
         let app = XCUIApplication()
         app.tables.cells.containing(.staticText, identifier:"プロトタイプ完成").buttons["WebView"].tap()
 
-        XCTAssertTrue(app.staticTexts["WebViewだよ"].exists)
+        let about = app.staticTexts["画像"]
+        let exists = NSPredicate(format: "exists == 1")
+
+        expectation(for: exists, evaluatedWith: about, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
+
+        XCTAssert(about.exists)
+        XCTAssert(app.staticTexts["Google.co.jp offered in:"].exists)
     }
 }
