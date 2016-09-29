@@ -81,6 +81,10 @@
         <scene sceneID="eFo-XU-LCT">
             <objects>
                 <viewController id="xs8-tI-gnh" customClass="CalendarViewController" customModule="sunset" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="La2-Wd-fVA"/>
+                        <viewControllerLayoutGuide type="bottom" id="JbB-46-6zr"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JpS-4t-Z4Q">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,6 +92,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dk5-Js-0CR">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrN-Fh-ugQ">
+                                        <accessibility key="accessibilityConfiguration" identifier="dateLabel"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="62" id="5sa-Lx-wv2"/>
                                         </constraints>
