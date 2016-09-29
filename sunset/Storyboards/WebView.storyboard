@@ -9,7 +9,7 @@
         <!--WebView-->
         <scene sceneID="uQa-st-vTp">
             <objects>
-                <viewController title="WebView" id="7zl-ad-6TD" sceneMemberID="viewController">
+                <viewController title="WebView" id="7zl-ad-6TD" customClass="WebViewController" customModule="sunset" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IIg-dt-0BI"/>
                         <viewControllerLayoutGuide type="bottom" id="uNR-fq-bTD"/>
