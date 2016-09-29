@@ -4,7 +4,7 @@ class WebViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var webView: UIWebView!
 
-    let initUrl = URL(string: "http://google.com/")
+    let initUrl = URL(string: "https://asuforce.xyz/")
 
     override func viewDidLoad() {
         super.viewDidLoad()
