@@ -6,14 +6,15 @@ import OHHTTPStubs
 
 class micropostTests: XCTestCase {
 
-    var test_content = "Test Post"
+    var test_content    = "Test Post"
+    var test_created_at = "2016-09-27T06:46:41.000Z"
 
     override func setUp() {
         super.setUp()
 
         stub(condition: isScheme("https") && isHost("asuforce.xyz") && isPath("/api/users/5") && isMethodGET()){ _ in
             return OHHTTPStubsResponse(
-                jsonObject: ["feeds" : [["content" : "\(self.test_content)"]]],
+                jsonObject: ["feeds" : [["content" : "\(self.test_content)", "created_at": "\(self.test_created_at)"]]],
                 statusCode: 200,
                 headers: nil
             )
