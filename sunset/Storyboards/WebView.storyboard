@@ -18,22 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WebViewだよ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGV-ZF-BzP">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V63-Aj-UHk">
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="QGV-ZF-BzP" firstAttribute="centerX" secondItem="YL3-oE-mPs" secondAttribute="centerX" id="SHb-AF-zj5"/>
-                            <constraint firstItem="QGV-ZF-BzP" firstAttribute="centerY" secondItem="YL3-oE-mPs" secondAttribute="centerY" id="xa2-NB-xkO"/>
+                            <constraint firstItem="V63-Aj-UHk" firstAttribute="top" secondItem="YL3-oE-mPs" secondAttribute="top" id="Bds-x3-wTr"/>
+                            <constraint firstAttribute="trailing" secondItem="V63-Aj-UHk" secondAttribute="trailing" id="UDu-tE-D6d"/>
+                            <constraint firstItem="V63-Aj-UHk" firstAttribute="leading" secondItem="YL3-oE-mPs" secondAttribute="leading" id="WAC-Z7-S15"/>
+                            <constraint firstItem="uNR-fq-bTD" firstAttribute="top" secondItem="V63-Aj-UHk" secondAttribute="bottom" id="tLq-bu-dfH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="V63-Aj-UHk" id="M9s-yQ-SfN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WV0-Cs-GPM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="110" y="159"/>
+            <point key="canvasLocation" x="109.59999999999999" y="158.77061469265368"/>
         </scene>
     </scenes>
 </document>
