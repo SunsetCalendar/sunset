@@ -18,8 +18,6 @@ class micropostUITests: XCTestCase {
 
     func testShowMicroposts() {
         let app = XCUIApplication()
-        app.buttons["Micropost"].tap()
-
         XCTAssertTrue(app.tables.staticTexts["Test Post"].exists)
     }
 }

@@ -52,10 +52,6 @@ class sunsetUITests: XCTestCase {
     func testMoveMonthButton() {
         let app = XCUIApplication()
         
-        // Main.storyboardに集約する際には必要ない
-        let toCalendarButton = app.buttons["カレンダー"]
-        toCalendarButton.tap()
-        
         let agoButton = app.buttons["←"]
         let laterButton = app.buttons["→"]
         let dateLabel = app.staticTexts["dateLabel"]
