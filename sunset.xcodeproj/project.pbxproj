@@ -17,6 +17,7 @@
 		32CDE1041D9513EA00A57C02 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1011D9513EA00A57C02 /* SwiftyJSON.framework */; };
 		32D0D7E11D9B94E800FF7F33 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322AF8F81D9B90F100E7034F /* Nimble.framework */; };
 		32D0D7E51D9BA7AE00FF7F33 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D0D7E41D9BA7AE00FF7F33 /* OHHTTPStubs.framework */; };
+		32D0D7E81D9CBFEB00FF7F33 /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D0D7E71D9CBFEB00FF7F33 /* WebView.storyboard */; };
 		332B1A271D815670007064CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A261D815670007064CF /* AppDelegate.swift */; };
 		332B1A2E1D815670007064CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 332B1A2D1D815670007064CF /* Assets.xcassets */; };
 		332B1A3C1D815670007064CF /* calendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A3B1D815670007064CF /* calendarTests.swift */; };
@@ -57,6 +58,7 @@
 		32CDE1001D9513EA00A57C02 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		32CDE1011D9513EA00A57C02 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		32D0D7E41D9BA7AE00FF7F33 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		32D0D7E71D9CBFEB00FF7F33 /* WebView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WebView.storyboard; sourceTree = "<group>"; };
 		332B1A231D815670007064CF /* sunset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sunset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		332B1A261D815670007064CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		332B1A2D1D815670007064CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			children = (
 				332B1A5B1D8157A1007064CF /* LaunchScreen.storyboard */,
 				332B1A5C1D8157A1007064CF /* Main.storyboard */,
+				32D0D7E71D9CBFEB00FF7F33 /* WebView.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			files = (
 				332B1A5E1D8157A1007064CF /* Main.storyboard in Resources */,
 				332B1A2E1D815670007064CF /* Assets.xcassets in Resources */,
+				32D0D7E81D9CBFEB00FF7F33 /* WebView.storyboard in Resources */,
 				332B1A5D1D8157A1007064CF /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
