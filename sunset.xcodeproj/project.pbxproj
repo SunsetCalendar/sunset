@@ -325,13 +325,13 @@
 					};
 					332B1A361D815670007064CF = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = NQX2XPEGYX;
+						DevelopmentTeam = J43C2ZSKA6;
 						LastSwiftMigration = 0800;
 						TestTargetID = 332B1A221D815670007064CF;
 					};
 					332B1A411D815670007064CF = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = NQX2XPEGYX;
+						DevelopmentTeam = J43C2ZSKA6;
 						LastSwiftMigration = 0800;
 						TestTargetID = 332B1A221D815670007064CF;
 					};
@@ -479,10 +479,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = NQX2XPEGYX;
+				DEVELOPMENT_TEAM = J43C2ZSKA6;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -525,10 +526,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = NQX2XPEGYX;
+				DEVELOPMENT_TEAM = J43C2ZSKA6;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -550,6 +552,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: asuforcegt@yahoo.co.jp (5QPQG45SHU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: asuforcegt@yahoo.co.jp (5QPQG45SHU)";
 				DEVELOPMENT_TEAM = J43C2ZSKA6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -567,6 +571,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: asuforcegt@yahoo.co.jp (5QPQG45SHU)";
 				DEVELOPMENT_TEAM = J43C2ZSKA6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
