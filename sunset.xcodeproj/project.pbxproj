@@ -29,6 +29,9 @@
 		332B1A601D8157B5007064CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A5F1D8157B5007064CF /* ViewController.swift */; };
 		3367C3601D98EFAA007A13AF /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3367C35F1D98EFAA007A13AF /* CalendarCell.swift */; };
 		3367C3621D98EFE5007A13AF /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3367C3611D98EFE5007A13AF /* CalendarViewController.swift */; };
+		339A71D71D9E067900B5F15D /* Post.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 339A71D51D9E067900B5F15D /* Post.xcdatamodeld */; };
+		339A71DA1D9E077600B5F15D /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339A71D81D9E077600B5F15D /* Post+CoreDataClass.swift */; };
+		339A71DB1D9E077600B5F15D /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339A71D91D9E077600B5F15D /* Post+CoreDataProperties.swift */; };
 		33F3CD291D99103C00B8D7A5 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F3CD281D99103C00B8D7A5 /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +81,9 @@
 		332B1A5F1D8157B5007064CF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3367C35F1D98EFAA007A13AF /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		3367C3611D98EFE5007A13AF /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		339A71D61D9E067900B5F15D /* Post.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Post.xcdatamodel; sourceTree = "<group>"; };
+		339A71D81D9E077600B5F15D /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
+		339A71D91D9E077600B5F15D /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		33F3CD281D99103C00B8D7A5 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +132,9 @@
 		332B1A1A1D815670007064CF = {
 			isa = PBXGroup;
 			children = (
+				339A71D81D9E077600B5F15D /* Post+CoreDataClass.swift */,
+				339A71D91D9E077600B5F15D /* Post+CoreDataProperties.swift */,
+				339A71D51D9E067900B5F15D /* Post.xcdatamodeld */,
 				332B1A251D815670007064CF /* sunset */,
 				332B1A3A1D815670007064CF /* sunsetTests */,
 				332B1A451D815670007064CF /* sunsetUITests */,
@@ -405,6 +414,9 @@
 				322AF8EF1D98EFC900E7034F /* Micropost.swift in Sources */,
 				32D0D7EC1D9CDA6500FF7F33 /* WebViewController.swift in Sources */,
 				3367C3621D98EFE5007A13AF /* CalendarViewController.swift in Sources */,
+				339A71D71D9E067900B5F15D /* Post.xcdatamodeld in Sources */,
+				339A71DA1D9E077600B5F15D /* Post+CoreDataClass.swift in Sources */,
+				339A71DB1D9E077600B5F15D /* Post+CoreDataProperties.swift in Sources */,
 				33F3CD291D99103C00B8D7A5 /* DateManager.swift in Sources */,
 				322AF8F11D98FA1800E7034F /* APIClient.swift in Sources */,
 				322AF8F31D99018C00E7034F /* MicropostViewController.swift in Sources */,
@@ -674,6 +686,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		339A71D51D9E067900B5F15D /* Post.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				339A71D61D9E067900B5F15D /* Post.xcdatamodel */,
+			);
+			currentVersion = 339A71D61D9E067900B5F15D /* Post.xcdatamodel */;
+			path = Post.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 332B1A1B1D815670007064CF /* Project object */;
 }
