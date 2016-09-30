@@ -105,6 +105,12 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return cellMargin
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let MyNotification = Notification.Name("Mynotification")
+        NotificationCenter.default.post(name: MyNotification, object: nil)
+    }
+
     
     //headerの月を変更
     func changeHeaderTitle(_ date: Date) -> String {
@@ -113,5 +119,4 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         let selectMonth = formatter.string(from: date)
         return selectMonth
     }
-
 }

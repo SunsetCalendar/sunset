@@ -11,6 +11,9 @@ class MicropostViewController: UITableViewController {
             self.microposts = microposts
             self.tableView.reloadData()
         }
+
+        let MyNotification = Notification.Name("Mynotification")
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateView(_:)), name: MyNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,5 +34,9 @@ class MicropostViewController: UITableViewController {
 
     private func updateCell(_ cell: UITableViewCell, indexPath: IndexPath) {
         cell.textLabel?.text = self.microposts[indexPath.row].content
+    }
+
+    @objc func updateView(_ notification: Notification) {
+        self.tableView.reloadData()
     }
 }
