@@ -35,7 +35,6 @@ class MicropostViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.micropost_id = "5"
-        performSegue(withIdentifier: "showWebView",sender: nil)
     }
 
     private func updateCell(_ cell: UITableViewCell, indexPath: IndexPath) {
