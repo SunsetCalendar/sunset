@@ -20,6 +20,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     var today: Date!
     let weekArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
     
     @IBOutlet weak var headerTitle: UILabel!
     @IBOutlet weak var headerPrevBtn: UIButton!
@@ -109,15 +110,14 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let day = dateManager.isThisDate(indexPath)
+        let day = dateManager.ShowDayIfInThisMonth(indexPath.row)
         if day != "" {
             let year: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[0])!
             let month: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[1])!
             self.appDelegate.targetDate = year + "-" + month + "-" + day
         }
 
-        let MyNotification = Notification.Name("Mynotification")
-        NotificationCenter.default.post(name: MyNotification, object: nil)
+        NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
     }
 
     
@@ -136,7 +136,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     func updateTargetDate(date: String) {
         let day: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[2])!
         appDelegate.targetDate = date + "-" + day
-        let MyNotification = Notification.Name("Mynotification")
-        NotificationCenter.default.post(name: MyNotification, object: nil)
+        NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
     }
 }
