@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 
 extension UIColor {
     class func lightBlue() -> UIColor {
@@ -107,6 +108,14 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let day = dateManager.isThisDate(indexPath)
+        if day != "" {
+            let year: String = (appDelegate.targetDate?.components(separatedBy: "-")[0])!
+            let month: String = (appDelegate.targetDate?.components(separatedBy: "-")[1])!
+            appDelegate.targetDate = year + "-" + month + "-" + day
+        }
+
         let MyNotification = Notification.Name("Mynotification")
         NotificationCenter.default.post(name: MyNotification, object: nil)
     }
@@ -115,8 +124,23 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     //headerの月を変更
     func changeHeaderTitle(_ date: Date) -> String {
         let formatter: DateFormatter = DateFormatter()
-        formatter.dateFormat = "yyyy/M"
+        formatter.dateFormat = "MMM yyyy"
         let selectMonth = formatter.string(from: date)
+        formatter.dateFormat = "yyyy-MM"
+        let Month4Calc = formatter.string(from: date)
+        updateTargetDate(date: Month4Calc)
         return selectMonth
     }
+    
+    // 月が変更する際に、appDelegate側の変数も更新する
+    func updateTargetDate(date: String) {
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let day: String = (appDelegate.targetDate?.components(separatedBy: "-")[2])!
+        appDelegate.targetDate = date + "-" + day
+        
+        let MyNotification = Notification.Name("Mynotification")
+        NotificationCenter.default.post(name: MyNotification, object: nil)
+        
+    }
+
 }
