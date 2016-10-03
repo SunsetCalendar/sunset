@@ -5,6 +5,8 @@ import Foundation
 
 class sunsetTests: XCTestCase {
     
+    let calendarShortened = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -16,56 +18,52 @@ class sunsetTests: XCTestCase {
     }
     
     func testMoveMonth() {
-        let calendarShortened = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        
         // 現在の年月日を取得
         let date = Date()
         
         // 1ヶ月前、後の年月日を取得
-        let ago_date = date.monthAgoDate(), later_date = date.monthLaterDate()
+        let lastMonthDate = date.monthAgoDate(), nextMonthdate = date.monthLaterDate()
         
         // 取得した年月日からから月だけ抽出するように (1, 2など)
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM"
         
-        let this_month = formatter.string(from: date)
-        let ago_month = formatter.string(from: ago_date)
-        let later_month = formatter.string(from: later_date)
+        let thisMonth = formatter.string(from: date)
+        let lastMonth = formatter.string(from: lastMonthDate)
+        let laterMonth = formatter.string(from: nextMonthdate)
         
         // 今の月との差異
-        let ago_diff_check = abs(calendarShortened.index(of: this_month)! - calendarShortened.index(of: ago_month)! % 12)
-        let later_diff_check = abs(calendarShortened.index(of: later_month)! - calendarShortened.index(of: this_month)! % 12)
+        let agoDiffCheck = abs(calendarShortened.index(of: thisMonth)! - calendarShortened.index(of: lastMonth)! % 12)
+        let laterDiffCheck = abs(calendarShortened.index(of: laterMonth)! - calendarShortened.index(of: thisMonth)! % 12)
         
-        XCTAssertEqual(ago_diff_check, 1)
-        XCTAssertEqual(later_diff_check, 1)
+        XCTAssertEqual(agoDiffCheck, 1)
+        XCTAssertEqual(laterDiffCheck, 1)
     }
     
     func testChangesYear() {
-        let calendarShortened = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-
         var date = Date()
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM yyyy"
         
-        let this_year = Int(formatter.string(from: date).components(separatedBy: " ")[1])!
-        let this_month = formatter.string(from: date).components(separatedBy: " ")[0]
+        let thisYear = Int(formatter.string(from: date).components(separatedBy: " ")[1])!
+        let thisMonth = formatter.string(from: date).components(separatedBy: " ")[0]
         
         // 年が変わるまで進める
-        for _ in 1...(12 - calendarShortened.index(of: this_month)!) {
+        for _ in 1...(12 - calendarShortened.index(of: thisMonth)!) {
           date = date.monthLaterDate()
         }
         
-        let laterYear = Int(formatter.string(from: date).components(separatedBy: " ")[1])!
-        XCTAssertEqual(laterYear, this_year + 1)
+        let nextYear = Int(formatter.string(from: date).components(separatedBy: " ")[1])!
+        XCTAssertEqual(nextYear, thisYear + 1)
         
         // 年が変わるまで戻る
         for _ in 1...13 {
             date = date.monthAgoDate()
         }
         
-        let agoYear = Int(formatter.string(from: date).components(separatedBy: " ")[1])!
-        XCTAssertEqual(agoYear, this_year - 1)
+        let lastYear = Int(formatter.string(from: date).components(separatedBy: " ")[1])!
+        XCTAssertEqual(lastYear, thisYear - 1)
         
     }
     

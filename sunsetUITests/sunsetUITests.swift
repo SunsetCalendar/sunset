@@ -55,16 +55,16 @@ class sunsetUITests: XCTestCase {
         formatter.dateFormat = "MMM yyyy"
         
         let date = Date()
-        let this_year = Int(formatter.string(from: date).components(separatedBy: " ")[1])!
-        let this_month = formatter.string(from: date).components(separatedBy: " ")[0]
+        let thisYear = Int(formatter.string(from: date).components(separatedBy: " ")[1])!
+        let thisMonth = formatter.string(from: date).components(separatedBy: " ")[0]
         var expectedLabel = ""
         
-        XCTAssertEqual(this_month + " " + String(this_year), dateLabel.label)
+        XCTAssertEqual(thisMonth + " " + String(thisYear), dateLabel.label)
         
         // 1ヶ月戻る
         agoButton.tap()
         
-        expectedLabel = calcDate(year: this_year, month: this_month, check: "-")
+        expectedLabel = calcDate(year: thisYear, month: thisMonth, check: "-")
         XCTAssertEqual(expectedLabel, dateLabel.label)
         
         // スタート時に戻る
@@ -73,7 +73,7 @@ class sunsetUITests: XCTestCase {
         // 1ヶ月進む
         laterButton.tap()
         
-        expectedLabel = calcDate(year: this_year, month: this_month, check: "+")
+        expectedLabel = calcDate(year: thisYear, month: thisMonth, check: "+")
         XCTAssertEqual(expectedLabel, dateLabel.label)
         
     }
