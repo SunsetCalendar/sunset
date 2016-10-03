@@ -7,7 +7,9 @@ class webviewUITests: XCTestCase {
 
         continueAfterFailure = false
 
-        XCUIApplication().launch()
+        let app = XCUIApplication()
+        app.launchArguments = [ "STUB_HTTP_ENDPOINTS" ]
+        app.launch()
     }
 
     override func tearDown() {
@@ -16,7 +18,11 @@ class webviewUITests: XCTestCase {
 
     func testShowMicroposts() {
         let app = XCUIApplication()
-        app.tables.cells.containing(.staticText, identifier:"プロトタイプ完成").buttons["WebView"].tap()
+        
+        // 保存する前に画面を描写するので、一度再描写させるために月を移動する
+        let agoButton = app.buttons["←"]
+        agoButton.tap()
+        app.tables.cells.containing(.staticText, identifier:"Apple").buttons["WebView"].tap()
 
         let about = app.staticTexts["Sample App"]
         let exists = NSPredicate(format: "exists == 1")
