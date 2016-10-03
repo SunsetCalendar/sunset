@@ -3,6 +3,7 @@ import UIKit
 class MicropostViewController: UITableViewController {
 
     var microposts = [Micropost]()
+    var selectedText: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,19 @@ class MicropostViewController: UITableViewController {
         updateCell(cell, indexPath: indexPath)
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("hoge")
+        selectedText = "5"
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showWebView") {
+            let webVC: WebViewController = (segue.destination as? WebViewController)!
+
+            webVC.id = selectedText
+        }
     }
 
     private func updateCell(_ cell: UITableViewCell, indexPath: IndexPath) {

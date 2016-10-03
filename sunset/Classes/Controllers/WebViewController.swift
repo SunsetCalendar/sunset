@@ -4,12 +4,15 @@ class WebViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var webView: UIWebView!
 
-    let initUrl = URL(string: "https://asuforce.xyz/")
+    let baseUrl: String = "https://asuforce.xyz/users/"
+    var id: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.webView.delegate = self
+
+        let initUrl = URL(string: baseUrl + id!)
 
         let request = URLRequest(url: initUrl!)
         self.webView.loadRequest(request)
