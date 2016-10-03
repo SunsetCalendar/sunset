@@ -1,11 +1,3 @@
-//
-//  sunsetUITests.swift
-//  sunsetUITests
-//
-//  Created by usr0600429 on 2016/09/08.
-//  Copyright © 2016年 GMO Pepabo. All rights reserved.
-//
-
 import XCTest
 
 class sunsetUITests: XCTestCase {
@@ -87,6 +79,8 @@ class sunsetUITests: XCTestCase {
     }
     
     func testShowPosts() {
+        // STUBで定義された内容を元にテスト
+        
         let app = XCUIApplication()
         let agoButton = app.buttons["←"]
         let laterButton = app.buttons["→"]
@@ -98,5 +92,4 @@ class sunsetUITests: XCTestCase {
         XCTAssertTrue(app.tables.staticTexts["Test Post"].exists)
         XCTAssertFalse(app.tables.staticTexts["Apple"].exists)
     }
-
 }
