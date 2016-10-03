@@ -19,7 +19,7 @@ class webviewUITests: XCTestCase {
     func testShowMicroposts() {
         let app = XCUIApplication()
         
-        // 保存する前に画面を描写するので、一度再描写させるために月を移動する
+        // テスト時、保存する前に画面を描写してくれないので、一度再描写させるために月を移動する
         let agoButton = app.buttons["←"]
         agoButton.tap()
         app.tables.cells.containing(.staticText, identifier:"Apple").buttons["WebView"].tap()

@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 managedObjectContext.delete(post)
             }
             
+            // 取ってくるやつに合わせる
             let suffix: String = "T99-99-99"
             
             stub(condition: isScheme("https") && isHost("asuforce.xyz") && isPath("/api/users/5") && isMethodGET()){ _ in

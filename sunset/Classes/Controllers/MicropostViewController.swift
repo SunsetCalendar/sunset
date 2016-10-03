@@ -63,7 +63,6 @@ class MicropostViewController: UITableViewController {
                 
                 do {
                     try managedObjectContext.save()
-                    print("Saved！！！！！")
                 } catch {
                     let error = error as NSError
                     print("\(error), \(error.userInfo)")
@@ -76,6 +75,7 @@ class MicropostViewController: UITableViewController {
         let container = self.appDelegate.persistentContainer
         let managedObjectContext = container.viewContext
         let fetchRequest:NSFetchRequest<Post> = Post.fetchRequest()
+        // 日付で前方一致をかけて検索 (保存されている日付の形式が "2016-01-01T12:00:00" のため)
         let predicate = NSPredicate(format: "created_at BEGINSWITH %@", date)
         fetchRequest.predicate = predicate
         let fetchData = try! managedObjectContext.fetch(fetchRequest)
