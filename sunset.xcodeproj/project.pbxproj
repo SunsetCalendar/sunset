@@ -11,7 +11,6 @@
 		322AF8F11D98FA1800E7034F /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F01D98FA1800E7034F /* APIClient.swift */; };
 		322AF8F31D99018C00E7034F /* MicropostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F21D99018C00E7034F /* MicropostViewController.swift */; };
 		322AF8F51D9B65A600E7034F /* micropostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F41D9B65A600E7034F /* micropostTests.swift */; };
-		322AF8F71D9B6AA300E7034F /* micropostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F61D9B6AA300E7034F /* micropostUITests.swift */; };
 		32CDE1021D9513EA00A57C02 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE0FF1D9513EA00A57C02 /* Alamofire.framework */; };
 		32CDE1031D9513EA00A57C02 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1001D9513EA00A57C02 /* AlamofireImage.framework */; };
 		32CDE1041D9513EA00A57C02 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1011D9513EA00A57C02 /* SwiftyJSON.framework */; };
@@ -23,7 +22,7 @@
 		332B1A271D815670007064CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A261D815670007064CF /* AppDelegate.swift */; };
 		332B1A2E1D815670007064CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 332B1A2D1D815670007064CF /* Assets.xcassets */; };
 		332B1A3C1D815670007064CF /* calendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A3B1D815670007064CF /* calendarTests.swift */; };
-		332B1A471D815670007064CF /* calendarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A461D815670007064CF /* calendarUITests.swift */; };
+		332B1A471D815670007064CF /* sunsetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A461D815670007064CF /* sunsetUITests.swift */; };
 		332B1A5D1D8157A1007064CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332B1A5B1D8157A1007064CF /* LaunchScreen.storyboard */; };
 		332B1A5E1D8157A1007064CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332B1A5C1D8157A1007064CF /* Main.storyboard */; };
 		332B1A601D8157B5007064CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A5F1D8157B5007064CF /* ViewController.swift */; };
@@ -57,7 +56,6 @@
 		322AF8F01D98FA1800E7034F /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		322AF8F21D99018C00E7034F /* MicropostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicropostViewController.swift; sourceTree = "<group>"; };
 		322AF8F41D9B65A600E7034F /* micropostTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = micropostTests.swift; sourceTree = "<group>"; };
-		322AF8F61D9B6AA300E7034F /* micropostUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = micropostUITests.swift; sourceTree = "<group>"; };
 		322AF8F81D9B90F100E7034F /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		32CDE0FF1D9513EA00A57C02 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		32CDE1001D9513EA00A57C02 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
@@ -74,7 +72,7 @@
 		332B1A3B1D815670007064CF /* calendarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarTests.swift; sourceTree = "<group>"; };
 		332B1A3D1D815670007064CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		332B1A421D815670007064CF /* sunsetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sunsetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		332B1A461D815670007064CF /* calendarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarUITests.swift; sourceTree = "<group>"; };
+		332B1A461D815670007064CF /* sunsetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sunsetUITests.swift; sourceTree = "<group>"; };
 		332B1A481D815670007064CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		332B1A5B1D8157A1007064CF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		332B1A5C1D8157A1007064CF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +82,7 @@
 		339A71D61D9E067900B5F15D /* Post.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Post.xcdatamodel; sourceTree = "<group>"; };
 		339A71D81D9E077600B5F15D /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
 		339A71D91D9E077600B5F15D /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		33B83B671DA22CF50035489B /* Post v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Post v2.xcdatamodel"; sourceTree = "<group>"; };
 		33F3CD281D99103C00B8D7A5 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,9 +177,8 @@
 		332B1A451D815670007064CF /* sunsetUITests */ = {
 			isa = PBXGroup;
 			children = (
-				332B1A461D815670007064CF /* calendarUITests.swift */,
+				332B1A461D815670007064CF /* sunsetUITests.swift */,
 				332B1A481D815670007064CF /* Info.plist */,
-				322AF8F61D9B6AA300E7034F /* micropostUITests.swift */,
 				32D0D7E91D9CC37D00FF7F33 /* webviewUITests.swift */,
 			);
 			path = sunsetUITests;
@@ -439,8 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				322AF8F71D9B6AA300E7034F /* micropostUITests.swift in Sources */,
-				332B1A471D815670007064CF /* calendarUITests.swift in Sources */,
+				332B1A471D815670007064CF /* sunsetUITests.swift in Sources */,
 				32D0D7EA1D9CC37D00FF7F33 /* webviewUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,9 +693,10 @@
 		339A71D51D9E067900B5F15D /* Post.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				33B83B671DA22CF50035489B /* Post v2.xcdatamodel */,
 				339A71D61D9E067900B5F15D /* Post.xcdatamodel */,
 			);
-			currentVersion = 339A71D61D9E067900B5F15D /* Post.xcdatamodel */;
+			currentVersion = 33B83B671DA22CF50035489B /* Post v2.xcdatamodel */;
 			path = Post.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

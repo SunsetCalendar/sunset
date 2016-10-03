@@ -85,4 +85,25 @@ class DateManager: NSObject {
         selectedDate = date.monthLaterDate()
         return selectedDate
     }
+    
+    // その月にしかない日を返す
+    func ShowDayIfInThisMonth(_ row: Int) -> String {
+        dateForCellAtIndexPath(numberOfItems)
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = "dd"
+        if row < 7 {
+            if Int(formatter.string(from: currentMonthOfDates[row]))! > 7 {
+                return ""
+            }
+        }
+            
+        else if row > 28 {
+            if Int(formatter.string(from: currentMonthOfDates[row]))! <= 7 {
+                return ""
+            }
+        }
+        
+        return formatter.string(from: currentMonthOfDates[row])
+    }
+
 }
