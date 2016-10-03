@@ -19,6 +19,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     var selectedDate = Date()
     var today: Date!
     let weekArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var headerTitle: UILabel!
     @IBOutlet weak var headerPrevBtn: UIButton!
@@ -108,12 +109,11 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let day = dateManager.isThisDate(indexPath)
         if day != "" {
-            let year: String = (appDelegate.targetDate?.components(separatedBy: "-")[0])!
-            let month: String = (appDelegate.targetDate?.components(separatedBy: "-")[1])!
-            appDelegate.targetDate = year + "-" + month + "-" + day
+            let year: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[0])!
+            let month: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[1])!
+            self.appDelegate.targetDate = year + "-" + month + "-" + day
         }
 
         let MyNotification = Notification.Name("Mynotification")
@@ -134,13 +134,9 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     
     // 月が変更する際に、appDelegate側の変数も更新する
     func updateTargetDate(date: String) {
-        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let day: String = (appDelegate.targetDate?.components(separatedBy: "-")[2])!
+        let day: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[2])!
         appDelegate.targetDate = date + "-" + day
-        
         let MyNotification = Notification.Name("Mynotification")
         NotificationCenter.default.post(name: MyNotification, object: nil)
-        
     }
-
 }

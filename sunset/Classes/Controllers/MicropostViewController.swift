@@ -4,6 +4,7 @@ import CoreData
 class MicropostViewController: UITableViewController {
 
     var microposts = [Micropost]()
+    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,22 +29,17 @@ class MicropostViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        return filterPosts(date: appDelegate.targetDate!).count
+        return filterPosts(date: self.appDelegate.targetDate!).count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "micropostCell", for: indexPath)
-
         updateCell(cell, indexPath: indexPath)
-
         return cell
     }
 
     private func updateCell(_ cell: UITableViewCell, indexPath: IndexPath) {
-        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        //var posts = filterPosts(date: appDelegate.targetDate!)
-        var posts = filterPosts(date: appDelegate.targetDate!)
+        var posts = filterPosts(date: self.appDelegate.targetDate!)
         cell.textLabel?.text = posts[indexPath.row].content
     }
 
@@ -51,15 +47,12 @@ class MicropostViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func savePosts() {
-        
-        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let container = appDelegate.persistentContainer
+    private func savePosts() {
+        let container = self.appDelegate.persistentContainer
         let managedObjectContext = container.viewContext
         managedObjectContext.mergePolicy = NSRollbackMergePolicy
         
         Micropost.fetchMicroposts { microposts in
-            //self.microposts = microposts
             
             for micropost in microposts {
                 
@@ -79,26 +72,20 @@ class MicropostViewController: UITableViewController {
         }
     }
     
-    func filterPosts(date: String) -> [Post] {
-        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let container = appDelegate.persistentContainer
+    private func filterPosts(date: String) -> [Post] {
+        let container = self.appDelegate.persistentContainer
         let managedObjectContext = container.viewContext
-        
-        
         let fetchRequest:NSFetchRequest<Post> = Post.fetchRequest()
-        //let predicate = NSPredicate(format: "created_at = %@", appDelegate.targetDate) <- こうなる予定
         let predicate = NSPredicate(format: "created_at BEGINSWITH %@", date)
         fetchRequest.predicate = predicate
         let fetchData = try! managedObjectContext.fetch(fetchRequest)
         return fetchData
     }
     
-    func initialDate() -> String {
+    private func initialDate() -> String {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let today = formatter.string(from: Date())
         return today
-        //return "2016-09-27"
     }
-
 }
