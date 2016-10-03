@@ -7,7 +7,9 @@ class webviewUITests: XCTestCase {
 
         continueAfterFailure = false
 
-        XCUIApplication().launch()
+        let app = XCUIApplication()
+        app.launchArguments = [ "STUB_HTTP_ENDPOINTS" ]
+        app.launch()
     }
 
     override func tearDown() {
@@ -16,7 +18,10 @@ class webviewUITests: XCTestCase {
 
     func testShowMicroposts() {
         let app = XCUIApplication()
-        app.tables.staticTexts["プロトタイプ完成"].tap()
+
+        // テスト時、保存する前に画面を描写してくれないので、一度再描写させるために月を移動する
+        app.buttons["←"].tap()
+        app.tables.staticTexts["Apple"].tap()
 
         let about = app.staticTexts["SAMPLE APP"]
         let exists = NSPredicate(format: "exists == 1")
