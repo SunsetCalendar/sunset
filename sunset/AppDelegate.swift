@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (ProcessInfo.processInfo.arguments.contains("STUB_HTTP_ENDPOINTS")) {
             stub(condition: isScheme("https") && isHost("asuforce.xyz") && isPath("/api/users/5") && isMethodGET()){ _ in
                 return OHHTTPStubsResponse(
-                    jsonObject: ["feeds" : [["content" : "Test Post"]]],
+                    jsonObject: ["feeds" : [["content" : "Test Post", "created_at": formatter.string(from: Date()), "id": 9999], ["content": "Apple", "created_at": formatter.string(from: Date().monthAgoDate()), "id": 9999]]],
                     statusCode: 200,
                     headers: nil
                 )
