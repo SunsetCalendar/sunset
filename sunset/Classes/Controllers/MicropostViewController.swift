@@ -9,18 +9,15 @@ class MicropostViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         savePosts()
         
         // targetDateの初期値 (今日の日付) をセット
-        if appDelegate.targetDate == nil {
-            print("Initialize!")
+        if self.appDelegate.targetDate == nil {
             appDelegate.targetDate = initialDate()
         }
 
-
-        let MyNotification = Notification.Name("Mynotification")
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateView(_:)), name: MyNotification, object: nil)
+        let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateView(_:)), name: TapCalendarCellNotification, object: nil)
         self.tableView.reloadData()
     }
 
