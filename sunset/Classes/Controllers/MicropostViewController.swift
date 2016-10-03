@@ -56,7 +56,6 @@ class MicropostViewController: UITableViewController {
                 let post = NSEntityDescription.insertNewObject(forEntityName: "Post", into: managedObjectContext) as! Post
                 post.content = micropost.content
                 post.created_at = micropost.created_at
-                print(post.content, post.created_at)
                 
                 do {
                     try managedObjectContext.save()
