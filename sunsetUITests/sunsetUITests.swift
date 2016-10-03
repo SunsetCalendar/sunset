@@ -18,7 +18,9 @@ class sunsetUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        let app = XCUIApplication()
+        app.launchArguments = [ "STUB_HTTP_ENDPOINTS" ]
+        app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
@@ -29,22 +31,23 @@ class sunsetUITests: XCTestCase {
     }
 
     // 年の切り替わりによる月の変更 (12から1月、またその逆の対策)
-    func calcDate(year: Int, month: Int, check: String) -> String {
+    func calcDate(year: Int, month: String, check: String) -> String {
+        var calendarShortened = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         if check == "+" {
-            if month == 12 {
-                return String(year + 1) + "/1"
+            if month == "Dec" {
+                return "Jan " + String(year + 1)
             }
             else {
-                return String(year) + "/" + String(month + 1)
+                return calendarShortened[calendarShortened.index(of: month)! + 1] + " " + String(year)
             }
         }
         
         else {
-            if month == 1 {
-                return String(year - 1) + "/12"
+            if month == "Jan" {
+                return "Dec " + String(year - 1)
             }
             else {
-                return String(year) + "/" + String(month - 1)
+                return calendarShortened[calendarShortened.index(of: month)! - 1] + " " + String(year)
             }
         }
     }
@@ -57,14 +60,14 @@ class sunsetUITests: XCTestCase {
         let dateLabel = app.staticTexts["dateLabel"]
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/M"
+        formatter.dateFormat = "MMM yyyy"
         
         let date = Date()
-        let this_year = Int(formatter.string(from: date).components(separatedBy: "/")[0])!
-        let this_month = Int(formatter.string(from: date).components(separatedBy: "/")[1])!
+        let this_year = Int(formatter.string(from: date).components(separatedBy: " ")[1])!
+        let this_month = formatter.string(from: date).components(separatedBy: " ")[0]
         var expectedLabel = ""
         
-        XCTAssertEqual(String(this_year) + "/" + String(this_month), dateLabel.label)
+        XCTAssertEqual(this_month + " " + String(this_year), dateLabel.label)
         
         // 1ヶ月戻る
         agoButton.tap()
@@ -81,6 +84,19 @@ class sunsetUITests: XCTestCase {
         expectedLabel = calcDate(year: this_year, month: this_month, check: "+")
         XCTAssertEqual(expectedLabel, dateLabel.label)
         
+    }
+    
+    func testShowPosts() {
+        let app = XCUIApplication()
+        let agoButton = app.buttons["←"]
+        let laterButton = app.buttons["→"]
+        
+        agoButton.tap()
+        XCTAssertTrue(app.tables.staticTexts["Apple"].exists)
+        XCTAssertFalse(app.tables.staticTexts["Test Post"].exists)
+        laterButton.tap()
+        XCTAssertTrue(app.tables.staticTexts["Test Post"].exists)
+        XCTAssertFalse(app.tables.staticTexts["Apple"].exists)
     }
 
 }

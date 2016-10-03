@@ -10,11 +10,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
+        
         if (ProcessInfo.processInfo.arguments.contains("STUB_HTTP_ENDPOINTS")) {
+            let formatter: DateFormatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            let container = appDelegate.persistentContainer
+            let managedObjectContext = container.viewContext
+            
+            let fetchRequest:NSFetchRequest<Post> = Post.fetchRequest()
+            let fetchData = try! managedObjectContext.fetch(fetchRequest)
+            for post in fetchData {
+                managedObjectContext.delete(post)
+            }
+            
+            let suffix: String = "T99-99-99"
+            
             stub(condition: isScheme("https") && isHost("asuforce.xyz") && isPath("/api/users/5") && isMethodGET()){ _ in
                 return OHHTTPStubsResponse(
-                    jsonObject: ["feeds" : [["content" : "Test Post", "created_at": formatter.string(from: Date()), "id": 9999], ["content": "Apple", "created_at": formatter.string(from: Date().monthAgoDate()), "id": 9999]]],
+                    jsonObject: ["feeds" : [["content" : "Test Post", "created_at": formatter.string(from: Date()) + suffix, "id": 9999], ["content": "Apple", "created_at": formatter.string(from: Date().monthAgoDate()) + suffix, "id": 9999]]],
                     statusCode: 200,
                     headers: nil
                 )
