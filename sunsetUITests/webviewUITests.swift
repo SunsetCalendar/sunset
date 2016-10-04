@@ -23,7 +23,7 @@ class webviewUITests: XCTestCase {
         app.buttons["←"].tap()
         app.tables.staticTexts["Apple"].tap()
 
-        let about = app.staticTexts["SAMPLE APP"]
+        let about = app.staticTexts["ORPHEUS"]
         let exists = NSPredicate(format: "exists == 1")
 
         expectation(for: exists, evaluatedWith: about, handler: nil)
