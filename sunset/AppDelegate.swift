@@ -6,6 +6,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var micropostId: String?
     var targetDate: String?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -29,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             stub(condition: isScheme("https") && isHost("asuforce.xyz") && isPath("/api/users/5") && isMethodGET()){ _ in
                 return OHHTTPStubsResponse(
-                    jsonObject: ["feeds" : [["content" : "Test Post", "created_at": formatter.string(from: Date()) + suffix, "id": 9999], ["content": "Apple", "created_at": formatter.string(from: Date().monthAgoDate()) + suffix, "id": 9999]]],
+                    jsonObject: ["feeds" : [["content" : "Test Post", "created_at": formatter.string(from: Date()) + suffix, "id": 9999], ["content": "Apple", "created_at": formatter.string(from: Date().monthAgoDate()) + suffix, "id": 5]]],
                     statusCode: 200,
                     headers: nil
                 )

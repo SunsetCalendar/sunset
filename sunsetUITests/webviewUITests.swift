@@ -18,19 +18,17 @@ class webviewUITests: XCTestCase {
 
     func testShowMicroposts() {
         let app = XCUIApplication()
-        
-        // テスト時、保存する前に画面を描写してくれないので、一度再描写させるために月を移動する
-        let agoButton = app.buttons["←"]
-        agoButton.tap()
-        app.tables.cells.containing(.staticText, identifier:"Apple").buttons["WebView"].tap()
 
-        let about = app.staticTexts["Sample App"]
+        // テスト時、保存する前に画面を描写してくれないので、一度再描写させるために月を移動する
+        app.buttons["←"].tap()
+        app.tables.staticTexts["Apple"].tap()
+
+        let about = app.staticTexts["SAMPLE APP"]
         let exists = NSPredicate(format: "exists == 1")
 
         expectation(for: exists, evaluatedWith: about, handler: nil)
         waitForExpectations(timeout: 5, handler: nil)
 
         XCTAssert(about.exists)
-        XCTAssert(app.staticTexts["Sign up now!"].exists)
     }
 }

@@ -63,19 +63,12 @@
                                 <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="raw-TQ-c9E" id="5Vy-z7-txt">
-                                    <frame key="frameInset" width="343" height="43"/>
+                                    <frame key="frameInset" width="343" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P75-nd-BVr">
-                                            <frame key="frameInset" minX="255" minY="6" width="71" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="WebView"/>
-                                            <connections>
-                                                <segue destination="Dg1-hX-EKo" kind="show" id="nDF-jb-PXX"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Dg1-hX-EKo" kind="show" identifier="showWebView" id="wKf-0e-LZl"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
