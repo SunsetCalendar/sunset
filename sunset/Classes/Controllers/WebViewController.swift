@@ -11,7 +11,7 @@ class WebViewController: UIViewController, UIWebViewDelegate {
 
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
-        let id = appDelegate.micropost_id
+        let id = appDelegate.micropostId
         let baseUrl: String = "https://asuforce.xyz/users/"
 
         let initUrl = URL(string: baseUrl + id!)

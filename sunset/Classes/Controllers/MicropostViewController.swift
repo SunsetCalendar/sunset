@@ -38,7 +38,7 @@ class MicropostViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         var posts = filterPosts(date: self.appDelegate.targetDate!)
-        appDelegate.micropost_id = String(posts[indexPath.row].user_id)
+        appDelegate.micropostId = String(posts[indexPath.row].user_id)
     }
 
     private func updateCell(_ cell: UITableViewCell, indexPath: IndexPath) {
