@@ -13,10 +13,8 @@ class WebViewController: UIViewController, UIWebViewDelegate {
 
         let id = appDelegate.micropostId
         let baseUrl: String = "https://asuforce.xyz/microposts/"
-        print(id)
 
         let initUrl = URL(string: baseUrl + id!)
-        print(initUrl)
 
         let request = URLRequest(url: initUrl!)
         self.webView.loadRequest(request)

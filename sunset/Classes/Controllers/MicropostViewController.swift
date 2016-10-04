@@ -39,8 +39,6 @@ class MicropostViewController: UITableViewController {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         var posts = filterPosts(date: self.appDelegate.targetDate!)
         appDelegate.micropostId = String(posts[indexPath.row].micropost_id)
-
-        print(appDelegate.micropostId)
     }
 
     private func updateCell(_ cell: UITableViewCell, indexPath: IndexPath) {
@@ -65,8 +63,6 @@ class MicropostViewController: UITableViewController {
                 post.content = micropost.content
                 post.created_at = micropost.created_at
                 post.micropost_id = micropost.id
-
-                print(post.micropost_id)
                 
                 do {
                     try managedObjectContext.save()
