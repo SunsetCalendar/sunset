@@ -11,6 +11,8 @@
 		322AF8F11D98FA1800E7034F /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F01D98FA1800E7034F /* APIClient.swift */; };
 		322AF8F31D99018C00E7034F /* MicropostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F21D99018C00E7034F /* MicropostViewController.swift */; };
 		322AF8F51D9B65A600E7034F /* micropostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F41D9B65A600E7034F /* micropostTests.swift */; };
+		32886C221DA394C800486AB6 /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32886C201DA394C800486AB6 /* Post+CoreDataClass.swift */; };
+		32886C231DA394C800486AB6 /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32886C211DA394C800486AB6 /* Post+CoreDataProperties.swift */; };
 		32CDE1021D9513EA00A57C02 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE0FF1D9513EA00A57C02 /* Alamofire.framework */; };
 		32CDE1031D9513EA00A57C02 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1001D9513EA00A57C02 /* AlamofireImage.framework */; };
 		32CDE1041D9513EA00A57C02 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1011D9513EA00A57C02 /* SwiftyJSON.framework */; };
@@ -29,8 +31,6 @@
 		3367C3601D98EFAA007A13AF /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3367C35F1D98EFAA007A13AF /* CalendarCell.swift */; };
 		3367C3621D98EFE5007A13AF /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3367C3611D98EFE5007A13AF /* CalendarViewController.swift */; };
 		339A71D71D9E067900B5F15D /* Post.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 339A71D51D9E067900B5F15D /* Post.xcdatamodeld */; };
-		339A71DA1D9E077600B5F15D /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339A71D81D9E077600B5F15D /* Post+CoreDataClass.swift */; };
-		339A71DB1D9E077600B5F15D /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339A71D91D9E077600B5F15D /* Post+CoreDataProperties.swift */; };
 		33F3CD291D99103C00B8D7A5 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F3CD281D99103C00B8D7A5 /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +57,8 @@
 		322AF8F21D99018C00E7034F /* MicropostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicropostViewController.swift; sourceTree = "<group>"; };
 		322AF8F41D9B65A600E7034F /* micropostTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = micropostTests.swift; sourceTree = "<group>"; };
 		322AF8F81D9B90F100E7034F /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		32886C201DA394C800486AB6 /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
+		32886C211DA394C800486AB6 /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		32CDE0FF1D9513EA00A57C02 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		32CDE1001D9513EA00A57C02 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		32CDE1011D9513EA00A57C02 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -80,8 +82,6 @@
 		3367C35F1D98EFAA007A13AF /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		3367C3611D98EFE5007A13AF /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		339A71D61D9E067900B5F15D /* Post.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Post.xcdatamodel; sourceTree = "<group>"; };
-		339A71D81D9E077600B5F15D /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
-		339A71D91D9E077600B5F15D /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		33B83B671DA22CF50035489B /* Post v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Post v2.xcdatamodel"; sourceTree = "<group>"; };
 		33F3CD281D99103C00B8D7A5 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,8 +131,8 @@
 		332B1A1A1D815670007064CF = {
 			isa = PBXGroup;
 			children = (
-				339A71D81D9E077600B5F15D /* Post+CoreDataClass.swift */,
-				339A71D91D9E077600B5F15D /* Post+CoreDataProperties.swift */,
+				32886C201DA394C800486AB6 /* Post+CoreDataClass.swift */,
+				32886C211DA394C800486AB6 /* Post+CoreDataProperties.swift */,
 				339A71D51D9E067900B5F15D /* Post.xcdatamodeld */,
 				332B1A251D815670007064CF /* sunset */,
 				332B1A3A1D815670007064CF /* sunsetTests */,
@@ -413,8 +413,8 @@
 				32D0D7EC1D9CDA6500FF7F33 /* WebViewController.swift in Sources */,
 				3367C3621D98EFE5007A13AF /* CalendarViewController.swift in Sources */,
 				339A71D71D9E067900B5F15D /* Post.xcdatamodeld in Sources */,
-				339A71DA1D9E077600B5F15D /* Post+CoreDataClass.swift in Sources */,
-				339A71DB1D9E077600B5F15D /* Post+CoreDataProperties.swift in Sources */,
+				32886C221DA394C800486AB6 /* Post+CoreDataClass.swift in Sources */,
+				32886C231DA394C800486AB6 /* Post+CoreDataProperties.swift in Sources */,
 				33F3CD291D99103C00B8D7A5 /* DateManager.swift in Sources */,
 				322AF8F11D98FA1800E7034F /* APIClient.swift in Sources */,
 				322AF8F31D99018C00E7034F /* MicropostViewController.swift in Sources */,

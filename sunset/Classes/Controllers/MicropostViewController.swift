@@ -38,7 +38,9 @@ class MicropostViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         var posts = filterPosts(date: self.appDelegate.targetDate!)
-        appDelegate.micropostId = String(posts[indexPath.row].user_id)
+        appDelegate.micropostId = String(posts[indexPath.row].micropost_id)
+
+        print(appDelegate.micropostId)
     }
 
     private func updateCell(_ cell: UITableViewCell, indexPath: IndexPath) {
@@ -62,7 +64,9 @@ class MicropostViewController: UITableViewController {
                 let post = NSEntityDescription.insertNewObject(forEntityName: "Post", into: managedObjectContext) as! Post
                 post.content = micropost.content
                 post.created_at = micropost.created_at
-                post.user_id = micropost.id
+                post.micropost_id = micropost.id
+
+                print(post.micropost_id)
                 
                 do {
                     try managedObjectContext.save()
