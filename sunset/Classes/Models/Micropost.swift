@@ -2,12 +2,12 @@ import Foundation
 import SwiftyJSON
 
 class Micropost {
-    var id: Int16
+    var id: Int32
     var content: String
     var created_at: String
 
     init(json: JSON) {
-        self.id         = json["id"].int16Value
+        self.id         = json["id"].int32Value
         self.content    = json["content"].stringValue
         self.created_at = json["created_at"].stringValue
     }
