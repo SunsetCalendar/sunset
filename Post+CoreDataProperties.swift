@@ -10,6 +10,5 @@ extension Post {
 
     @NSManaged public var content: String?
     @NSManaged public var created_at: String?
-    @NSManaged public var user_id: Int16
-
+    @NSManaged public var micropost_id: Int32
 }
