@@ -112,6 +112,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvc-DS-d3k">
                                         <frame key="frameInset" minX="135" minY="11" width="72" height="21"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="dateLabel"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="78" id="YfR-Zs-AGh"/>
                                         </constraints>
