@@ -22,9 +22,12 @@ class sunsetUITests: XCTestCase {
         super.tearDown()
     }
 
-    // 年の切り替わりによる月の変更 (12から1月、またその逆の対策)
-    func calcDate(year: Int, month: String, check: String) -> String {
+    func changeDate(date: String, check: String) -> String {
+        let month: String = date.components(separatedBy: " ")[0]
+        let year = Int(date.components(separatedBy: " ")[1])!
+        
         var calendarShortened = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        
         if check == "+" {
             if month == "Dec" {
                 return "Jan " + String(year + 1)
@@ -33,7 +36,7 @@ class sunsetUITests: XCTestCase {
                 return calendarShortened[calendarShortened.index(of: month)! + 1] + " " + String(year)
             }
         }
-        
+            
         else {
             if month == "Jan" {
                 return "Dec " + String(year - 1)
@@ -42,53 +45,30 @@ class sunsetUITests: XCTestCase {
                 return calendarShortened[calendarShortened.index(of: month)! - 1] + " " + String(year)
             }
         }
+
     }
     
-    func testMoveMonthButton() {
+    func testSwipeCalendar() {
         let app = XCUIApplication()
-        
-        let agoButton = app.buttons["←"]
-        let laterButton = app.buttons["→"]
-        let dateLabel = app.staticTexts["dateLabel"]
-        
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM yyyy"
-        
-        let date = Date()
-        let thisYear = Int(formatter.string(from: date).components(separatedBy: " ")[1])!
-        let thisMonth = formatter.string(from: date).components(separatedBy: " ")[0]
-        var expectedLabel = ""
-        
-        XCTAssertEqual(thisMonth + " " + String(thisYear), dateLabel.label)
-        
-        // 1ヶ月戻る
-        agoButton.tap()
-        
-        expectedLabel = calcDate(year: thisYear, month: thisMonth, check: "-")
-        XCTAssertEqual(expectedLabel, dateLabel.label)
-        
-        // スタート時に戻る
-        laterButton.tap()
-        
-        // 1ヶ月進む
-        laterButton.tap()
-        
-        expectedLabel = calcDate(year: thisYear, month: thisMonth, check: "+")
-        XCTAssertEqual(expectedLabel, dateLabel.label)
-        
+        let now: String = formatter.string(from: Date())
+        let nowDateLabel = app.staticTexts[now]
+        XCTAssertTrue(nowDateLabel.exists)
+        app.collectionViews.element.swipeRight()
+        let prevDateLabel = changeDate(date: now, check: "-")
+        XCTAssertTrue(app.staticTexts[prevDateLabel].exists)
     }
     
     func testShowPosts() {
         // STUBで定義された内容を元にテスト
         
         let app = XCUIApplication()
-        let agoButton = app.buttons["←"]
-        let laterButton = app.buttons["→"]
         
-        agoButton.tap()
+        app.collectionViews.element.swipeRight()
         XCTAssertTrue(app.tables.staticTexts["Apple"].exists)
         XCTAssertFalse(app.tables.staticTexts["Test Post"].exists)
-        laterButton.tap()
+        app.collectionViews.element.swipeLeft()
         XCTAssertTrue(app.tables.staticTexts["Test Post"].exists)
         XCTAssertFalse(app.tables.staticTexts["Apple"].exists)
     }
