@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let formatter = DateFormatter()
+        // 初期値 (今日の日付を元に、navigationBarのタイトルを決める)
+        formatter.dateFormat = "MMM yyyy"
+        self.title = formatter.string(from: Date())
     }
 
     override func didReceiveMemoryWarning() {
