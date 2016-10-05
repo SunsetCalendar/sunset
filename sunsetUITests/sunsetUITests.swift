@@ -36,7 +36,7 @@ class sunsetUITests: XCTestCase {
                 return calendarShortened[calendarShortened.index(of: month)! + 1] + " " + String(year)
             }
         }
-            
+
         else {
             if month == "Jan" {
                 return "Dec " + String(year - 1)
