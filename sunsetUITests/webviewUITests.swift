@@ -20,7 +20,7 @@ class webviewUITests: XCTestCase {
         let app = XCUIApplication()
 
         // テスト時、保存する前に画面を描写してくれないので、一度再描写させるために月を移動する
-        app.buttons["←"].tap()
+        app.collectionViews.element.swipeRight()
         app.tables.staticTexts["Apple"].tap()
 
         let about = app.staticTexts["ORPHEUS"]

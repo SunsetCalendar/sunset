@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -63,7 +62,7 @@
                                 <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="raw-TQ-c9E" id="5Vy-z7-txt">
-                                    <frame key="frameInset" width="343" height="44"/>
+                                    <frame key="frameInset" width="343" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -101,55 +100,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="343" height="301.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rd5-8t-XZz">
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvc-DS-d3k">
-                                        <frame key="frameInset" minX="135" minY="11" width="72" height="21"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="dateLabel"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="78" id="YfR-Zs-AGh"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pjh-0U-fYd">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="46" id="66Y-vr-G0d"/>
-                                            <constraint firstAttribute="height" constant="30" id="dM5-0v-Dk7"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="←">
-                                            <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tappedHeaderPrevBtn:" destination="xs8-tI-gnh" eventType="touchUpInside" id="IZ0-Oa-DDk"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5e-uQ-FVb">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="4rT-pe-vTV"/>
-                                            <constraint firstAttribute="width" constant="46" id="fR1-Uf-B2K"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="→">
-                                            <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tappedHeaderNextBtn:" destination="xs8-tI-gnh" eventType="touchUpInside" id="9Bm-vW-vnf"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Pjh-0U-fYd" firstAttribute="leading" secondItem="rd5-8t-XZz" secondAttribute="leading" constant="10" id="DU7-ih-jIw"/>
-                                    <constraint firstItem="Pjh-0U-fYd" firstAttribute="centerY" secondItem="rd5-8t-XZz" secondAttribute="centerY" id="SV6-hH-tgG"/>
-                                    <constraint firstItem="hvc-DS-d3k" firstAttribute="centerY" secondItem="rd5-8t-XZz" secondAttribute="centerY" id="TuE-gl-syk"/>
-                                    <constraint firstItem="hvc-DS-d3k" firstAttribute="centerX" secondItem="rd5-8t-XZz" secondAttribute="centerX" id="bbt-gp-dqg"/>
-                                    <constraint firstItem="V5e-uQ-FVb" firstAttribute="centerY" secondItem="rd5-8t-XZz" secondAttribute="centerY" id="wEE-zT-MYK"/>
-                                    <constraint firstAttribute="trailing" secondItem="V5e-uQ-FVb" secondAttribute="trailing" constant="10" id="xvr-xO-Cr5"/>
-                                </constraints>
-                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="d8i-eT-QW8">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Exo-M7-vH5">
@@ -171,26 +121,35 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="d8i-eT-QW8" firstAttribute="height" secondItem="rd5-8t-XZz" secondAttribute="height" multiplier="7" id="79d-qz-fXu"/>
-                            <constraint firstItem="d8i-eT-QW8" firstAttribute="top" secondItem="rd5-8t-XZz" secondAttribute="bottom" id="Kg1-o9-1hm"/>
-                            <constraint firstAttribute="bottom" secondItem="d8i-eT-QW8" secondAttribute="bottom" id="VSI-3u-A1Q"/>
-                            <constraint firstAttribute="trailing" secondItem="d8i-eT-QW8" secondAttribute="trailing" id="Zyd-aB-i90"/>
-                            <constraint firstAttribute="trailing" secondItem="rd5-8t-XZz" secondAttribute="trailing" id="bG3-1U-Zdn"/>
-                            <constraint firstItem="rd5-8t-XZz" firstAttribute="top" secondItem="La2-Wd-fVA" secondAttribute="bottom" id="hQV-WS-JBU"/>
-                            <constraint firstItem="rd5-8t-XZz" firstAttribute="leading" secondItem="JpS-4t-Z4Q" secondAttribute="leading" id="lpQ-Ro-I1g"/>
-                            <constraint firstItem="d8i-eT-QW8" firstAttribute="leading" secondItem="JpS-4t-Z4Q" secondAttribute="leading" id="ltY-Cb-8XY"/>
+                            <constraint firstAttribute="bottom" secondItem="d8i-eT-QW8" secondAttribute="bottom" id="Laa-KL-shC"/>
+                            <constraint firstItem="d8i-eT-QW8" firstAttribute="top" secondItem="La2-Wd-fVA" secondAttribute="bottom" id="Z8L-wN-NZx"/>
+                            <constraint firstItem="d8i-eT-QW8" firstAttribute="leading" secondItem="JpS-4t-Z4Q" secondAttribute="leading" id="a23-3d-GIk"/>
+                            <constraint firstAttribute="trailing" secondItem="d8i-eT-QW8" secondAttribute="trailing" id="vFD-3y-oa7"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="TaG-eL-2Vj" appends="YES" id="9r6-G8-Hnj"/>
+                            <outletCollection property="gestureRecognizers" destination="ZA4-gX-bHY" appends="YES" id="F3h-rl-CZS"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="calendarCollectionView" destination="d8i-eT-QW8" id="PP7-HU-S1b"/>
-                        <outlet property="calendarHeaderView" destination="rd5-8t-XZz" id="hhD-AQ-hOb"/>
-                        <outlet property="headerNextBtn" destination="V5e-uQ-FVb" id="FkK-jH-lz9"/>
-                        <outlet property="headerPrevBtn" destination="Pjh-0U-fYd" id="9Dn-6K-dh1"/>
-                        <outlet property="headerTitle" destination="hvc-DS-d3k" id="VzW-Ib-dHR"/>
+                        <outlet property="swipeLeftGesture" destination="TaG-eL-2Vj" id="Q9T-WI-zjF"/>
+                        <outlet property="swipeRightGesture" destination="ZA4-gX-bHY" id="uFK-jn-JGS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JtD-Th-qiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="TaG-eL-2Vj">
+                    <connections>
+                        <action selector="swipedLeft:" destination="xs8-tI-gnh" id="DTC-p5-gm5"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="ZA4-gX-bHY">
+                    <connections>
+                        <action selector="swipedRight:" destination="xs8-tI-gnh" id="upc-UM-GLS"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1935.2" y="-12.818590704647677"/>
         </scene>

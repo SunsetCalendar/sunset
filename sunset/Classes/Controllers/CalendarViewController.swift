@@ -22,23 +22,28 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
     
-    @IBOutlet weak var headerTitle: UILabel!
-    @IBOutlet weak var headerPrevBtn: UIButton!
-    @IBOutlet weak var headerNextBtn: UIButton!
     
-    @IBOutlet weak var calendarHeaderView: UIView!
+    @IBOutlet var swipeLeftGesture: UISwipeGestureRecognizer!
+    @IBOutlet var swipeRightGesture: UISwipeGestureRecognizer!
+    
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     
-    @IBAction func tappedHeaderPrevBtn(_ sender: UIButton) {
-        selectedDate = dateManager.prevMonth(selectedDate)
-        calendarCollectionView.reloadData()
-        headerTitle.text = changeHeaderTitle(selectedDate)
-    }
-    
-    @IBAction func tappedHeaderNextBtn(_ sender: UIButton) {
+    // [左へスワイプ] 1ヶ月進む
+    @IBAction func swipedLeft(_ sender: UISwipeGestureRecognizer) {
         selectedDate = dateManager.nextMonth(selectedDate)
         calendarCollectionView.reloadData()
-        headerTitle.text = changeHeaderTitle(selectedDate)
+        // 月が変更する際にnavigationBarのタイトルも更新
+        // navigationBarは親であるViewControllerが所持しているので、親の要素を書き換える
+        self.parent?.title = changeHeaderTitle(selectedDate)
+    }
+    
+    // [右へスワイプ] 1ヶ月戻る
+    @IBAction func swipedRight(_ sender: UISwipeGestureRecognizer) {
+        selectedDate = dateManager.prevMonth(selectedDate)
+        calendarCollectionView.reloadData()
+        // 月が変更する際にnavigationBarのタイトルも更新
+        // navigationBarは親であるViewControllerが所持しているので、親の要素を書き換える
+        self.parent?.title = changeHeaderTitle(selectedDate)
     }
     
     override func viewDidLoad() {
@@ -48,8 +53,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
         calendarCollectionView.backgroundColor = UIColor.white
-        
-        headerTitle.text = changeHeaderTitle(selectedDate)
     }
     
     override func didReceiveMemoryWarning() {
