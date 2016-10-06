@@ -22,7 +22,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
     
-    
     @IBOutlet var swipeLeftGesture: UISwipeGestureRecognizer!
     @IBOutlet var swipeRightGesture: UISwipeGestureRecognizer!
     
@@ -53,6 +52,12 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
         calendarCollectionView.backgroundColor = UIColor.white
+        
+        
+        let TapPrevBtnNotification = Notification.Name("TapPrevBtn")
+        let TapNextBtnNotification = Notification.Name("TapNextBtn")
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updatePrevView(_:)), name: TapPrevBtnNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateNextView(_:)), name: TapNextBtnNotification, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -141,4 +146,17 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         appDelegate.targetDate = date + "-" + day
         NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
     }
+    
+    @objc func updatePrevView(_ notification: Notification) {
+        selectedDate = dateManager.prevMonth(selectedDate)
+        self.parent?.title = changeHeaderTitle(selectedDate)
+        calendarCollectionView.reloadData()
+    }
+    
+    @objc func updateNextView(_ notification: Notification) {
+        selectedDate = dateManager.nextMonth(selectedDate)
+        self.parent?.title = changeHeaderTitle(selectedDate)
+        calendarCollectionView.reloadData()
+    }
+    
 }
