@@ -1,6 +1,8 @@
 import XCTest
 
 class sunsetUITests: XCTestCase {
+    
+    let formatter = DateFormatter()
         
     override func setUp() {
         super.setUp()
@@ -50,7 +52,6 @@ class sunsetUITests: XCTestCase {
     
     func testSwipeCalendar() {
         let app = XCUIApplication()
-        let formatter = DateFormatter()
         formatter.dateFormat = "MMM yyyy"
         let now: String = formatter.string(from: Date())
         let nowDateLabel = app.staticTexts[now]
@@ -58,6 +59,21 @@ class sunsetUITests: XCTestCase {
         app.collectionViews.element.swipeRight()
         let prevDateLabel = changeDate(date: now, check: "-")
         XCTAssertTrue(app.staticTexts[prevDateLabel].exists)
+    }
+    
+    func testMoveCalendarByTappingBtn() {
+        let app = XCUIApplication()
+        formatter.dateFormat = "MMM yyyy"
+        let nowDate: String = formatter.string(from: Date())
+        let prevDate: String = changeDate(date: nowDate, check: "-")
+        let nowDateLabel = app.staticTexts[nowDate]
+        let prevDateLabel = app.staticTexts[changeDate(date: nowDate, check: "-")]
+        XCTAssertTrue(nowDateLabel.exists)
+        XCUIApplication().navigationBars[nowDate].buttons["←"].tap()
+        XCTAssertTrue(prevDateLabel.exists)
+        XCUIApplication().navigationBars[prevDate].buttons["→"].tap()
+        XCTAssertTrue(nowDateLabel.exists)
+        
     }
     
     func testShowPosts() {
