@@ -43,7 +43,44 @@
                             <constraint firstItem="K7z-kq-uJq" firstAttribute="width" secondItem="qxZ-KF-Ddv" secondAttribute="width" id="xMh-SK-LUe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rRI-CP-B7K"/>
+                    <navigationItem key="navigationItem" id="rRI-CP-B7K">
+                        <barButtonItem key="leftBarButtonItem" style="done" id="ipd-Tl-rf2">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Eow-aZ-slC">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="←">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedPrevMonthBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uT3-4i-Ufb"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="tappedPrevMonthBtn:" destination="BYZ-38-t0r" id="JUa-aZ-FLT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" id="Tgd-dE-bW3">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cj0-A2-FeU">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="→">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedNextMonthBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="taV-zy-ayo"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="tappedNextMonthBtn:" destination="BYZ-38-t0r" id="4Os-sl-qDh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="headerNextBtn" destination="Tgd-dE-bW3" id="oDc-sh-em6"/>
+                        <outlet property="headerPrevBtn" destination="ipd-Tl-rf2" id="PIa-07-lWa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -62,7 +99,7 @@
                                 <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="raw-TQ-c9E" id="5Vy-z7-txt">
-                                    <frame key="frameInset" width="343" height="43"/>
+                                    <frame key="frameInset" width="343" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -151,7 +188,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1935.2" y="-12.818590704647677"/>
+            <point key="canvasLocation" x="2030" y="3"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uiL-ej-m3Y">
