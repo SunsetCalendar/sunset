@@ -53,7 +53,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         calendarCollectionView.dataSource = self
         calendarCollectionView.backgroundColor = UIColor.white
         
-        
         let TapPrevBtnNotification = Notification.Name("TapPrevBtn")
         let TapNextBtnNotification = Notification.Name("TapNextBtn")
         NotificationCenter.default.addObserver(self, selector: #selector(self.updatePrevView(_:)), name: TapPrevBtnNotification, object: nil)
@@ -128,7 +127,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
     }
 
-    
     //headerの月を変更
     func changeHeaderTitle(_ date: Date) -> String {
         let formatter: DateFormatter = DateFormatter()

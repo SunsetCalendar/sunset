@@ -34,7 +34,6 @@ class ViewController: UIViewController {
         //print(date)
     }
     
-    
     @IBAction func tappedNextMonthBtn(_ sender: UIButton) {
         let thisDate = generateTargetDate()
         let nextDate: Date = formatter.date(from: thisDate)!.monthLaterDate()
