@@ -13,13 +13,13 @@ extension UIColor {
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    let dateManager = DateManager()
+    let dateManager: DateManager = DateManager()
     let daysPerWeek: Int = 7
     let cellMargin: CGFloat = 1.0 //2.0
-    var selectedDate = Date()
+    var selectedDate: Date = Date()
     var today: Date!
-    let weekArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-    let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let weekArray: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
     
     @IBOutlet var swipeLeftGesture: UISwipeGestureRecognizer!
@@ -70,7 +70,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // Section毎にCellの総数を変える.
-        if section == 0 {
+        if (section == 0) {
             return 7
         } else {
             return dateManager.daysAcquisition() //ここは月によって異なる
@@ -89,7 +89,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         }
         
         //テキスト配置
-        if indexPath.section == 0 {
+        if (indexPath.section == 0) {
             cell.textLabel.text = weekArray[indexPath.row]
         } else {
             cell.textLabel.text = dateManager.conversionDateFormat(indexPath)
@@ -113,18 +113,30 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     
     //セルの水平方向のマージンを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return cellMargin
+      return cellMargin
     }
 
+    // cellをtapした直後のアクション
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (indexPath.section != 0) {
+            let cell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
+            cell.backgroundColor = UIColor.green
+        }
+
         let day = dateManager.ShowDayIfInThisMonth(indexPath.row)
-        if day != "" {
+        if (day != "") {
             let year: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[0])!
             let month: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[1])!
             self.appDelegate.targetDate = year + "-" + month + "-" + day
         }
 
         NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
+    }
+
+    // タップしたcellの前のcellに対するアクション
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
+        cell.backgroundColor = UIColor.white
     }
 
     //headerの月を変更
