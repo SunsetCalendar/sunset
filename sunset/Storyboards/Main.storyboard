@@ -99,7 +99,7 @@
                                 <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="raw-TQ-c9E" id="5Vy-z7-txt">
-                                    <frame key="frameInset" width="343" height="43.5"/>
+                                    <frame key="frameInset" width="343" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -152,7 +152,19 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oki-HS-8Dw"/>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="oki-HS-8Dw" secondAttribute="bottom" id="Ok0-Jf-2fy"/>
+                                            <constraint firstAttribute="trailing" secondItem="oki-HS-8Dw" secondAttribute="trailing" id="pGC-BR-tRr"/>
+                                            <constraint firstItem="oki-HS-8Dw" firstAttribute="leading" secondItem="2s2-0S-kTH" secondAttribute="leading" id="wFp-1b-sAB"/>
+                                            <constraint firstItem="oki-HS-8Dw" firstAttribute="top" secondItem="2s2-0S-kTH" secondAttribute="top" id="xJM-R3-bUE"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="hexImageView" destination="oki-HS-8Dw" id="X7H-yw-FSF"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

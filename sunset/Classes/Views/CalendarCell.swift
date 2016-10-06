@@ -2,6 +2,8 @@ import UIKit
 
 class CalendarCell: UICollectionViewCell {
     
+    @IBOutlet weak var hexImageView: UIImageView!
+    
     var textLabel: UILabel!
     
     required init(coder aDecoder: NSCoder) {
