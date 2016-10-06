@@ -28,17 +28,13 @@ class ViewController: UIViewController {
         let thisDate = generateTargetDate()
         let prevDate: Date = formatter.date(from: thisDate)!.monthAgoDate()
         appDelegate.targetDate = formatter.string(from: prevDate)
-        print(appDelegate.targetDate)
         NotificationCenter.default.post(name: TapPrevBtnNotification, object: nil)
-        //let date: Date = formatter.date(from: appDelegate.targetDate!)
-        //print(date)
     }
     
     @IBAction func tappedNextMonthBtn(_ sender: UIButton) {
         let thisDate = generateTargetDate()
         let nextDate: Date = formatter.date(from: thisDate)!.monthLaterDate()
         appDelegate.targetDate = formatter.string(from: nextDate)
-        print(appDelegate.targetDate)
         NotificationCenter.default.post(name: TapNextBtnNotification, object: nil)
     }
     
