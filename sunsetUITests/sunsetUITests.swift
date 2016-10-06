@@ -50,6 +50,7 @@ class sunsetUITests: XCTestCase {
 
     }
     
+    // swipe移動
     func testSwipeCalendar() {
         let app = XCUIApplication()
         formatter.dateFormat = "MMM yyyy"
@@ -61,19 +62,19 @@ class sunsetUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts[prevDateLabel].exists)
     }
     
+    // ボタン移動
     func testMoveCalendarByTappingBtn() {
         let app = XCUIApplication()
         formatter.dateFormat = "MMM yyyy"
         let nowDate: String = formatter.string(from: Date())
         let prevDate: String = changeDate(date: nowDate, check: "-")
         let nowDateLabel = app.staticTexts[nowDate]
-        let prevDateLabel = app.staticTexts[changeDate(date: nowDate, check: "-")]
+        let prevDateLabel = app.staticTexts[prevDate]
         XCTAssertTrue(nowDateLabel.exists)
         XCUIApplication().navigationBars[nowDate].buttons["←"].tap()
         XCTAssertTrue(prevDateLabel.exists)
         XCUIApplication().navigationBars[prevDate].buttons["→"].tap()
         XCTAssertTrue(nowDateLabel.exists)
-        
     }
     
     func testShowPosts() {
