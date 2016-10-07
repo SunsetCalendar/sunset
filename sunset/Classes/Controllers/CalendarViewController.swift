@@ -26,7 +26,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet var swipeRightGesture: UISwipeGestureRecognizer!
     
     @IBOutlet weak var calendarCollectionView: UICollectionView!
-    
+
     // [左へスワイプ] 1ヶ月進む
     @IBAction func swipedLeft(_ sender: UISwipeGestureRecognizer) {
         selectedDate = dateManager.nextMonth(selectedDate)
@@ -57,6 +57,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         let TapNextBtnNotification = Notification.Name("TapNextBtn")
         NotificationCenter.default.addObserver(self, selector: #selector(self.updatePrevView(_:)), name: TapPrevBtnNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateNextView(_:)), name: TapNextBtnNotification, object: nil)
+
+        self.calendarCollectionView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -110,7 +112,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     //func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
     //    return cellMargin
     //}
-    
+
     //セルの水平方向のマージンを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
       return cellMargin
@@ -119,8 +121,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     // cellをtapした直後のアクション
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (indexPath.section != 0) {
-            let cell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
-            cell.backgroundColor = UIColor.green
+            let cell : CalendarCell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
+            cell.hexImageView.image = UIImage(named: "hexagon")
         }
 
         let day = dateManager.ShowDayIfInThisMonth(indexPath.row)
@@ -135,8 +137,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     // タップしたcellの前のcellに対するアクション
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
-        cell.backgroundColor = UIColor.white
+        let cell : CalendarCell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
+        cell.hexImageView.image = nil
     }
 
     //headerの月を変更
@@ -168,5 +170,4 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         self.parent?.title = changeHeaderTitle(selectedDate)
         calendarCollectionView.reloadData()
     }
-    
 }
