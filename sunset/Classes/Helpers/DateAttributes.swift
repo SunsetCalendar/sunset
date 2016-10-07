@@ -13,32 +13,31 @@ class DateAttributes {
         
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedObjectContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest:NSFetchRequest<Post> = Post.fetchRequest()
+        let fetchRequest: NSFetchRequest<Post> = Post.fetchRequest()
         
         let year: String = (appDelegate.targetDate?.components(separatedBy: "-")[0])!
         let month: String = (appDelegate.targetDate?.components(separatedBy: "-")[1])!
-        let date = year + "-" + month + "-" + day
-        let predicate = NSPredicate(format: "created_at BEGINSWITH %@", date)
+        let date: String = year + "-" + month + "-" + day
+        let predicate: NSPredicate = NSPredicate(format: "created_at BEGINSWITH %@", date)
         fetchRequest.predicate = predicate
         
         let fetchData = try! managedObjectContext.fetch(fetchRequest)
         if fetchData.count == 0 {
             return false
-        }
-        else {
+        } else {
             return true
         }
     }
     
     // 表示されている日がその月のものかどうかを返す
     func isThisMonth(day: String, row: Int) -> Bool {
-        if row < 7 {
-            if Int(day)! > 7 {
+        if (row < 7) {
+            if (Int(day)! > 7) {
                 return false
             }
         
-        else if row > 28 {
-            if Int(day)! < 7 {
+        else if (row > 28) {
+            if (Int(day)! < 7) {
                 return false
             }
         }

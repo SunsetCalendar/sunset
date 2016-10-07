@@ -13,7 +13,7 @@ extension UIColor {
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
-    let dateAttributes = DateAttributes()
+    let dateAttributes: DateAttributes = DateAttributes()
     let dateManager: DateManager = DateManager()
     let daysPerWeek: Int = 7
     let cellMargin: CGFloat = 1.0 //2.0
@@ -93,8 +93,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         //テキスト配置
         if (indexPath.section == 0) {
             cell.textLabel.text = weekArray[indexPath.row]
-        }
-        else {
+        } else {
             cell.textLabel.text = dateManager.conversionDateFormat(indexPath)
             if dateAttributes.isThisMonth(day: cell.textLabel.text!, row:indexPath.row) {
                 if dateAttributes.existPosts(dayLabel: cell.textLabel.text!) {
