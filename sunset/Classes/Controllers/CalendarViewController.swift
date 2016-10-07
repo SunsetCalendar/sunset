@@ -106,7 +106,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         return cell
     }
 
-
     //セルのサイズを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //let numberOfMargin: CGFloat = 8.0  //8.0
