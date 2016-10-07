@@ -18,4 +18,9 @@ class CalendarCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
+    
+    override func prepareForReuse() {
+        self.textLabel.font = UIFont(name: "HirakakuProN-W3", size: 11.5)
+    }
+    
 }
