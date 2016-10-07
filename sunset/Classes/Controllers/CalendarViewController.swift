@@ -115,7 +115,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         return CGSize(width: width, height: height)
     }
 
-
     //セルの垂直方向のマージンを設定
     //func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
     //    return cellMargin
