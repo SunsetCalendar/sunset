@@ -6,6 +6,7 @@ class DateAttributes {
     // その日に投稿があったか
     func existPosts(dayLabel: String) -> Bool {
         var day: String = dayLabel
+        // 1桁の場合、接頭辞として'0'を付与
         if dayLabel.characters.count == 1 {
             day = "0" + dayLabel
         }
