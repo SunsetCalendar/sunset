@@ -103,9 +103,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
                 }
             }
         }
-        
         return cell
-        
     }
     
     
