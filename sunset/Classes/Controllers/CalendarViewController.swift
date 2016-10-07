@@ -115,7 +115,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     //セルの水平方向のマージンを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-      return cellMargin
+        return cellMargin
     }
 
     // cellをtapした直後のアクション
