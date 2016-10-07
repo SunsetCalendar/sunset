@@ -35,10 +35,10 @@ class DateAttributes {
             if (Int(day)! > 7) {
                 return false
             } else if (row > 28) {
-            if (Int(day)! < 7) {
-                return false
+                if (Int(day)! < 7) {
+                    return false
+                }
             }
-        }
         }
         return true
     }
