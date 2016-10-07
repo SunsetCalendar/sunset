@@ -14,6 +14,7 @@ extension UIColor {
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     let dateManager = DateManager()
+    let dateAttributes = DateAttributes()
     let daysPerWeek: Int = 7
     let cellMargin: CGFloat = 1.0 //2.0
     var selectedDate = Date()
@@ -91,11 +92,22 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         //テキスト配置
         if indexPath.section == 0 {
             cell.textLabel.text = weekArray[indexPath.row]
-        } else {
-            cell.textLabel.text = dateManager.conversionDateFormat(indexPath)
         }
+        else {
+            cell.textLabel.text = dateManager.conversionDateFormat(indexPath)
+            if dateAttributes.isThisMonth(day: cell.textLabel.text!, row:indexPath.row) {
+                if dateAttributes.existPosts(dayLabel: cell.textLabel.text!) {
+                    // 投稿があった日は太字 + 色を黒くする
+                    cell.textLabel.font = UIFont(name: "HiraKakuProN-W6", size: 11.5)
+                    cell.textLabel.textColor = UIColor.black
+                }
+            }
+        }
+        
         return cell
+        
     }
+    
     
     //セルのサイズを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -105,6 +117,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         let height: CGFloat = width// 正方形にしなくても良さそう
         return CGSize(width: width, height: height)
     }
+    
     
     //セルの垂直方向のマージンを設定
     //func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
