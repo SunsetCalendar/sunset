@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,15 +31,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qxZ-KF-Ddv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="9Nz-2f-zak"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="K7z-kq-uJq" secondAttribute="bottom" id="Cu4-pE-wty"/>
-                            <constraint firstItem="qxZ-KF-Ddv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="DO1-EV-Y7L"/>
-                            <constraint firstItem="K7z-kq-uJq" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="UWT-ys-V66"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qxZ-KF-Ddv" secondAttribute="trailing" id="dAB-yl-9n9"/>
-                            <constraint firstItem="K7z-kq-uJq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="dWT-tc-caa"/>
-                            <constraint firstItem="K7z-kq-uJq" firstAttribute="top" secondItem="qxZ-KF-Ddv" secondAttribute="bottom" id="nNz-KQ-kS7"/>
-                            <constraint firstItem="K7z-kq-uJq" firstAttribute="height" secondItem="qxZ-KF-Ddv" secondAttribute="height" id="wGd-sL-RRG"/>
-                            <constraint firstItem="K7z-kq-uJq" firstAttribute="width" secondItem="qxZ-KF-Ddv" secondAttribute="width" id="xMh-SK-LUe"/>
+                            <constraint firstItem="K7z-kq-uJq" firstAttribute="top" secondItem="qxZ-KF-Ddv" secondAttribute="bottom" id="4Cl-2Z-u5S"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="K7z-kq-uJq" secondAttribute="bottom" id="JuS-YZ-Gjh"/>
+                            <constraint firstItem="qxZ-KF-Ddv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QCA-8f-sVG"/>
+                            <constraint firstItem="K7z-kq-uJq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="X2f-zI-5gg"/>
+                            <constraint firstAttribute="trailing" secondItem="K7z-kq-uJq" secondAttribute="trailing" id="esI-A3-EgG"/>
+                            <constraint firstAttribute="trailing" secondItem="qxZ-KF-Ddv" secondAttribute="trailing" id="fW1-Lx-ty6"/>
+                            <constraint firstItem="K7z-kq-uJq" firstAttribute="height" secondItem="qxZ-KF-Ddv" secondAttribute="height" id="lwH-35-u9b"/>
+                            <constraint firstItem="qxZ-KF-Ddv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="q59-CU-ymt"/>
+                            <constraint firstItem="K7z-kq-uJq" firstAttribute="width" secondItem="qxZ-KF-Ddv" secondAttribute="width" id="v7e-Bg-zf3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rRI-CP-B7K">
@@ -91,15 +90,15 @@
             <objects>
                 <tableViewController id="Anv-5V-VbH" customClass="MicropostViewController" customModule="sunset" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OTA-Xc-vKZ">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="301.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="micropostCell" id="raw-TQ-c9E">
-                                <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="raw-TQ-c9E" id="5Vy-z7-txt">
-                                    <frame key="frameInset" width="343" height="44"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -134,7 +133,7 @@
                         <viewControllerLayoutGuide type="bottom" id="JbB-46-6zr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JpS-4t-Z4Q">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="301.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="d8i-eT-QW8">

@@ -20,4 +20,8 @@ class CalendarCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
+
+    override func prepareForReuse() {
+        self.hexImageView.image = nil
+    }
 }
