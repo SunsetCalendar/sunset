@@ -19,18 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunset-back" translatesAutoresizingMaskIntoConstraints="NO" id="upM-zC-Rqg"/>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sunset Calendar" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ysP-Af-cgI">
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="upM-zC-Rqg" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Eji-AF-RSI"/>
-                            <constraint firstItem="ysP-Af-cgI" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="HEw-XB-kEG"/>
                             <constraint firstAttribute="trailing" secondItem="upM-zC-Rqg" secondAttribute="trailing" id="U1T-BK-Xpc"/>
-                            <constraint firstItem="ysP-Af-cgI" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="100" id="ZHQ-Mm-gfR"/>
                             <constraint firstItem="upM-zC-Rqg" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="gO8-gl-6kj"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="upM-zC-Rqg" secondAttribute="bottom" id="ptx-4v-mEa"/>
                         </constraints>
