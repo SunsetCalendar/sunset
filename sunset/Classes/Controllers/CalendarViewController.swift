@@ -16,7 +16,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     let dateAttributes: DateAttributes = DateAttributes()
     let dateManager: DateManager = DateManager()
     let daysPerWeek: Int = 7
-    let cellMargin: CGFloat = 1.0 //2.0
+    let cellMargin: CGFloat = 0.0 //2.0
     var selectedDate: Date = Date()
     var today: Date!
     let weekArray: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
@@ -109,16 +109,16 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     //セルのサイズを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //let numberOfMargin: CGFloat = 8.0  //8.0
-        let width: CGFloat = (collectionView.frame.size.width) / CGFloat(daysPerWeek + 1)
+        let width: CGFloat = (collectionView.frame.size.width) / CGFloat(daysPerWeek)
 
         let height: CGFloat = width// 正方形にしなくても良さそう
         return CGSize(width: width, height: height)
     }
 
     //セルの垂直方向のマージンを設定
-    //func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    //    return cellMargin
-    //}
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return cellMargin
+    }
 
     //セルの水平方向のマージンを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
