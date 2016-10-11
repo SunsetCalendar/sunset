@@ -15,6 +15,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     let dateAttributes: DateAttributes = DateAttributes()
     let dateManager: DateManager = DateManager()
+    let gradationView = GradationView()
     let daysPerWeek: Int = 7
     let cellMargin: CGFloat = 1.0 //2.0
     var selectedDate: Date = Date()
@@ -64,7 +65,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        gradationView()
+        print("View: \(self.view)")
+        gradationView.addGradation(view: self.view)
     }
 
     override func didReceiveMemoryWarning() {
@@ -182,17 +184,5 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         selectedDate = dateManager.nextMonth(selectedDate)
         self.parent?.title = changeHeaderTitle(selectedDate)
         calendarCollectionView.reloadData()
-    }
-
-    private func gradationView() {
-        let topColor: UIColor = UIColor(red:0.07, green:0.13, blue:0.26, alpha:1)
-        let bottomColor: UIColor = UIColor(red:0.54, green:0.74, blue:0.74, alpha:1)
-        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
-
-        gradientLayer.colors = gradientColors
-        gradientLayer.frame = self.view.bounds
-
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
