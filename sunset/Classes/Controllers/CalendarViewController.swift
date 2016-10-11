@@ -51,7 +51,9 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
-        calendarCollectionView.backgroundColor = UIColor.white
+        //calendarCollectionView.backgroundColor = UIColor.orange
+
+        gradationView()
 
         let TapPrevBtnNotification = Notification.Name("TapPrevBtn")
         let TapNextBtnNotification = Notification.Name("TapNextBtn")
@@ -176,5 +178,17 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         selectedDate = dateManager.nextMonth(selectedDate)
         self.parent?.title = changeHeaderTitle(selectedDate)
         calendarCollectionView.reloadData()
+    }
+
+    private func gradationView() {
+        let topColor: UIColor = UIColor(red:0.07, green:0.13, blue:0.26, alpha:1)
+        let bottomColor: UIColor = UIColor(red:0.54, green:0.74, blue:0.74, alpha:1)
+        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+
+        gradientLayer.colors = gradientColors
+        gradientLayer.frame = self.view.bounds
+
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
