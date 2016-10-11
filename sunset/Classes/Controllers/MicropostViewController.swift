@@ -8,8 +8,6 @@ class MicropostViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        gradationView()
         
         savePosts()
         
@@ -21,6 +19,12 @@ class MicropostViewController: UITableViewController {
         let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateView(_:)), name: TapCalendarCellNotification, object: nil)
         self.tableView.reloadData()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        gradationView()
     }
 
     override func didReceiveMemoryWarning() {

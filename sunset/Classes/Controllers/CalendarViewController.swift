@@ -51,9 +51,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
-        //calendarCollectionView.backgroundColor = UIColor.orange
-
-        gradationView()
+        calendarCollectionView.backgroundColor = UIColor.clear
 
         let TapPrevBtnNotification = Notification.Name("TapPrevBtn")
         let TapNextBtnNotification = Notification.Name("TapNextBtn")
@@ -61,6 +59,12 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateNextView(_:)), name: TapNextBtnNotification, object: nil)
 
         self.calendarCollectionView.reloadData()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        gradationView()
     }
 
     override func didReceiveMemoryWarning() {
