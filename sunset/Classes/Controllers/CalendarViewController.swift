@@ -12,7 +12,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     let weekArray: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
-    let gradationView: GradationView = GradationView(topColor: UIColor.darkIndigo(), bottomColor: UIColor.lightIndigo())
+    let gradationView: GradationView = GradationView(topColor: UIColor.lightOrange(), bottomColor: UIColor.darkOrange())
 
     @IBOutlet var swipeLeftGesture: UISwipeGestureRecognizer!
     @IBOutlet var swipeRightGesture: UISwipeGestureRecognizer!
