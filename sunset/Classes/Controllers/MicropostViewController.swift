@@ -8,6 +8,8 @@ class MicropostViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        gradationView()
         
         savePosts()
         
@@ -32,6 +34,7 @@ class MicropostViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "micropostCell", for: indexPath)
         updateCell(cell, indexPath: indexPath)
+        cell.backgroundColor = UIColor.clear
         return cell
     }
 
@@ -48,6 +51,18 @@ class MicropostViewController: UITableViewController {
 
     @objc func updateView(_ notification: Notification) {
         self.tableView.reloadData()
+    }
+
+    private func gradationView() {
+        let topColor: UIColor = UIColor(red:0.07, green:0.13, blue:0.26, alpha:1)
+        let bottomColor: UIColor = UIColor(red:0.54, green:0.74, blue:0.74, alpha:1)
+        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+
+        gradientLayer.colors = gradientColors
+        gradientLayer.frame = self.view.bounds
+
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     private func savePosts() {
