@@ -13,7 +13,6 @@ class GradationView {
 
     func addGradation(view: UIView) {
         gradientLayer.frame = view.bounds
-
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
 

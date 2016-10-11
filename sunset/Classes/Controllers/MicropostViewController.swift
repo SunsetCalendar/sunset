@@ -5,7 +5,7 @@ class MicropostViewController: UITableViewController {
 
     var microposts = [Micropost]()
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    let gradationView = GradationView(topColor: UIColor.darkIndigo(), bottomColor: UIColor.lightIndigo())
+    let gradationView: GradationView = GradationView(topColor: UIColor.darkIndigo(), bottomColor: UIColor.lightIndigo())
 
     override func viewDidLoad() {
         super.viewDidLoad()
