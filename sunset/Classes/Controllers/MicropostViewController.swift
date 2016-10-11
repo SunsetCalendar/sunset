@@ -5,7 +5,7 @@ class MicropostViewController: UITableViewController {
 
     var microposts = [Micropost]()
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    let gradationView = GradationView()
+    let gradationView = GradationView(topColor: UIColor.lightBlue(), bottomColor: UIColor.lightRed())
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,7 @@ class MicropostViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        gradationView.addGradation(view: self.view)
-        print("View: \(self.view)")
+        gradationView.addGradation(view: self.tableView)
     }
 
     override func didReceiveMemoryWarning() {

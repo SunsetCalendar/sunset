@@ -1,21 +1,10 @@
 import UIKit
 import CoreData
 
-extension UIColor {
-    class func lightBlue() -> UIColor {
-        return UIColor(red: 92.0 / 255, green: 192.0 / 255, blue: 210.0 / 255, alpha: 1.0)
-    }
-
-    class func lightRed() -> UIColor {
-        return UIColor(red: 195.0 / 255, green: 123.0 / 255, blue: 175.0 / 255, alpha: 1.0)
-    }
-}
-
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     let dateAttributes: DateAttributes = DateAttributes()
     let dateManager: DateManager = DateManager()
-    let gradationView = GradationView()
     let daysPerWeek: Int = 7
     let cellMargin: CGFloat = 1.0 //2.0
     var selectedDate: Date = Date()
@@ -23,6 +12,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     let weekArray: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
+    let gradationView: GradationView = GradationView(topColor: UIColor.darkIndigo(), bottomColor: UIColor.lightIndigo())
 
     @IBOutlet var swipeLeftGesture: UISwipeGestureRecognizer!
     @IBOutlet var swipeRightGesture: UISwipeGestureRecognizer!
@@ -65,8 +55,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        print("View: \(self.view)")
-        gradationView.addGradation(view: self.view)
+        gradationView.addGradation(view: calendarCollectionView)
     }
 
     override func didReceiveMemoryWarning() {
