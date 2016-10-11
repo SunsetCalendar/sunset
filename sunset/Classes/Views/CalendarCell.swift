@@ -8,8 +8,9 @@ class CalendarCell: UICollectionViewCell {
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-
-        textLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        // セルの大きさに合わせて文字の中央揃えを設定させる
+        textLabel = UILabel(frame: CGRect(x: 0, y: 0, width: appDelegate.calendarCellWidth!, height: appDelegate.calendarCellHeight!))
         textLabel.font = UIFont(name: "HiraKakuProN-W3", size: 11.5)
         textLabel.textAlignment = NSTextAlignment.center
 

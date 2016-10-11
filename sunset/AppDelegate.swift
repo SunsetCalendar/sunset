@@ -8,6 +8,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var micropostId: String?
     var targetDate: String?
+    var calendarCellWidth: CGFloat?
+    var calendarCellHeight: CGFloat?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
