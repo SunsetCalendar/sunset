@@ -12,7 +12,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     let weekArray: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
-    let gradationView: GradationView = GradationView(topColor: UIColor.lightOrange(), bottomColor: UIColor.darkOrange())
 
     @IBOutlet var swipeLeftGesture: UISwipeGestureRecognizer!
     @IBOutlet var swipeRightGesture: UISwipeGestureRecognizer!
@@ -43,6 +42,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
         calendarCollectionView.backgroundColor = UIColor.clear
+        self.view.backgroundColor = UIColor.clear
 
         let TapPrevBtnNotification = Notification.Name("TapPrevBtn")
         let TapNextBtnNotification = Notification.Name("TapNextBtn")
@@ -50,12 +50,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateNextView(_:)), name: TapNextBtnNotification, object: nil)
 
         self.calendarCollectionView.reloadData()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        gradationView.addGradation(view: calendarCollectionView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,11 +74,11 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCell
         //テキストカラー
         if (indexPath.row % 7 == 0) {
-            cell.textLabel.textColor = UIColor.lightRed()
+            cell.textLabel.textColor = UIColor.red
         } else if (indexPath.row % 7 == 6) {
-            cell.textLabel.textColor = UIColor.lightBlue()
+            cell.textLabel.textColor = UIColor.blue
         } else {
-            cell.textLabel.textColor = UIColor.gray
+            cell.textLabel.textColor = UIColor.white
         }
 
         //テキスト配置

@@ -5,12 +5,13 @@ class MicropostViewController: UITableViewController {
 
     var microposts = [Micropost]()
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    let gradationView: GradationView = GradationView(topColor: UIColor.darkIndigo(), bottomColor: UIColor.lightIndigo())
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         savePosts()
+
+        self.view.backgroundColor = UIColor.clear
         
         // targetDateの初期値 (今日の日付) をセット
         if self.appDelegate.targetDate == nil {
@@ -20,12 +21,6 @@ class MicropostViewController: UITableViewController {
         let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateView(_:)), name: TapCalendarCellNotification, object: nil)
         self.tableView.reloadData()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        gradationView.addGradation(view: self.tableView)
     }
 
     override func didReceiveMemoryWarning() {

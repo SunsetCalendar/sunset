@@ -4,12 +4,13 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var headerPrevBtn: UIBarButtonItem!
     @IBOutlet weak var headerNextBtn: UIBarButtonItem!
-    
+
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let formatter = DateFormatter()
     let TapPrevBtnNotification = Notification.Name("TapPrevBtn")
     let TapNextBtnNotification = Notification.Name("TapNextBtn")
-    
+    let gradationView: GradationView = GradationView(topColor: UIColor.darkOrange(), bottomColor: UIColor.lightIndigo())
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -17,6 +18,13 @@ class ViewController: UIViewController {
         // 初期値 (今日の日付を元に、navigationBarのタイトルを決める)
         formatter.dateFormat = "MMM yyyy"
         self.title = formatter.string(from: Date())
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+
+        gradationView.addGradation(view: self.view)
     }
 
     override func didReceiveMemoryWarning() {
