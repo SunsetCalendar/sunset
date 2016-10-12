@@ -9,7 +9,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     let cellMargin: CGFloat = -9.0
     var selectedDate: Date = Date()
     var today: Date!
-    //let weekArray: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
 
@@ -37,7 +36,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
 
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
@@ -89,14 +87,12 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     //セルのサイズを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //let numberOfMargin: CGFloat = 8.0  //8.0
-        let width: CGFloat = (collectionView.frame.size.width) / CGFloat(daysPerWeek)
-        let height: CGFloat = width
+        let length: CGFloat = (collectionView.frame.size.width) / CGFloat(daysPerWeek)
 
-        appDelegate.calendarCellWidth = width
-        appDelegate.calendarCellHeight = height
+        appDelegate.calendarCellWidth = length
+        appDelegate.calendarCellHeight = length
 
-        return CGSize(width: width, height: height)
+        return CGSize(width: length, height: length)
     }
 
     //セルの垂直方向のマージンを設定
@@ -116,10 +112,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     // cellをtapした直後のアクション
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if (indexPath.section != 0) {
-            let cell : CalendarCell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
-            cell.circleImageView.image = UIImage(named: "circle")
-//        }
+        let cell : CalendarCell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
+        cell.circleImageView.image = UIImage(named: "circle")
 
         let day = dateManager.ShowDayIfInThisMonth(indexPath.row)
         if (day != "") {
