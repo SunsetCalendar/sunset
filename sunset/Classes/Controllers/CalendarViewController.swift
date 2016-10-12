@@ -9,7 +9,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     let cellMargin: CGFloat = -9.0
     var selectedDate: Date = Date()
     var today: Date!
-    let weekArray: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    //let weekArray: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
 
@@ -49,25 +49,19 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         NotificationCenter.default.addObserver(self, selector: #selector(self.updatePrevView(_:)), name: TapPrevBtnNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateNextView(_:)), name: TapNextBtnNotification, object: nil)
 
-        self.calendarCollectionView.reloadData()
+        calendarCollectionView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // Section毎にCellの総数を変える.
-        if (section == 0) {
-            return 7
-        } else {
-            return dateManager.daysAcquisition() //ここは月によって異なる
-        }
+        return dateManager.daysAcquisition() //ここは月によって異なる
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -81,20 +75,15 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             cell.textLabel.textColor = UIColor.white
         }
 
-        //テキスト配置
-        if (indexPath.section == 0) {
-            cell.textLabel.text = weekArray[indexPath.row]
-            cell.textLabel.font = UIFont(name: "HiraKakuProN-W3", size: 10.0)
-        } else {
-            cell.textLabel.text = dateManager.conversionDateFormat(indexPath)
-            if dateAttributes.isThisMonth(day: cell.textLabel.text!, row:indexPath.row) {
-                if dateAttributes.existPosts(dayLabel: cell.textLabel.text!) {
-                    // 投稿があった日は太字 + 色を黒くする
-                    cell.textLabel.font = UIFont(name: "HiraKakuProN-W6", size: 11.5)
-                    cell.textLabel.textColor = UIColor.black
-                }
+        cell.textLabel.text = dateManager.conversionDateFormat(indexPath)
+        if dateAttributes.isThisMonth(day: cell.textLabel.text!, row:indexPath.row) {
+            if dateAttributes.existPosts(dayLabel: cell.textLabel.text!) {
+                // 投稿があった日は太字 + 色を黒くする
+                cell.textLabel.font = UIFont(name: "HiraKakuProN-W6", size: 11.5)
+                cell.textLabel.textColor = UIColor.black
             }
         }
+
         return cell
     }
 
@@ -102,14 +91,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //let numberOfMargin: CGFloat = 8.0  //8.0
         let width: CGFloat = (collectionView.frame.size.width) / CGFloat(daysPerWeek)
-        let height: CGFloat // 正方形にしなくても良さそう
-
-        // 曜日の部分のみセルの大きさを小さくする
-        if (indexPath.section == 0) {
-            height = width * 0.6
-        } else {
-            height = width
-        }
+        let height: CGFloat = width
 
         appDelegate.calendarCellWidth = width
         appDelegate.calendarCellHeight = height
@@ -129,21 +111,15 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     // テキスト内のマージン設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-
-        // 曜日のセルの部分のみ、文字を上部に表示されるようにする
-        if (section == 0){
-            return UIEdgeInsets(top: appDelegate.calendarCellHeight! * (-0.25), left: 0, bottom: 0, right: 0)
-        } else {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        }
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 
     // cellをtapした直後のアクション
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if (indexPath.section != 0) {
+//        if (indexPath.section != 0) {
             let cell : CalendarCell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
             cell.circleImageView.image = UIImage(named: "circle")
-        }
+//        }
 
         let day = dateManager.ShowDayIfInThisMonth(indexPath.row)
         if (day != "") {
