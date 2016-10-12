@@ -10,6 +10,8 @@ class MicropostViewController: UITableViewController {
         super.viewDidLoad()
         
         savePosts()
+
+        self.view.backgroundColor = UIColor.clear
         
         // targetDateの初期値 (今日の日付) をセット
         if self.appDelegate.targetDate == nil {
@@ -32,6 +34,7 @@ class MicropostViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "micropostCell", for: indexPath)
         updateCell(cell, indexPath: indexPath)
+        cell.backgroundColor = UIColor.clear
         return cell
     }
 
