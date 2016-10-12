@@ -6,7 +6,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     let dateAttributes: DateAttributes = DateAttributes()
     let dateManager: DateManager = DateManager()
     let daysPerWeek: Int = 7
-    let cellMargin: CGFloat = 1.0 //2.0
+    let cellMargin: CGFloat = -9.0
     var selectedDate: Date = Date()
     var today: Date!
     let weekArray: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
@@ -84,6 +84,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         //テキスト配置
         if (indexPath.section == 0) {
             cell.textLabel.text = weekArray[indexPath.row]
+            cell.textLabel.font = UIFont(name: "HiraKakuProN-W3", size: 10.0)
         } else {
             cell.textLabel.text = dateManager.conversionDateFormat(indexPath)
             if dateAttributes.isThisMonth(day: cell.textLabel.text!, row:indexPath.row) {
@@ -100,20 +101,41 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     //セルのサイズを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //let numberOfMargin: CGFloat = 8.0  //8.0
-        let width: CGFloat = (collectionView.frame.size.width) / CGFloat(daysPerWeek + 1)
+        let width: CGFloat = (collectionView.frame.size.width) / CGFloat(daysPerWeek)
+        let height: CGFloat // 正方形にしなくても良さそう
 
-        let height: CGFloat = width// 正方形にしなくても良さそう
+        // 曜日の部分のみセルの大きさを小さくする
+        if (indexPath.section == 0) {
+            height = width * 0.6
+        } else {
+            height = width
+        }
+
+        appDelegate.calendarCellWidth = width
+        appDelegate.calendarCellHeight = height
+
         return CGSize(width: width, height: height)
     }
 
     //セルの垂直方向のマージンを設定
-    //func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    //    return cellMargin
-    //}
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return cellMargin
+    }
 
     //セルの水平方向のマージンを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return cellMargin
+        return 0
+    }
+
+    // テキスト内のマージン設定
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+        // 曜日のセルの部分のみ、文字を上部に表示されるようにする
+        if (section == 0){
+            return UIEdgeInsets(top: appDelegate.calendarCellHeight! * (-0.25), left: 0, bottom: 0, right: 0)
+        } else {
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }
     }
 
     // cellをtapした直後のアクション
