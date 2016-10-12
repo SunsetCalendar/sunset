@@ -98,7 +98,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="raw-TQ-c9E" id="5Vy-z7-txt">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -162,7 +162,7 @@
                                             <constraint firstItem="oki-HS-8Dw" firstAttribute="top" secondItem="2s2-0S-kTH" secondAttribute="top" id="xJM-R3-bUE"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="hexImageView" destination="oki-HS-8Dw" id="X7H-yw-FSF"/>
+                                            <outlet property="circleImageView" destination="oki-HS-8Dw" id="yfY-xD-8Wj"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

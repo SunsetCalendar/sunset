@@ -142,7 +142,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (indexPath.section != 0) {
             let cell : CalendarCell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
-            cell.hexImageView.image = UIImage(named: "hexagon")
+            cell.circleImageView.image = UIImage(named: "circle")
         }
 
         let day = dateManager.ShowDayIfInThisMonth(indexPath.row)
@@ -158,7 +158,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     // タップしたcellの前のcellに対するアクション
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell : CalendarCell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
-        cell.hexImageView.image = nil
+        cell.circleImageView.image = nil
     }
 
     //headerの月を変更

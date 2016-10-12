@@ -2,7 +2,7 @@ import UIKit
 
 class CalendarCell: UICollectionViewCell {
 
-    @IBOutlet weak var hexImageView: UIImageView!
+    @IBOutlet weak var circleImageView: UIImageView!
 
     var textLabel: UILabel!
 
@@ -23,7 +23,7 @@ class CalendarCell: UICollectionViewCell {
     }
 
     override func prepareForReuse() {
-        self.hexImageView.image = nil
+        self.circleImageView.image = nil
         self.textLabel.font = UIFont(name: "HirakakuProN-W3", size: 11.5)
     }
 }
