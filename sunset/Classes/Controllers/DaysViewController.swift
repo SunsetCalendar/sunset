@@ -4,7 +4,6 @@ class DaysViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     let weekArray: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     let daysPerWeek: Int = 7
-    let cellMargin: CGFloat = -9.0
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
     @IBOutlet weak var daysCollectionView: UICollectionView!
