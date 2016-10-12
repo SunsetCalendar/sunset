@@ -2,6 +2,8 @@ import XCTest
 
 class webviewUITests: XCTestCase {
 
+    let formatter = DateFormatter()
+
     override func setUp() {
         super.setUp()
 
@@ -19,8 +21,13 @@ class webviewUITests: XCTestCase {
     func testShowMicroposts() {
         let app = XCUIApplication()
 
+        formatter.dateFormat = "MMM yyyy"
+        let nowDate: String = formatter.string(from: Date())
+
+
+
         // テスト時、保存する前に画面を描写してくれないので、一度再描写させるために月を移動する
-        app.collectionViews.element.swipeRight()
+        app.navigationBars[nowDate].buttons["←"].tap()
         app.tables.staticTexts["Apple"].tap()
 
         let about = app.staticTexts["ORPHEUS"]
