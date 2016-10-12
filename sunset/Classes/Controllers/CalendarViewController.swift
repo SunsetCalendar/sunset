@@ -63,7 +63,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCell
+        let cell: CalendarCell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCell
         //テキストカラー
         if (indexPath.row % 7 == 0) {
             cell.textLabel.textColor = UIColor.red
@@ -105,11 +105,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         return 0
     }
 
-    // テキスト内のマージン設定
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
-
     // cellをtapした直後のアクション
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell : CalendarCell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
@@ -135,9 +130,9 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     func changeHeaderTitle(_ date: Date) -> String {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = "MMM yyyy"
-        let selectMonth = formatter.string(from: date)
+        let selectMonth: String = formatter.string(from: date)
         formatter.dateFormat = "yyyy-MM"
-        let Month4Calc = formatter.string(from: date)
+        let Month4Calc: String = formatter.string(from: date)
         updateTargetDate(date: Month4Calc)
         return selectMonth
     }

@@ -28,13 +28,12 @@ class DaysViewController: UIViewController, UICollectionViewDataSource, UICollec
         return 1
     }
 
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 7
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "daysCell", for: indexPath) as! CalendarCell
+        let cell: CalendarCell = collectionView.dequeueReusableCell(withReuseIdentifier: "daysCell", for: indexPath) as! CalendarCell
 
         if (indexPath.row % 7 == 0) {
             cell.textLabel.textColor = UIColor.red
