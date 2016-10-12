@@ -1,5 +1,6 @@
 import UIKit
 
+@IBDesignable
 class ViewController: UIViewController {
 
     @IBOutlet weak var headerPrevBtn: UIBarButtonItem!
@@ -9,7 +10,9 @@ class ViewController: UIViewController {
     let formatter = DateFormatter()
     let TapPrevBtnNotification = Notification.Name("TapPrevBtn")
     let TapNextBtnNotification = Notification.Name("TapNextBtn")
-    let gradationView: GradationView = GradationView(topColor: UIColor.darkOrange(), bottomColor: UIColor.lightIndigo())
+    @IBInspectable var top: UIColor = UIColor.darkOrange()
+    @IBInspectable var bottom: UIColor = UIColor.lightIndigo()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +26,9 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
 
+        let gradationView: GradationView = GradationView(topColor: top, bottomColor: bottom)
         gradationView.addGradation(view: self.view)
     }
 
