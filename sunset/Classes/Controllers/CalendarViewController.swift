@@ -16,7 +16,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     let dateAttributes: DateAttributes = DateAttributes()
     let dateManager: DateManager = DateManager()
     let daysPerWeek: Int = 7
-    let cellMargin: CGFloat = -8.0
+    let cellMargin: CGFloat = -9.0
     var selectedDate: Date = Date()
     var today: Date!
     let weekArray: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
