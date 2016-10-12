@@ -24,8 +24,6 @@ class webviewUITests: XCTestCase {
         formatter.dateFormat = "MMM yyyy"
         let nowDate: String = formatter.string(from: Date())
 
-
-
         // テスト時、保存する前に画面を描写してくれないので、一度再描写させるために月を移動する
         app.navigationBars[nowDate].buttons["←"].tap()
         app.tables.staticTexts["Apple"].tap()
