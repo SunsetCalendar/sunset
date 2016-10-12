@@ -1,16 +1,6 @@
 import UIKit
 import CoreData
 
-extension UIColor {
-    class func lightBlue() -> UIColor {
-        return UIColor(red: 92.0 / 255, green: 192.0 / 255, blue: 210.0 / 255, alpha: 1.0)
-    }
-
-    class func lightRed() -> UIColor {
-        return UIColor(red: 195.0 / 255, green: 123.0 / 255, blue: 175.0 / 255, alpha: 1.0)
-    }
-}
-
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     let dateAttributes: DateAttributes = DateAttributes()
@@ -51,7 +41,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
-        calendarCollectionView.backgroundColor = UIColor.white
+        calendarCollectionView.backgroundColor = UIColor.clear
+        self.view.backgroundColor = UIColor.clear
 
         let TapPrevBtnNotification = Notification.Name("TapPrevBtn")
         let TapNextBtnNotification = Notification.Name("TapNextBtn")
@@ -83,11 +74,11 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCell
         //テキストカラー
         if (indexPath.row % 7 == 0) {
-            cell.textLabel.textColor = UIColor.lightRed()
+            cell.textLabel.textColor = UIColor.red
         } else if (indexPath.row % 7 == 6) {
-            cell.textLabel.textColor = UIColor.lightBlue()
+            cell.textLabel.textColor = UIColor.blue
         } else {
-            cell.textLabel.textColor = UIColor.gray
+            cell.textLabel.textColor = UIColor.white
         }
 
         //テキスト配置
