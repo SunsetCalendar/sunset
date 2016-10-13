@@ -22,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             let fetchData: [Post] = realm.objects(Post.self).map{$0}
             for post in fetchData {
-                realm.delete(post)
+                try! realm.write() {
+                    realm.delete(post)
+                }
             }
             
             // 取ってくるやつに合わせる
