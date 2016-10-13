@@ -25,5 +25,7 @@ class CalendarCell: UICollectionViewCell {
     override func prepareForReuse() {
         self.circleImageView.image = nil
         self.textLabel.font = UIFont(name: "HirakakuProN-W3", size: 11.5)
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.prevIndexPath = nil
     }
 }
