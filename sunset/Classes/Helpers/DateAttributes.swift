@@ -1,5 +1,4 @@
 import UIKit
-import CoreData
 import RealmSwift
 
 class DateAttributes {
@@ -15,16 +14,12 @@ class DateAttributes {
         }
         
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let managedObjectContext = appDelegate.persistentContainer.viewContext
-//        let fetchRequest: NSFetchRequest<Post> = Post.fetchRequest()
 
         let year: String = (appDelegate.targetDate?.components(separatedBy: "-")[0])!
         let month: String = (appDelegate.targetDate?.components(separatedBy: "-")[1])!
         let date: String = year + "-" + month + "-" + day
-//        let predicate: NSPredicate = NSPredicate(format: "created_at BEGINSWITH %@", date)
-//        fetchRequest.predicate = predicate
         let fetchData: [Post] = realm.objects(Post.self).filter("created_at BEGINSWITH %@", date).map{$0}
-//        let fetchData = try! managedObjectContext.fetch(fetchRequest)
+
         if fetchData.count == 0 {
             return false
         } else {

@@ -19,12 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (ProcessInfo.processInfo.arguments.contains("STUB_HTTP_ENDPOINTS")) {
             let formatter: DateFormatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
-//            let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-//            let container = appDelegate.persistentContainer
-//            let managedObjectContext = container.viewContext
-//            
-//            let fetchRequest:NSFetchRequest<Post> = Post.fetchRequest()
-//            let fetchData = try! managedObjectContext.fetch(fetchRequest)
 
             let fetchData: [Post] = realm.objects(Post.self).map{$0}
             for post in fetchData {
@@ -42,9 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 )
             }
         }
-
-        print("app delegate")
-        Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 0)
 
         return true
     }
