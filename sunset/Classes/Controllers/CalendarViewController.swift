@@ -105,7 +105,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     // cellをtapした直後のアクション
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var cell: CalendarCell
         // 初回タップ
         if (appDelegate.prevIndexPath == nil) {
             if (dateManager.ShowDayIfInThisMonth(indexPath.row) != "") {
@@ -116,11 +115,11 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         } else {
             if (dateManager.ShowDayIfInThisMonth(indexPath.row) != "") {
                 // Deselectの役割
-                cell = collectionView.cellForItem(at: appDelegate.prevIndexPath!)! as! CalendarCell
+                let cell: CalendarCell = collectionView.cellForItem(at: appDelegate.prevIndexPath!)! as! CalendarCell
                 cell.circleImageView.image = nil
-                appDelegate.prevIndexPath = indexPath
                 addCircleToCell(collectionView, indexPath: indexPath)
-                }
+                appDelegate.prevIndexPath = indexPath
+            }
         }
         
         let day = dateManager.ShowDayIfInThisMonth(indexPath.row)
@@ -128,7 +127,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             let year: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[0])!
             let month: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[1])!
             self.appDelegate.targetDate = year + "-" + month + "-" + day
-        
+
             NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
         }
     }
@@ -165,7 +164,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     // 選択されたセルに円を付与する
     func addCircleToCell(_ collectionView: UICollectionView, indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
+        let cell: CalendarCell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
         cell.circleImageView.image = UIImage(named: "circle")
     }
 }
