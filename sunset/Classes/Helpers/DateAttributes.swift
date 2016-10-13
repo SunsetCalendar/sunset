@@ -26,18 +26,16 @@ class DateAttributes {
             return true
         }
     }
-    
-    // 表示されている日がその月のものかどうかを返す
-    func isThisMonth(day: String, row: Int) -> Bool {
-        if (row < 7) {
-            if (Int(day)! > 7) {
-                return false
-            } else if (row > 28) {
-                if (Int(day)! < 7) {
-                    return false
-                }
-            }
+
+    // 曜日の色の振り分け
+    func choiceDaysColor(row: Int) -> UIColor {
+        switch (row % 7) {
+        case 0:
+            return UIColor.red
+        case 6:
+            return UIColor.blue
+        default:
+            return UIColor.white
         }
-        return true
     }
 }
