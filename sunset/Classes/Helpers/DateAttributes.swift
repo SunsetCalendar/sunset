@@ -9,7 +9,7 @@ class DateAttributes {
     func existPosts(dayLabel: String) -> Bool {
         var day: String = dayLabel
         // 1桁の場合、接頭辞として'0'を付与
-        if dayLabel.characters.count == 1 {
+        if (dayLabel.characters.count == 1) {
             day = "0" + dayLabel
         }
         
@@ -20,7 +20,7 @@ class DateAttributes {
         let date: String = year + "-" + month + "-" + day
         let fetchData: [Post] = realm.objects(Post.self).filter("created_at BEGINSWITH %@", date).map{$0}
 
-        if fetchData.count == 0 {
+        if (fetchData.count == 0) {
             return false
         } else {
             return true
