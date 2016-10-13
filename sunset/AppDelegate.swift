@@ -10,6 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var targetDate: String?
     var calendarCellWidth: CGFloat?
     var calendarCellHeight: CGFloat?
+    var prevIndexPath: IndexPath?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
