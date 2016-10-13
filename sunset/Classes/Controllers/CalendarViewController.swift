@@ -65,23 +65,21 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CalendarCell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCell
         //テキストカラー
-        if (indexPath.row % 7 == 0) {
-            cell.textLabel.textColor = UIColor.red
-        } else if (indexPath.row % 7 == 6) {
-            cell.textLabel.textColor = UIColor.blue
-        } else {
-            cell.textLabel.textColor = UIColor.white
-        }
+        cell.textLabel.textColor = dateAttributes.choiceDaysColor(row: indexPath.row)
+        let day: String = dateManager.ShowDayIfInThisMonth(indexPath.row)
+        // その月の日付かどうかの振り分け
+        switch day {
+        case "":
+            cell.textLabel.text = ""
+        default:
+            cell.textLabel.text = dateManager.conversionDateFormat(indexPath)
 
-        cell.textLabel.text = dateManager.conversionDateFormat(indexPath)
-        if dateAttributes.isThisMonth(day: cell.textLabel.text!, row:indexPath.row) {
-            if dateAttributes.existPosts(dayLabel: cell.textLabel.text!) {
+            if (dateAttributes.existPosts(dayLabel: cell.textLabel.text!)) {
                 // 投稿があった日は太字 + 色を黒くする
                 cell.textLabel.font = UIFont(name: "HiraKakuProN-W6", size: 11.5)
                 cell.textLabel.textColor = UIColor.black
             }
         }
-
         return cell
     }
 
@@ -107,23 +105,31 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     // cellをtapした直後のアクション
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell : CalendarCell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
-        cell.circleImageView.image = UIImage(named: "circle")
-
+        // 初回タップ
+        if (appDelegate.prevIndexPath == nil) {
+            if (dateManager.ShowDayIfInThisMonth(indexPath.row) != "") {
+                addCircleToCell(collectionView, indexPath: indexPath)
+                appDelegate.prevIndexPath = indexPath
+            }
+        // 2回目以降
+        } else {
+            if (dateManager.ShowDayIfInThisMonth(indexPath.row) != "") {
+                // Deselectの役割
+                let cell: CalendarCell = collectionView.cellForItem(at: appDelegate.prevIndexPath!)! as! CalendarCell
+                cell.circleImageView.image = nil
+                addCircleToCell(collectionView, indexPath: indexPath)
+                appDelegate.prevIndexPath = indexPath
+            }
+        }
+        
         let day = dateManager.ShowDayIfInThisMonth(indexPath.row)
         if (day != "") {
             let year: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[0])!
             let month: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[1])!
             self.appDelegate.targetDate = year + "-" + month + "-" + day
+
+            NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
         }
-
-        NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
-    }
-
-    // タップしたcellの前のcellに対するアクション
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell : CalendarCell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
-        cell.circleImageView.image = nil
     }
 
     //headerの月を変更
@@ -154,5 +160,11 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         selectedDate = dateManager.nextMonth(selectedDate)
         self.parent?.title = changeHeaderTitle(selectedDate)
         calendarCollectionView.reloadData()
+    }
+
+    // 選択されたセルに円を付与する
+    func addCircleToCell(_ collectionView: UICollectionView, indexPath: IndexPath) {
+        let cell: CalendarCell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
+        cell.circleImageView.image = UIImage(named: "circle")
     }
 }
