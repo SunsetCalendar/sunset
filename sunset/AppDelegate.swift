@@ -1,6 +1,5 @@
 import UIKit
 import OHHTTPStubs
-//import CoreData
 import RealmSwift
 
 @UIApplicationMain
@@ -39,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 )
             }
         }
-
         return true
     }
 
