@@ -115,6 +115,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         // 2回目以降
         } else {
             if (dateManager.ShowDayIfInThisMonth(indexPath.row) != "") {
+                // Deselectの役割
                 cell = collectionView.cellForItem(at: appDelegate.prevIndexPath!)! as! CalendarCell
                 cell.circleImageView.image = nil
                 appDelegate.prevIndexPath = indexPath
@@ -162,6 +163,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         calendarCollectionView.reloadData()
     }
 
+    // 選択されたセルに円を付与する
     func addCircleToCell(_ collectionView: UICollectionView, indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
         cell.circleImageView.image = UIImage(named: "circle")
