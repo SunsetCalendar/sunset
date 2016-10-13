@@ -72,16 +72,21 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         } else {
             cell.textLabel.textColor = UIColor.white
         }
+        let day: String = dateManager.ShowDayIfInThisMonth(indexPath.row)
+        switch day {
+        case "":
+            cell.textLabel.text = ""
+        default:
+            cell.textLabel.text = dateManager.conversionDateFormat(indexPath)
 
-        cell.textLabel.text = dateManager.conversionDateFormat(indexPath)
-        if dateAttributes.isThisMonth(day: cell.textLabel.text!, row:indexPath.row) {
-            if dateAttributes.existPosts(dayLabel: cell.textLabel.text!) {
-                // 投稿があった日は太字 + 色を黒くする
-                cell.textLabel.font = UIFont(name: "HiraKakuProN-W6", size: 11.5)
-                cell.textLabel.textColor = UIColor.black
+            if dateAttributes.isThisMonth(day: cell.textLabel.text!, row:indexPath.row) {
+                if dateAttributes.existPosts(dayLabel: cell.textLabel.text!) {
+                    // 投稿があった日は太字 + 色を黒くする
+                    cell.textLabel.font = UIFont(name: "HiraKakuProN-W6", size: 11.5)
+                    cell.textLabel.textColor = UIColor.black
+                }
             }
         }
-
         return cell
     }
 
@@ -107,23 +112,31 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     // cellをtapした直後のアクション
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell : CalendarCell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
-        cell.circleImageView.image = UIImage(named: "circle")
-
+        var cell: CalendarCell
+        // 初回タップ
+        if (appDelegate.prevIndexPath == nil) {
+            if (dateManager.ShowDayIfInThisMonth(indexPath.row) != "") {
+                addCircleToCell(collectionView, indexPath: indexPath)
+                appDelegate.prevIndexPath = indexPath
+            }
+        // 2回目以降
+        } else {
+            if (dateManager.ShowDayIfInThisMonth(indexPath.row) != "") {
+                cell = collectionView.cellForItem(at: appDelegate.prevIndexPath!)! as! CalendarCell
+                cell.circleImageView.image = nil
+                appDelegate.prevIndexPath = indexPath
+                addCircleToCell(collectionView, indexPath: indexPath)
+                }
+        }
+        
         let day = dateManager.ShowDayIfInThisMonth(indexPath.row)
         if (day != "") {
             let year: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[0])!
             let month: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[1])!
             self.appDelegate.targetDate = year + "-" + month + "-" + day
+        
+            NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
         }
-
-        NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
-    }
-
-    // タップしたcellの前のcellに対するアクション
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell : CalendarCell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
-        cell.circleImageView.image = nil
     }
 
     //headerの月を変更
@@ -154,5 +167,10 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         selectedDate = dateManager.nextMonth(selectedDate)
         self.parent?.title = changeHeaderTitle(selectedDate)
         calendarCollectionView.reloadData()
+    }
+
+    func addCircleToCell(_ collectionView: UICollectionView, indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)! as! CalendarCell
+        cell.circleImageView.image = UIImage(named: "circle")
     }
 }
