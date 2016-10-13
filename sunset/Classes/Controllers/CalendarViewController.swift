@@ -65,26 +65,19 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CalendarCell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCell
         //テキストカラー
-        if (indexPath.row % 7 == 0) {
-            cell.textLabel.textColor = UIColor.red
-        } else if (indexPath.row % 7 == 6) {
-            cell.textLabel.textColor = UIColor.blue
-        } else {
-            cell.textLabel.textColor = UIColor.white
-        }
+        cell.textLabel.textColor = dateAttributes.choiceDaysColor(row: indexPath.row)
         let day: String = dateManager.ShowDayIfInThisMonth(indexPath.row)
+        // その月の日付かどうかの振り分け
         switch day {
         case "":
             cell.textLabel.text = ""
         default:
             cell.textLabel.text = dateManager.conversionDateFormat(indexPath)
 
-            if dateAttributes.isThisMonth(day: cell.textLabel.text!, row:indexPath.row) {
-                if dateAttributes.existPosts(dayLabel: cell.textLabel.text!) {
-                    // 投稿があった日は太字 + 色を黒くする
-                    cell.textLabel.font = UIFont(name: "HiraKakuProN-W6", size: 11.5)
-                    cell.textLabel.textColor = UIColor.black
-                }
+            if (dateAttributes.existPosts(dayLabel: cell.textLabel.text!)) {
+                // 投稿があった日は太字 + 色を黒くする
+                cell.textLabel.font = UIFont(name: "HiraKakuProN-W6", size: 11.5)
+                cell.textLabel.textColor = UIColor.black
             }
         }
         return cell
