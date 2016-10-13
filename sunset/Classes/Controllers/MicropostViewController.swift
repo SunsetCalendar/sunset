@@ -1,5 +1,6 @@
 import UIKit
-import CoreData
+//import CoreData
+import RealmSwift
 
 class MicropostViewController: UITableViewController {
 
@@ -40,12 +41,12 @@ class MicropostViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        var posts = filterPosts(date: self.appDelegate.targetDate!)
+        let posts: [Post] = filterPosts(date: self.appDelegate.targetDate!)
         appDelegate.micropostId = String(posts[indexPath.row].micropost_id)
     }
 
     private func updateCell(_ cell: UITableViewCell, indexPath: IndexPath) {
-        var posts = filterPosts(date: self.appDelegate.targetDate!)
+        let posts: [Post] = filterPosts(date: self.appDelegate.targetDate!)
         cell.textLabel?.text = posts[indexPath.row].content
     }
 
@@ -54,37 +55,53 @@ class MicropostViewController: UITableViewController {
     }
     
     private func savePosts() {
-        let container = self.appDelegate.persistentContainer
-        let managedObjectContext = container.viewContext
-        managedObjectContext.mergePolicy = NSRollbackMergePolicy
+//        let container = self.appDelegate.persistentContainer
+//        let managedObjectContext = container.viewContext
+//        managedObjectContext.mergePolicy = NSRollbackMergePolicy
+//        let realm: Realm = try! Realm()
+        var config = Realm.Configuration()
+        print(config.description)
+        print(config.encryptionKey)
+        print(config.inMemoryIdentifier)
+        print(config.migrationBlock)
+        print(config.objectTypes)
+        print(config.readOnly)
+        print(config.schemaVersion)
         
+        // 初期化
+        let realm = try! Realm(configuration: config)
+
         Micropost.fetchMicroposts { microposts in
             
             for micropost in microposts {
-                
-                let post = NSEntityDescription.insertNewObject(forEntityName: "Post", into: managedObjectContext) as! Post
-                post.content = micropost.content
-                post.created_at = micropost.created_at
-                post.micropost_id = micropost.id
-                
+                print("before post")
+//                let post = NSEntityDescription.insertNewObject(forEntityName: "Post", into: managedObjectContext) as! Post
+                let post: Post = Post(value: ["micropost_id": micropost.id, "content": micropost.content, "created_at": micropost.created_at])
+                print("after post")
                 do {
-                    try managedObjectContext.save()
+                    try realm.write() {
+                        print("saved")
+                        realm.add(post, update: true)
+                    }
                 } catch {
                     let error = error as NSError
-                    print("\(error), \(error.userInfo)")
+                    print("error message: \(error), \(error.userInfo)")
                 }
             }
         }
     }
     
     private func filterPosts(date: String) -> [Post] {
-        let container = self.appDelegate.persistentContainer
-        let managedObjectContext = container.viewContext
-        let fetchRequest:NSFetchRequest<Post> = Post.fetchRequest()
+        let realm: Realm = try! Realm()
+//        let container = self.appDelegate.persistentContainer
+//        let managedObjectContext = container.viewContext
+//        let fetchRequest:NSFetchRequest<Post> = Post.fetchRequest()
         // 日付で前方一致をかけて検索 (保存されている日付の形式が "2016-01-01T12:00:00" のため)
-        let predicate = NSPredicate(format: "created_at BEGINSWITH %@", date)
-        fetchRequest.predicate = predicate
-        let fetchData = try! managedObjectContext.fetch(fetchRequest)
+//        let predicate = NSPredicate(format: "created_at BEGINSWITH %@", date)
+//        fetchRequest.predicate = predicate
+//        let fetchData = try! managedObjectContext.fetch(fetchRequest)
+
+        let fetchData: [Post] = realm.objects(Post.self).filter("created_at BEGINSWITH %@", date).map{$0}
         return fetchData
     }
     
@@ -95,3 +112,4 @@ class MicropostViewController: UITableViewController {
         return today
     }
 }
+
