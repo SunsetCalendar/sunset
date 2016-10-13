@@ -76,8 +76,10 @@ class MicropostViewController: UITableViewController {
             for micropost in microposts {
                 print("before post")
 //                let post = NSEntityDescription.insertNewObject(forEntityName: "Post", into: managedObjectContext) as! Post
-                let post: Post = Post(value: ["micropost_id": micropost.id, "content": micropost.content, "created_at": micropost.created_at])
-                print("after post")
+                let post: Post = Post()
+                post.micropost_id = micropost.id
+                post.content = micropost.content
+                post.created_at = micropost.created_at
                 do {
                     try realm.write() {
                         print("saved")
