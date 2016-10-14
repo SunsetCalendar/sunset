@@ -3,9 +3,9 @@ import UIKit
 @IBDesignable
 class ViewController: UIViewController {
 
-    @IBOutlet weak var headerPrevBtn: UIBarButtonItem!
-    @IBOutlet weak var headerNextBtn: UIBarButtonItem!
 
+    @IBOutlet weak var headerPrevBtn: UIButton!
+    @IBOutlet weak var headerNextBtn: UIButton!
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let formatter = DateFormatter()
     let TapPrevBtnNotification = Notification.Name("TapPrevBtn")
