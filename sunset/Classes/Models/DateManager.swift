@@ -89,14 +89,10 @@ class DateManager: NSObject {
 
         let date: Int = Int(formatter.string(from: currentMonthOfDates[row]))!
 
-        if (row < 7) {
-            if (date > 7) {
-                return ""
-            }
-        } else if (row > 27) {
-            if (date <= 13) {
-                return ""
-            }
+        if (row < 7 && date > 7) {
+            return ""
+        } else if (row > 27 && date <= 13) {
+            return ""
         }
         
         return String(date)
