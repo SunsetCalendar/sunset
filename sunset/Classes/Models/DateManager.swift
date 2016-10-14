@@ -27,10 +27,12 @@ class DateManager: NSObject {
     
     //月ごとのセルの数を返すメソッド
     func daysAcquisition() -> Int {
-        let rangeOfWeeks = Calendar.current.range(of: Calendar.Component.weekOfMonth, in: Calendar.Component.month, for: firstDateOfMonth())!
+//        let rangeOfWeeks = Calendar.current.range(of: Calendar.Component.weekOfMonth, in: Calendar.Component.month, for: firstDateOfMonth())!
+
         //let numberOfWeeks = rangeOfWeeks.length //月が持つ週の数
-        let numberOfWeeks = rangeOfWeeks.count //月が持つ週の数
-        
+//        let numberOfWeeks = rangeOfWeeks.count //月が持つ週の数
+        let numberOfWeeks = 6
+
         numberOfItems = numberOfWeeks * daysPerWeek //週の数×列の数
         return numberOfItems
     }
@@ -97,8 +99,8 @@ class DateManager: NSObject {
             }
         }
             
-        else if row > 28 {
-            if Int(formatter.string(from: currentMonthOfDates[row]))! <= 7 {
+        else if row > 27 {
+            if Int(formatter.string(from: currentMonthOfDates[row]))! <= 13 {
                 return ""
             }
         }
