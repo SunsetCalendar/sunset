@@ -4,7 +4,7 @@
 plugin 'cocoapods-keys', {
   :project => 'sunset',
   :keys => [
-    'APIKey',
+    'APIKEY',
     'BUILDSECRET',
     'consumerKey',
     'consumerSecret'
