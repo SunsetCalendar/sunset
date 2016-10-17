@@ -486,7 +486,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\nif [ -e .env ]; then\n    source .env\nfi\nAPIKey=\"${APIKey}\"\nBUILDSECRET=\"${BUILDSECRET}\"\n${PODS_ROOT}/Fabric/run ${APIKey} {$BUILDSECRET}";
 		};
 		378FF770A20278BDCDE64B69 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
