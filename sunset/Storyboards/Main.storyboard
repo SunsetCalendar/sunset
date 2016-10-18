@@ -133,7 +133,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KNt-HZ-kcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3056.8000000000002" y="441.67916041979015"/>
+            <point key="canvasLocation" x="2118" y="442"/>
         </scene>
         <!--WebView-->
         <scene sceneID="kLI-nM-Aib">
@@ -280,7 +280,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bXM-Lr-IHi"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunset_splash" translatesAutoresizingMaskIntoConstraints="NO" id="bXM-Lr-IHi"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -318,4 +318,7 @@
             <point key="canvasLocation" x="-617" y="96"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="sunset_splash" width="375" height="667"/>
+    </resources>
 </document>
