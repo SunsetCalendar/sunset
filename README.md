@@ -13,6 +13,7 @@
 ### Cocoapods, Cocoapods-keys
 
 1. リポジトリのルートにて`bundle install`
+2. `pod install`
 
 ### 各種キーについて
 
