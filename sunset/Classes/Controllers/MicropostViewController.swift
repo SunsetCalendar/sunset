@@ -3,15 +3,15 @@ import RealmSwift
 
 class MicropostViewController: UITableViewController {
 
-    var microposts: [Micropost] = []
+    var tweets: [Tweet] = []
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let realm: Realm = try! Realm()
+    let twitterApi = APIClient()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         savePosts()
-
         self.view.backgroundColor = UIColor.clear
         
         // targetDateの初期値 (今日の日付) をセット
@@ -41,13 +41,14 @@ class MicropostViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let posts: [Post] = filterPosts(date: self.appDelegate.targetDate!)
-        appDelegate.micropostId = String(posts[indexPath.row].micropost_id)
+        let tweets: [Tweet] = filterPosts(date: self.appDelegate.targetDate!)
+        appDelegate.tweetID = tweets[indexPath.row].tweet_id
+        appDelegate.userID = tweets[indexPath.row].user_id
     }
 
     private func updateCell(_ cell: UITableViewCell, indexPath: IndexPath) {
-        let posts: [Post] = filterPosts(date: self.appDelegate.targetDate!)
-        cell.textLabel?.text = posts[indexPath.row].content
+        let tweets: [Tweet] = filterPosts(date: self.appDelegate.targetDate!)
+        cell.textLabel?.text = tweets[indexPath.row].content
     }
 
     @objc func updateView(_ notification: Notification) {
@@ -55,29 +56,37 @@ class MicropostViewController: UITableViewController {
     }
     
     private func savePosts() {
-        Micropost.fetchMicroposts { microposts in
-            
-            for micropost in microposts {
-                let post: Post = Post()
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
-                post.micropost_id = micropost.id
-                post.content = micropost.content
-                post.created_at = micropost.created_at
+        twitterApi.getHomeTimeLine(tweets: {
+            tws in
+            for tw in tws {
+                let tweet: Tweet = Tweet()
+                tweet.content = tw.text
+                tweet.created_at = formatter.string(from: tw.createdAt)
+                tweet.user_id = String(describing: tw.author).components(separatedBy: "@")[1]
+                tweet.tweet_id = tw.tweetID
 
                 do {
                     try self.realm.write() {
-                        self.realm.add(post, update: true)
+                        self.realm.add(tweet, update: true)
                     }
                 } catch {
                     let error = error as NSError
                     print("error: \(error), \(error.userInfo)")
                 }
+
             }
-        }
+            }, error: { error in
+                print(error)
+            }
+        )
     }
-    
-    private func filterPosts(date: String) -> [Post] {
-        let fetchData: [Post] = realm.objects(Post.self).filter("created_at BEGINSWITH %@", date).map{$0}
+
+    private func filterPosts(date: String) -> [Tweet] {
+        let fetchData: [Tweet] = realm.objects(Tweet.self).filter("created_at BEGINSWITH %@", date).map{$0}
         return fetchData
     }
     

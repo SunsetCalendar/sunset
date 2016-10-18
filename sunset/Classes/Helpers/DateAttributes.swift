@@ -18,7 +18,7 @@ class DateAttributes {
         let year: String = (appDelegate.targetDate?.components(separatedBy: "-")[0])!
         let month: String = (appDelegate.targetDate?.components(separatedBy: "-")[1])!
         let date: String = year + "-" + month + "-" + day
-        let fetchData: [Post] = realm.objects(Post.self).filter("created_at BEGINSWITH %@", date).map{$0}
+        let fetchData: [Tweet] = realm.objects(Tweet.self).filter("created_at BEGINSWITH %@", date).map{$0}
 
         if (fetchData.count == 0) {
             return false
