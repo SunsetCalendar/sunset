@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var calendarCellWidth: CGFloat?
     var calendarCellHeight: CGFloat?
     let realm: Realm = try! Realm()
-    let sunsetKeys = SunsetKeys()
+    let sunsetKeys: SunsetKeys = SunsetKeys()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
