@@ -4,9 +4,7 @@ import RealmSwift
 
 class APIClient {
     
-    let realm: Realm = try! Realm()
-
-    func getHomeTimeLine(tweets: @escaping ([TWTRTweet]) -> (), error: @escaping (Error) -> ()) {
+    class func fetchUserTimeLine(tweets: @escaping ([TWTRTweet]) -> ()) {
         let client = TWTRAPIClient(userID:  Twitter.sharedInstance().sessionStore.session()?.userID)
         
         var clientError: NSError?
@@ -23,7 +21,7 @@ class APIClient {
                     tweets(TWTRTweet.tweets(withJSONArray: jsonArray as [AnyObject]) as! [TWTRTweet])
                 }
             } else {
-                error(err!)
+                print(err!)
             }
         })
         

@@ -59,7 +59,7 @@ class MicropostViewController: UITableViewController {
         formatter.locale = Locale(identifier: "ja_JP")
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
-        APIClient.getHomeTimeLine(tweets: {
+        APIClient.fetchUserTimeLine(tweets: {
             tws in
             for tw in tws {
                 let tweet: Tweet = Tweet()
