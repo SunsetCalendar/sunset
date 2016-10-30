@@ -10,6 +10,15 @@ class LoginViewController: UIViewController {
         // ナビゲーションバー隠す
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
+        let loginButton = TWTRLogInButton(logInCompletion: {
+            session, error in
+            if session != nil {
+                self.performSegue(withIdentifier: "showMain", sender: nil)
+            } else {
+                print(error?.localizedDescription)
+            }
+        })
+
         Twitter.sharedInstance().logIn(completion: {
             session, error in
             // ログインセッションが残っていたら、そのままメイン画面へ飛ばす
@@ -18,21 +27,12 @@ class LoginViewController: UIViewController {
             
             // ログインしてなかったら、ログインびたんを表示した画面を挟む
             } else {
-                let loginButton = TWTRLogInButton(logInCompletion: {
-                    session, error in
-                    if session != nil {
-                        self.performSegue(withIdentifier: "showMain", sender: nil)
-                    } else {
-                        print(error?.localizedDescription)
-                    }
-                })
                 loginButton.center = self.view.center
                 self.view.addSubview(loginButton)
-                
             }
         })
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
