@@ -42,17 +42,14 @@ class sunsetUITests: XCTestCase {
         
         var calendarShortened = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         
-        if check == "+" {
-            if month == "Dec" {
+        if (check == "+") {
+            if (month == "Dec") {
                 return "Jan " + String(year + 1)
-            }
-            else {
+            } else {
                 return calendarShortened[calendarShortened.index(of: month)! + 1] + " " + String(year)
             }
-        }
-
-        else {
-            if month == "Jan" {
+        } else {
+            if (month == "Jan") {
                 return "Dec " + String(year - 1)
             }
             else {
