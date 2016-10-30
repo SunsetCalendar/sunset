@@ -30,18 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     realm.delete(tweet)
                 }
             }
-            
-            // 取ってくるやつに合わせる
-            let suffix: String = "T99-99-99"
-            
-            stub(condition: isScheme("https") && isHost("asuforce.xyz") && isPath("/api/users/5") && isMethodGET()){ _ in
-                return OHHTTPStubsResponse(
-                    jsonObject: ["feeds" : [["content" : "Test Post", "created_at": formatter.string(from: Date()) + suffix, "id": 9999], ["content": "Apple", "created_at": formatter.string(from: Date().monthAgoDate()) + suffix, "id": 5]]],
-                    statusCode: 200,
-                    headers: nil
-                )
-            }
         }
+
         Twitter.sharedInstance().start(withConsumerKey: self.sunsetKeys.consumerKey(), consumerSecret: self.sunsetKeys.consumerSecret())
         Fabric.with([Twitter.self])
         return true
