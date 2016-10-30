@@ -2,13 +2,15 @@
 # platform :ios, '9.0'
 
 plugin 'cocoapods-keys', {
-  :project => 'sunset',
+  :project => ['sunset', 'sunsetUITests'],
   :keys => [
     'APIKEY',
     'BUILDSECRET',
     'consumerKey',
-    'consumerSecret'
-  ]
+    'consumerSecret',
+    'testUserName',
+    'testPassWord'
+   ] 
 }
 
 target 'sunset' do
