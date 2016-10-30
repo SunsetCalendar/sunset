@@ -6,7 +6,6 @@ class MicropostViewController: UITableViewController {
     var tweets: [Tweet] = []
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let realm: Realm = try! Realm()
-    let twitterApi = APIClient()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,13 +59,13 @@ class MicropostViewController: UITableViewController {
         formatter.locale = Locale(identifier: "ja_JP")
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
-        twitterApi.getHomeTimeLine(tweets: {
+        APIClient.getHomeTimeLine(tweets: {
             tws in
             for tw in tws {
                 let tweet: Tweet = Tweet()
                 tweet.content = tw.text
                 tweet.created_at = formatter.string(from: tw.createdAt)
-                tweet.user_id = String(describing: tw.author).components(separatedBy: "@")[1]
+                tweet.user_id = tw.author.screenName
                 tweet.tweet_id = tw.tweetID
 
                 do {
@@ -79,10 +78,7 @@ class MicropostViewController: UITableViewController {
                 }
 
             }
-            }, error: { error in
-                print(error)
-            }
-        )
+        })
     }
 
     private func filterPosts(date: String) -> [Tweet] {
