@@ -2,7 +2,7 @@
 # platform :ios, '9.0'
 
 plugin 'cocoapods-keys', {
-  :project => ['sunset', 'sunsetUITests'],
+  :project => 'sunset',
   :keys => [
     'APIKEY',
     'BUILDSECRET',
