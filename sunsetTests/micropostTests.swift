@@ -6,17 +6,17 @@ import OHHTTPStubs
 
 class micropostTests: XCTestCase {
 
-    var test_user_id    = 1
-    var test_content    = "Test Post"
-    var test_created_at = "2016-09-27T06:46:41.000Z"
-
+    let tweet_id    = "1"
+    let text = "Test Post"
+    let created_at = "Wed Aug 29 17:12:58 +0000 2012"
+    let screen_name = "TestUser"
+    
     override func setUp() {
         super.setUp()
 
-        stub(condition: isScheme("https") && isHost("asuforce.xyz") && isPath("/api/users/5") && isMethodGET()){ _ in
-            let json = ["feeds" : [
-                ["user_id": "\(self.test_user_id)", "content": "\(self.test_content)", "created_at": "\(self.test_created_at)"]
-            ]]
+        stub(condition: isScheme("https") && isHost("api.twitter.com") && isPath("/1.1/statuses/user_timeline.json") && isMethodGET()){ _ in
+            let json = ["text": self.text, "id_str": self.tweet_id, "created_at": self.created_at, "screen_name": self.screen_name] as [String : Any]
+            
 
             return OHHTTPStubsResponse(
                 jsonObject: json,
@@ -29,15 +29,5 @@ class micropostTests: XCTestCase {
     override func tearDown() {
         OHHTTPStubs.removeAllStubs()
         super.tearDown()
-    }
-
-    func testGetMicroposts() {
-
-        waitUntil { done in
-            Micropost.fetchMicroposts { microposts in
-                XCTAssertEqual("\(self.test_content)", microposts[0].content)
-                done()
-            }
-        }
     }
 }

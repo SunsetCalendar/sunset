@@ -11,10 +11,12 @@ class WebViewController: UIViewController, UIWebViewDelegate {
 
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
-        let id = appDelegate.micropostId
-        let baseUrl: String = "https://asuforce.xyz/microposts/"
+        let tweetId = appDelegate.tweetID
+        let userId = appDelegate.userID
+        
+        let baseUrl: String = "https://twitter.com/"
 
-        let initUrl = URL(string: baseUrl + id!)
+        let initUrl = URL(string: baseUrl + userId! + "/status/" + tweetId!)
 
         let request = URLRequest(url: initUrl!)
         self.webView.loadRequest(request)

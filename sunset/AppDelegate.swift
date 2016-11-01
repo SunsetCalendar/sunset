@@ -9,13 +9,14 @@ import Keys
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var micropostId: String?
     var targetDate: String?
     var calendarCellWidth: CGFloat?
     var calendarCellHeight: CGFloat?
     let realm: Realm = try! Realm()
     let sunsetKeys = SunsetKeys()
-
+    var userID: String?
+    var tweetID: String?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
@@ -23,24 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let formatter: DateFormatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
 
-            let fetchData: [Post] = realm.objects(Post.self).map{$0}
-            for post in fetchData {
+            let fetchData: [Tweet] = realm.objects(Tweet.self).map{$0}
+            for tweet in fetchData {
                 try! realm.write() {
-                    realm.delete(post)
+                    realm.delete(tweet)
                 }
             }
-            
-            // 取ってくるやつに合わせる
-            let suffix: String = "T99-99-99"
-            
-            stub(condition: isScheme("https") && isHost("asuforce.xyz") && isPath("/api/users/5") && isMethodGET()){ _ in
-                return OHHTTPStubsResponse(
-                    jsonObject: ["feeds" : [["content" : "Test Post", "created_at": formatter.string(from: Date()) + suffix, "id": 9999], ["content": "Apple", "created_at": formatter.string(from: Date().monthAgoDate()) + suffix, "id": 5]]],
-                    statusCode: 200,
-                    headers: nil
-                )
-            }
         }
+
         Twitter.sharedInstance().start(withConsumerKey: self.sunsetKeys.consumerKey(), consumerSecret: self.sunsetKeys.consumerSecret())
         Fabric.with([Twitter.self])
         return true

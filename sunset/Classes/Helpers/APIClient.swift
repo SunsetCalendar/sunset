@@ -1,40 +1,30 @@
 import Foundation
-import Alamofire
-import SwiftyJSON
+import TwitterKit
+import RealmSwift
 
 class APIClient {
-    static fileprivate let baseUrl = "https://asuforce.xyz"
+    
+    class func fetchUserTimeLine(tweets: @escaping ([TWTRTweet]) -> ()) {
+        let client = TWTRAPIClient(userID:  Twitter.sharedInstance().sessionStore.session()?.userID)
+        
+        var clientError: NSError?
+        let endpoint = "https://api.twitter.com/1.1/statuses/user_timeline.json"
+        let params = ["include_rts": "false", "trim_user": "false"]
+        let request = client.urlRequest(withMethod: "GET", url: endpoint, parameters: params, error: &clientError)
 
-    static func request(_ endpoint: Endpoint, handler: @escaping (_ json: JSON) -> Void) {
-        let method = endpoint.method()
-        let url = fullURL(endpoint)
-
-        Alamofire.request(url, method: method).validate(statusCode: 200...299).responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                handler(JSON(value))
-            case .failure(let error):
-                print(error)
+        client.sendTwitterRequest(request, completion: {
+            response, data, err in
+            if (err == nil) {
+                let json: AnyObject? = try! JSONSerialization.jsonObject(with: data!) as AnyObject?
+                //let json = JSON(data: data!)
+                if let jsonArray = json as? NSArray {
+                    tweets(TWTRTweet.tweets(withJSONArray: jsonArray as [AnyObject]) as! [TWTRTweet])
+                }
+            } else {
+                print(err!)
             }
-        }
+        })
+        
     }
-
-    static fileprivate func fullURL(_ endpoint: Endpoint) -> String {
-        return baseUrl + endpoint.path()
-    }
-}
-
-enum Endpoint {
-    case micropostIndex
-
-    func method() -> Alamofire.HTTPMethod {
-        return .get
-    }
-
-    func path() -> String {
-        switch self {
-            case .micropostIndex:
-                return "/api/users/5" // とりあえずuser決め打ち
-        }
-    }
+    
 }

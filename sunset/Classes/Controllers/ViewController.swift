@@ -13,10 +13,11 @@ class ViewController: UIViewController {
     @IBInspectable var top: UIColor = UIColor.darkOrange()
     @IBInspectable var bottom: UIColor = UIColor.lightIndigo()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         // Do any additional setup after loading the view, typically from a nib.
+
         let formatter = DateFormatter()
         // 初期値 (今日の日付を元に、navigationBarのタイトルを決める)
         formatter.dateFormat = "MMM yyyy"

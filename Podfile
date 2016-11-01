@@ -7,8 +7,10 @@ plugin 'cocoapods-keys', {
     'APIKEY',
     'BUILDSECRET',
     'consumerKey',
-    'consumerSecret'
-  ]
+    'consumerSecret',
+    'testUserName',
+    'testPassWord'
+   ] 
 }
 
 target 'sunset' do

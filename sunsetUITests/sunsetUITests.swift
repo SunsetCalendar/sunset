@@ -3,7 +3,7 @@ import XCTest
 class sunsetUITests: XCTestCase {
     
     let formatter = DateFormatter()
-        
+    
     override func setUp() {
         super.setUp()
         
@@ -15,8 +15,19 @@ class sunsetUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments = [ "STUB_HTTP_ENDPOINTS" ]
         app.launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        
+        // Twitterのログイン処理を事前に済ませる
+        let element = app.otherElements["main"].children(matching: .other).element(boundBy: 2)
+        let textField = element.children(matching: .other).element(boundBy: 0).children(matching: .textField).element
+        textField.tap()
+        
+        textField.typeText("busizaki")
+        let secureTextField = element.children(matching: .other).element(boundBy: 1).children(matching: .secureTextField).element
+        secureTextField.tap()
+        secureTextField.typeText("wass3359")
+        app.buttons["Sign In"].tap()
+        sleep(5)
+        
     }
     
     override func tearDown() {
@@ -24,23 +35,21 @@ class sunsetUITests: XCTestCase {
         super.tearDown()
     }
 
+    
     func changeDate(date: String, check: String) -> String {
         let month: String = date.components(separatedBy: " ")[0]
         let year = Int(date.components(separatedBy: " ")[1])!
         
         var calendarShortened = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         
-        if check == "+" {
-            if month == "Dec" {
+        if (check == "+") {
+            if (month == "Dec") {
                 return "Jan " + String(year + 1)
-            }
-            else {
+            } else {
                 return calendarShortened[calendarShortened.index(of: month)! + 1] + " " + String(year)
             }
-        }
-
-        else {
-            if month == "Jan" {
+        } else {
+            if (month == "Jan") {
                 return "Dec " + String(year - 1)
             }
             else {
@@ -49,8 +58,20 @@ class sunsetUITests: XCTestCase {
         }
 
     }
+
+    // ログインしたらカレンダーが見えるか
+    func testShowCalendarAfterLogin() {
+        let app = XCUIApplication()
+        formatter.dateFormat = "MMM yyyy"
+        let nowDate: String = formatter.string(from: Date())
+        let nowDateLabel = app.staticTexts[nowDate]
+        let dateFirstLabel = app.staticTexts["1"]
+        
+        XCTAssertTrue(nowDateLabel.exists)
+        XCTAssertTrue(dateFirstLabel.exists)
+    }
     
-    // ボタン移動
+    // ボタン移動で月が切り替わるか
     func testMoveCalendarByTappingBtn() {
         let app = XCUIApplication()
         formatter.dateFormat = "MMM yyyy"
@@ -58,26 +79,24 @@ class sunsetUITests: XCTestCase {
         let prevDate: String = changeDate(date: nowDate, check: "-")
         let nowDateLabel = app.staticTexts[nowDate]
         let prevDateLabel = app.staticTexts[prevDate]
-        XCTAssertTrue(nowDateLabel.exists)
+        
         app.navigationBars[nowDate].buttons["←"].tap()
         XCTAssertTrue(prevDateLabel.exists)
         app.navigationBars[prevDate].buttons["→"].tap()
         XCTAssertTrue(nowDateLabel.exists)
     }
     
+    // ツイートが表示されているか
     func testShowPosts() {
-        // STUBで定義された内容を元にテスト
-        
         let app = XCUIApplication()
+        let labelPredicate = NSPredicate(format: "label MATCHES '.+'")
         formatter.dateFormat = "MMM yyyy"
         let nowDate: String = formatter.string(from: Date())
         let prevDate: String = changeDate(date: nowDate, check: "-")
 
         app.navigationBars[nowDate].buttons["←"].tap()
-        XCTAssertTrue(app.tables.staticTexts["Apple"].exists)
-        XCTAssertFalse(app.tables.staticTexts["Test Post"].exists)
+        let textLabel = app.tables.staticTexts.element(matching: labelPredicate)
         app.navigationBars[prevDate].buttons["→"].tap()
-        XCTAssertTrue(app.tables.staticTexts["Test Post"].exists)
-        XCTAssertFalse(app.tables.staticTexts["Apple"].exists)
+        XCTAssert(textLabel.exists)
     }
 }

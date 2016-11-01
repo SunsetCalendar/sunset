@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		1715EDE7287EF73AA210BC15 /* Pods_sunset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DE3E6EE087BD189A51B1A4E /* Pods_sunset.framework */; };
 		1D16842C425165A33201C3CD /* Pods_sunsetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675FBE3C92698718346AEFC3 /* Pods_sunsetUITests.framework */; };
+		31DDA7DB1DB63F80008887D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DDA7DA1DB63F80008887D2 /* LoginViewController.swift */; };
+		31DDA7DD1DB64100008887D2 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DDA7DC1DB64100008887D2 /* Tweet.swift */; };
 		322A48301DAF264400AFA59B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322A482F1DAF264400AFA59B /* Realm.framework */; };
 		322A48341DAF35F800AFA59B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322A48331DAF35F800AFA59B /* RealmSwift.framework */; };
 		322A48361DAF5FE500AFA59B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322A48351DAF5FE500AFA59B /* Post.swift */; };
-		322AF8EF1D98EFC900E7034F /* Micropost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8EE1D98EFC900E7034F /* Micropost.swift */; };
 		322AF8F11D98FA1800E7034F /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F01D98FA1800E7034F /* APIClient.swift */; };
 		322AF8F31D99018C00E7034F /* MicropostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F21D99018C00E7034F /* MicropostViewController.swift */; };
 		322AF8F51D9B65A600E7034F /* micropostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F41D9B65A600E7034F /* micropostTests.swift */; };
@@ -22,7 +23,6 @@
 		32B92AEE1DA625C000C17B1F /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B92AED1DA625C000C17B1F /* CalendarCell.swift */; };
 		32CDE1021D9513EA00A57C02 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE0FF1D9513EA00A57C02 /* Alamofire.framework */; };
 		32CDE1031D9513EA00A57C02 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1001D9513EA00A57C02 /* AlamofireImage.framework */; };
-		32CDE1041D9513EA00A57C02 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1011D9513EA00A57C02 /* SwiftyJSON.framework */; };
 		32D0D7E11D9B94E800FF7F33 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322AF8F81D9B90F100E7034F /* Nimble.framework */; };
 		32D0D7E51D9BA7AE00FF7F33 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D0D7E41D9BA7AE00FF7F33 /* OHHTTPStubs.framework */; };
 		32D0D7E81D9CBFEB00FF7F33 /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D0D7E71D9CBFEB00FF7F33 /* WebView.storyboard */; };
@@ -60,10 +60,11 @@
 
 /* Begin PBXFileReference section */
 		0DE3E6EE087BD189A51B1A4E /* Pods_sunset.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sunset.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31DDA7DA1DB63F80008887D2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		31DDA7DC1DB64100008887D2 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		322A482F1DAF264400AFA59B /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		322A48331DAF35F800AFA59B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		322A48351DAF5FE500AFA59B /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		322AF8EE1D98EFC900E7034F /* Micropost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Micropost.swift; sourceTree = "<group>"; };
 		322AF8F01D98FA1800E7034F /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		322AF8F21D99018C00E7034F /* MicropostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicropostViewController.swift; sourceTree = "<group>"; };
 		322AF8F41D9B65A600E7034F /* micropostTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = micropostTests.swift; sourceTree = "<group>"; };
@@ -114,7 +115,6 @@
 				322A48301DAF264400AFA59B /* Realm.framework in Frameworks */,
 				32CDE1021D9513EA00A57C02 /* Alamofire.framework in Frameworks */,
 				32CDE1031D9513EA00A57C02 /* AlamofireImage.framework in Frameworks */,
-				32CDE1041D9513EA00A57C02 /* SwiftyJSON.framework in Frameworks */,
 				1715EDE7287EF73AA210BC15 /* Pods_sunset.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +231,7 @@
 				3367C3611D98EFE5007A13AF /* CalendarViewController.swift */,
 				32D0D7EB1D9CDA6500FF7F33 /* WebViewController.swift */,
 				3251BEE11DAE19B2008ACF9F /* DaysViewController.swift */,
+				31DDA7DA1DB63F80008887D2 /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -250,8 +251,8 @@
 			isa = PBXGroup;
 			children = (
 				322A48351DAF5FE500AFA59B /* Post.swift */,
-				322AF8EE1D98EFC900E7034F /* Micropost.swift */,
 				33F3CD281D99103C00B8D7A5 /* DateManager.swift */,
+				31DDA7DC1DB64100008887D2 /* Tweet.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -585,9 +586,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				322AF8EF1D98EFC900E7034F /* Micropost.swift in Sources */,
 				32D0D7EC1D9CDA6500FF7F33 /* WebViewController.swift in Sources */,
 				33799FF91DA626AE003B0FBA /* DateAttributes.swift in Sources */,
+				31DDA7DB1DB63F80008887D2 /* LoginViewController.swift in Sources */,
 				3251BEE21DAE19B2008ACF9F /* DaysViewController.swift in Sources */,
 				3367C3621D98EFE5007A13AF /* CalendarViewController.swift in Sources */,
 				322A48361DAF5FE500AFA59B /* Post.swift in Sources */,
@@ -599,6 +600,7 @@
 				332B1A601D8157B5007064CF /* ViewController.swift in Sources */,
 				3251BEDE1DACC2B2008ACF9F /* GradationView.swift in Sources */,
 				332B1A271D815670007064CF /* AppDelegate.swift in Sources */,
+				31DDA7DD1DB64100008887D2 /* Tweet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
