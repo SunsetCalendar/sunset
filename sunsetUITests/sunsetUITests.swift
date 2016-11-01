@@ -65,46 +65,38 @@ class sunsetUITests: XCTestCase {
         formatter.dateFormat = "MMM yyyy"
         let nowDate: String = formatter.string(from: Date())
         let nowDateLabel = app.staticTexts[nowDate]
-        let prevDate: String = changeDate(date: nowDate, check: "-")
-        let prevDateLabel = app.staticTexts[prevDate]
         let dateFirstLabel = app.staticTexts["1"]
         
         XCTAssertTrue(nowDateLabel.exists)
         XCTAssertTrue(dateFirstLabel.exists)
-        
-        app.buttons["←"].tap()
-        XCTAssertTrue(prevDateLabel.exists)
-        app.buttons["→"].tap()
-        XCTAssertTrue(nowDateLabel.exists)
-        
     }
     
     // ボタン移動で月が切り替わるか
-//    func testMoveCalendarByTappingBtn() {
-//        let app = XCUIApplication()
-//        formatter.dateFormat = "MMM yyyy"
-//        let nowDate: String = formatter.string(from: Date())
-//        let prevDate: String = changeDate(date: nowDate, check: "-")
-//        let nowDateLabel = app.staticTexts[nowDate]
-//        let prevDateLabel = app.staticTexts[prevDate]
-//        
-//        app.buttons["←"].tap()
-//        XCTAssertTrue(prevDateLabel.exists)
-//        app.buttons["→"].tap()
-//        XCTAssertTrue(nowDateLabel.exists)
-//    }
+    func testMoveCalendarByTappingBtn() {
+        let app = XCUIApplication()
+        formatter.dateFormat = "MMM yyyy"
+        let nowDate: String = formatter.string(from: Date())
+        let prevDate: String = changeDate(date: nowDate, check: "-")
+        let nowDateLabel = app.staticTexts[nowDate]
+        let prevDateLabel = app.staticTexts[prevDate]
+        
+        app.navigationBars[nowDate].buttons["←"].tap()
+        XCTAssertTrue(prevDateLabel.exists)
+        app.navigationBars[prevDate].buttons["→"].tap()
+        XCTAssertTrue(nowDateLabel.exists)
+    }
     
     // ツイートが表示されているか
-//    func testShowPosts() {
-//        let app = XCUIApplication()
-//        let labelPredicate = NSPredicate(format: "label MATCHES '.+'")
-//        formatter.dateFormat = "MMM yyyy"
-//        let nowDate: String = formatter.string(from: Date())
-//        let prevDate: String = changeDate(date: nowDate, check: "-")
-//
-//        app.navigationBars[nowDate].buttons["←"].tap()
-//        let textLabel = app.tables.staticTexts.element(matching: labelPredicate)
-//        app.navigationBars[prevDate].buttons["→"].tap()
-//        XCTAssert(textLabel.exists)
-//    }
+    func testShowPosts() {
+        let app = XCUIApplication()
+        let labelPredicate = NSPredicate(format: "label MATCHES '.+'")
+        formatter.dateFormat = "MMM yyyy"
+        let nowDate: String = formatter.string(from: Date())
+        let prevDate: String = changeDate(date: nowDate, check: "-")
+
+        app.navigationBars[nowDate].buttons["←"].tap()
+        let textLabel = app.tables.staticTexts.element(matching: labelPredicate)
+        app.navigationBars[prevDate].buttons["→"].tap()
+        XCTAssert(textLabel.exists)
+    }
 }
