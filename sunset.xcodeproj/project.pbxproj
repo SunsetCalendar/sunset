@@ -9,20 +9,21 @@
 /* Begin PBXBuildFile section */
 		1715EDE7287EF73AA210BC15 /* Pods_sunset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DE3E6EE087BD189A51B1A4E /* Pods_sunset.framework */; };
 		1D16842C425165A33201C3CD /* Pods_sunsetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675FBE3C92698718346AEFC3 /* Pods_sunsetUITests.framework */; };
+		3135AF4A1E22912F0017D3BF /* WalkThroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135AF491E22912F0017D3BF /* WalkThroughViewController.swift */; };
+		3135AF4C1E2291650017D3BF /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3135AF4B1E2291650017D3BF /* Gecco.framework */; };
+		3135AF4D1E22919B0017D3BF /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3135AF4B1E2291650017D3BF /* Gecco.framework */; };
+		3135AF4E1E22919B0017D3BF /* Gecco.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3135AF4B1E2291650017D3BF /* Gecco.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		322A48301DAF264400AFA59B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322A482F1DAF264400AFA59B /* Realm.framework */; };
 		322A48341DAF35F800AFA59B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322A48331DAF35F800AFA59B /* RealmSwift.framework */; };
 		322A48361DAF5FE500AFA59B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322A48351DAF5FE500AFA59B /* Post.swift */; };
-		322AF8EF1D98EFC900E7034F /* Micropost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8EE1D98EFC900E7034F /* Micropost.swift */; };
 		322AF8F11D98FA1800E7034F /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F01D98FA1800E7034F /* APIClient.swift */; };
 		322AF8F31D99018C00E7034F /* MicropostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F21D99018C00E7034F /* MicropostViewController.swift */; };
-		322AF8F51D9B65A600E7034F /* micropostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F41D9B65A600E7034F /* micropostTests.swift */; };
 		3251BEDE1DACC2B2008ACF9F /* GradationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3251BEDD1DACC2B2008ACF9F /* GradationView.swift */; };
 		3251BEE01DACDEDB008ACF9F /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3251BEDF1DACDEDB008ACF9F /* ColorTheme.swift */; };
 		3251BEE21DAE19B2008ACF9F /* DaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3251BEE11DAE19B2008ACF9F /* DaysViewController.swift */; };
 		32B92AEE1DA625C000C17B1F /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B92AED1DA625C000C17B1F /* CalendarCell.swift */; };
 		32CDE1021D9513EA00A57C02 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE0FF1D9513EA00A57C02 /* Alamofire.framework */; };
 		32CDE1031D9513EA00A57C02 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1001D9513EA00A57C02 /* AlamofireImage.framework */; };
-		32CDE1041D9513EA00A57C02 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1011D9513EA00A57C02 /* SwiftyJSON.framework */; };
 		32D0D7E11D9B94E800FF7F33 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322AF8F81D9B90F100E7034F /* Nimble.framework */; };
 		32D0D7E51D9BA7AE00FF7F33 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D0D7E41D9BA7AE00FF7F33 /* OHHTTPStubs.framework */; };
 		32D0D7E81D9CBFEB00FF7F33 /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D0D7E71D9CBFEB00FF7F33 /* WebView.storyboard */; };
@@ -58,15 +59,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3135AF4F1E22919B0017D3BF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3135AF4E1E22919B0017D3BF /* Gecco.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0DE3E6EE087BD189A51B1A4E /* Pods_sunset.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sunset.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3135AF491E22912F0017D3BF /* WalkThroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkThroughViewController.swift; sourceTree = "<group>"; };
+		3135AF4B1E2291650017D3BF /* Gecco.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gecco.framework; path = Carthage/Build/iOS/Gecco.framework; sourceTree = "<group>"; };
 		322A482F1DAF264400AFA59B /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		322A48331DAF35F800AFA59B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		322A48351DAF5FE500AFA59B /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		322AF8EE1D98EFC900E7034F /* Micropost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Micropost.swift; sourceTree = "<group>"; };
 		322AF8F01D98FA1800E7034F /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		322AF8F21D99018C00E7034F /* MicropostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicropostViewController.swift; sourceTree = "<group>"; };
-		322AF8F41D9B65A600E7034F /* micropostTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = micropostTests.swift; sourceTree = "<group>"; };
 		322AF8F81D9B90F100E7034F /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		3251BEDD1DACC2B2008ACF9F /* GradationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradationView.swift; sourceTree = "<group>"; };
 		3251BEDF1DACDEDB008ACF9F /* ColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
@@ -110,12 +125,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3135AF4C1E2291650017D3BF /* Gecco.framework in Frameworks */,
 				322A48341DAF35F800AFA59B /* RealmSwift.framework in Frameworks */,
 				322A48301DAF264400AFA59B /* Realm.framework in Frameworks */,
 				32CDE1021D9513EA00A57C02 /* Alamofire.framework in Frameworks */,
 				32CDE1031D9513EA00A57C02 /* AlamofireImage.framework in Frameworks */,
-				32CDE1041D9513EA00A57C02 /* SwiftyJSON.framework in Frameworks */,
 				1715EDE7287EF73AA210BC15 /* Pods_sunset.framework in Frameworks */,
+				3135AF4D1E22919B0017D3BF /* Gecco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +159,7 @@
 		32CDE0FE1D9513EA00A57C02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3135AF4B1E2291650017D3BF /* Gecco.framework */,
 				322A48331DAF35F800AFA59B /* RealmSwift.framework */,
 				322A482F1DAF264400AFA59B /* Realm.framework */,
 				32D0D7E41D9BA7AE00FF7F33 /* OHHTTPStubs.framework */,
@@ -196,7 +213,6 @@
 			children = (
 				332B1A3B1D815670007064CF /* calendarTests.swift */,
 				332B1A3D1D815670007064CF /* Info.plist */,
-				322AF8F41D9B65A600E7034F /* micropostTests.swift */,
 			);
 			path = sunsetTests;
 			sourceTree = "<group>";
@@ -231,6 +247,7 @@
 				3367C3611D98EFE5007A13AF /* CalendarViewController.swift */,
 				32D0D7EB1D9CDA6500FF7F33 /* WebViewController.swift */,
 				3251BEE11DAE19B2008ACF9F /* DaysViewController.swift */,
+				3135AF491E22912F0017D3BF /* WalkThroughViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -250,7 +267,6 @@
 			isa = PBXGroup;
 			children = (
 				322A48351DAF5FE500AFA59B /* Post.swift */,
-				322AF8EE1D98EFC900E7034F /* Micropost.swift */,
 				33F3CD281D99103C00B8D7A5 /* DateManager.swift */,
 			);
 			path = Models;
@@ -308,6 +324,7 @@
 				32CDE1051D9513FA00A57C02 /* ShellScript */,
 				D27939E03AFA49828148947B /* [CP] Embed Pods Frameworks */,
 				378FF770A20278BDCDE64B69 /* [CP] Copy Pods Resources */,
+				3135AF4F1E22919B0017D3BF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -348,6 +365,7 @@
 				332B1A3F1D815670007064CF /* Frameworks */,
 				332B1A401D815670007064CF /* Resources */,
 				AB44B18842E5E76F29B2952D /* [CP] Copy Pods Resources */,
+				74FC2A1DF501E45BDAD3AE91 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -450,7 +468,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		2DC1DABB69C142B7025B9A8B /* [CP] Embed Pods Frameworks */ = {
@@ -515,7 +533,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		74FC2A1DF501E45BDAD3AE91 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sunsetUITests/Pods-sunsetUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		81BEE55EFBB974331CB6C71B /* [CP] Copy Pods Resources */ = {
@@ -545,7 +578,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		AB44B18842E5E76F29B2952D /* [CP] Copy Pods Resources */ = {
@@ -585,12 +618,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				322AF8EF1D98EFC900E7034F /* Micropost.swift in Sources */,
 				32D0D7EC1D9CDA6500FF7F33 /* WebViewController.swift in Sources */,
 				33799FF91DA626AE003B0FBA /* DateAttributes.swift in Sources */,
 				3251BEE21DAE19B2008ACF9F /* DaysViewController.swift in Sources */,
 				3367C3621D98EFE5007A13AF /* CalendarViewController.swift in Sources */,
 				322A48361DAF5FE500AFA59B /* Post.swift in Sources */,
+				3135AF4A1E22912F0017D3BF /* WalkThroughViewController.swift in Sources */,
 				3251BEE01DACDEDB008ACF9F /* ColorTheme.swift in Sources */,
 				33F3CD291D99103C00B8D7A5 /* DateManager.swift in Sources */,
 				32B92AEE1DA625C000C17B1F /* CalendarCell.swift in Sources */,
@@ -606,7 +639,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				322AF8F51D9B65A600E7034F /* micropostTests.swift in Sources */,
 				332B1A3C1D815670007064CF /* calendarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
