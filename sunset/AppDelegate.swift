@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let ud = UserDefaults.standard
+        let dic = ["firstLaunch": true]
+        ud.register(defaults: dic)
 
         if (ProcessInfo.processInfo.arguments.contains("STUB_HTTP_ENDPOINTS")) {
             let formatter: DateFormatter = DateFormatter()
@@ -41,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 )
             }
         }
-        Twitter.sharedInstance().start(withConsumerKey: self.sunsetKeys.consumerKey(), consumerSecret: self.sunsetKeys.consumerSecret())
+        Twitter.sharedInstance().start(withConsumerKey: self.sunsetKeys.consumerKey, consumerSecret: self.sunsetKeys.consumerSecret)
         Fabric.with([Twitter.self])
         return true
     }
