@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ud.register(defaults: dic)
 
         if (ProcessInfo.processInfo.arguments.contains("STUB_HTTP_ENDPOINTS")) {
+            let dic4test = ["firstLaunch": false]
+            ud.register(defaults: dic4test)
             let formatter: DateFormatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
 
