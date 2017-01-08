@@ -3,15 +3,12 @@ import RealmSwift
 
 class MicropostViewController: UITableViewController {
 
-    var microposts: [Micropost] = []
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let realm: Realm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        savePosts()
-
         self.view.backgroundColor = UIColor.clear
         
         // targetDateの初期値 (今日の日付) をセット
@@ -53,29 +50,7 @@ class MicropostViewController: UITableViewController {
     @objc func updateView(_ notification: Notification) {
         self.tableView.reloadData()
     }
-    
-    private func savePosts() {
-        Micropost.fetchMicroposts { microposts in
-            
-            for micropost in microposts {
-                let post: Post = Post()
 
-                post.micropost_id = micropost.id
-                post.content = micropost.content
-                post.created_at = micropost.created_at
-
-                do {
-                    try self.realm.write() {
-                        self.realm.add(post, update: true)
-                    }
-                } catch {
-                    let error = error as NSError
-                    print("error: \(error), \(error.userInfo)")
-                }
-            }
-        }
-    }
-    
     private func filterPosts(date: String) -> [Post] {
         let fetchData: [Post] = realm.objects(Post.self).filter("created_at BEGINSWITH %@", date).map{$0}
         return fetchData
