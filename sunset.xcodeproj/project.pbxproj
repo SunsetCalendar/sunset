@@ -11,7 +11,6 @@
 		1D16842C425165A33201C3CD /* Pods_sunsetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675FBE3C92698718346AEFC3 /* Pods_sunsetUITests.framework */; };
 		3135AF4A1E22912F0017D3BF /* WalkThroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3135AF491E22912F0017D3BF /* WalkThroughViewController.swift */; };
 		3135AF4C1E2291650017D3BF /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3135AF4B1E2291650017D3BF /* Gecco.framework */; };
-		3135AF4D1E22919B0017D3BF /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3135AF4B1E2291650017D3BF /* Gecco.framework */; };
 		3135AF4E1E22919B0017D3BF /* Gecco.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3135AF4B1E2291650017D3BF /* Gecco.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		322A48301DAF264400AFA59B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322A482F1DAF264400AFA59B /* Realm.framework */; };
 		322A48341DAF35F800AFA59B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322A48331DAF35F800AFA59B /* RealmSwift.framework */; };
@@ -128,7 +127,6 @@
 				322A48301DAF264400AFA59B /* Realm.framework in Frameworks */,
 				32CDE1021D9513EA00A57C02 /* Alamofire.framework in Frameworks */,
 				1715EDE7287EF73AA210BC15 /* Pods_sunset.framework in Frameworks */,
-				3135AF4D1E22919B0017D3BF /* Gecco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +378,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "GMO Pepabo";
 				TargetAttributes = {
 					332B1A221D815670007064CF = {
@@ -678,8 +676,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -725,8 +725,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -748,6 +750,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
