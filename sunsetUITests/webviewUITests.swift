@@ -9,9 +9,7 @@ class webviewUITests: XCTestCase {
 
         continueAfterFailure = false
 
-        let app = XCUIApplication()
-        app.launchArguments = [ "STUB_HTTP_ENDPOINTS" ]
-        app.launch()
+        XCUIApplication().launch()
     }
 
     override func tearDown() {

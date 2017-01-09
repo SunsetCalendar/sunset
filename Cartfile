@@ -1,5 +1,4 @@
 github "Alamofire/Alamofire"
-github "Alamofire/AlamofireImage"
-github "Quick/Nimble"
 github "AliSoftware/OHHTTPStubs" "swift-3.0"
 github "realm/realm-cocoa"
+github "yukiasai/Gecco"
