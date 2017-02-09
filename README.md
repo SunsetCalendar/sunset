@@ -18,3 +18,9 @@
 brew install mergepbx
 ```
 
+### fastlane
+タスクランナーとして, fastlane を使用しています. 以下のコマンドでインストールしてください.
+
+```
+bundle install
+```
