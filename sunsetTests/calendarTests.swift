@@ -33,8 +33,8 @@ class sunsetTests: XCTestCase {
         let laterMonth = formatter.string(from: nextMonthdate)
         
         // 今の月との差異
-        let agoDiffCheck = abs(calendarShortened.index(of: thisMonth)! - calendarShortened.index(of: lastMonth)! % 12)
-        let laterDiffCheck = abs(calendarShortened.index(of: laterMonth)! - calendarShortened.index(of: thisMonth)! % 12)
+        let agoDiffCheck = calcMonthDiff(left: calendarShortened.index(of: lastMonth)! + 1, right: calendarShortened.index(of: thisMonth)! + 1)
+        let laterDiffCheck = calcMonthDiff(left: calendarShortened.index(of: thisMonth)! + 1, right: calendarShortened.index(of: laterMonth)! + 1)
         
         XCTAssertEqual(agoDiffCheck, 1)
         XCTAssertEqual(laterDiffCheck, 1)
@@ -51,7 +51,7 @@ class sunsetTests: XCTestCase {
         
         // 年が変わるまで進める
         for _ in 1...(12 - calendarShortened.index(of: thisMonth)!) {
-          date = date.monthLaterDate()
+            date = date.monthLaterDate()
         }
         
         let nextYear = Int(formatter.string(from: date).components(separatedBy: " ")[1])!
@@ -74,4 +74,11 @@ class sunsetTests: XCTestCase {
         }
     }
     
+    func calcMonthDiff(left: Int, right: Int) -> Int {
+        if (left > right) {
+            return 12 - (left - right)
+        } else {
+            return right - left
+        }
+    }
 }

@@ -1,0 +1,26 @@
+PODS:
+  - Fabric (1.6.10)
+  - Keys (1.0.0)
+  - TwitterCore (2.5.0):
+    - Fabric
+  - TwitterKit (2.5.0):
+    - TwitterCore (= 2.5.0)
+
+DEPENDENCIES:
+  - Fabric
+  - Keys (from `Pods/CocoaPodsKeys`)
+  - TwitterKit
+
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
+
+SPEC CHECKSUMS:
+  Fabric: c73f371ee543e3f0b80608f2674750e4910d1669
+  Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
+  TwitterCore: 95c46af93112768a7983bd370d66023553601d01
+  TwitterKit: dd8042698b0ff5bd3066fa919b3b2b50d8eed829
+
+PODFILE CHECKSUM: e726758c85edce291cdaa2376e81b0ff6f41f4d3
+
+COCOAPODS: 1.1.1

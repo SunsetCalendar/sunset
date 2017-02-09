@@ -1,6 +1,9 @@
 import UIKit
 import OHHTTPStubs
 import RealmSwift
+import Fabric
+import TwitterKit
+import Keys
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -11,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var calendarCellWidth: CGFloat?
     var calendarCellHeight: CGFloat?
     let realm: Realm = try! Realm()
+    let sunsetKeys: SunsetKeys = SunsetKeys()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -37,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 )
             }
         }
+        Twitter.sharedInstance().start(withConsumerKey: self.sunsetKeys.consumerKey, consumerSecret: self.sunsetKeys.consumerSecret)
+        Fabric.with([Twitter.self])
         return true
     }
 
