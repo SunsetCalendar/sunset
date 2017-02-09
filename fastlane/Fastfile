@@ -40,7 +40,8 @@ platform :ios do
   lane :local_test do
     scan(
       scheme: "sunset",
-      project: "sunset.xcodeproj"
+      project: "sunset.xcodeproj",
+      clean: true
     )
   end
 

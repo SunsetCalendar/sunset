@@ -29,11 +29,16 @@ xcode-select --install
 </table>
 # Available Actions
 ## iOS
-### ios test
+### ios ci_test
 ```
-fastlane ios test
+fastlane ios ci_test
 ```
-Runs all the tests
+Runs all the tests on CI server
+### ios local_test
+```
+fastlane ios local_test
+```
+Run all the tests only
 
 ----
 
