@@ -22,7 +22,7 @@ platform :ios do
 
   # CI の場合はライブラリのビルドもする
   desc "Runs all the tests on CI server"
-  lane :test_ci do
+  lane :ci_test do
     carthage(
       command: "bootstrap",
       platform: "iOS"
