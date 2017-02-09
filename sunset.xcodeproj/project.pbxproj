@@ -327,7 +327,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = "GMO Pepabo";
+				ORGANIZATIONNAME = Asuforce;
 				TargetAttributes = {
 					332B1A221D815670007064CF = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -577,7 +577,7 @@
 				INFOPLIST_FILE = sunset/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pepabo.sunset;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asuforce.sunset;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -597,7 +597,7 @@
 				INFOPLIST_FILE = sunset/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pepabo.sunset;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asuforce.sunset;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -613,7 +613,7 @@
 				);
 				INFOPLIST_FILE = sunsetTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pepabo.sunsetTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asuforce.sunsetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sunset.app/sunset";
@@ -630,7 +630,7 @@
 				);
 				INFOPLIST_FILE = sunsetTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pepabo.sunsetTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asuforce.sunsetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sunset.app/sunset";
@@ -646,7 +646,7 @@
 				);
 				INFOPLIST_FILE = sunsetUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pepabo.sunsetUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asuforce.sunsetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = sunset;
@@ -662,7 +662,7 @@
 				);
 				INFOPLIST_FILE = sunsetUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pepabo.sunsetUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asuforce.sunsetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = sunset;
