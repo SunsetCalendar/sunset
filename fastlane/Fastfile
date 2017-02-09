@@ -18,15 +18,25 @@ default_platform :ios
 platform :ios do
   before_all do
     ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
-       
+  end
+
+  # CI の場合はライブラリのビルドもする
+  desc "Runs all the tests on CI server"
+  lane :test_ci do
     carthage(
       command: "bootstrap",
       platform: "iOS"
     )
+
+    scan(
+      scheme: "sunset",
+      project: "sunset.xcodeproj"
+    )
   end
 
-  desc "Runs all the tests"
-  lane :test do
+  # ローカルの場合はテストだけ
+  desc "Run all the tests only"
+  lane :local_test do
     scan(
       scheme: "sunset",
       project: "sunset.xcodeproj"
@@ -48,7 +58,10 @@ platform :ios do
   error do |lane, exception|
     slack(
       message: exception.message,
-      success: false
+      success: false,
+      payload: {
+        'Branch' => git_branch
+      },
     )
   end
 end
