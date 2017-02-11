@@ -17,7 +17,7 @@ default_platform :ios
 
 platform :ios do
   before_all do
-    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
   end
 
   # CI の場合はライブラリのビルドもする
