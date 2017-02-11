@@ -17,7 +17,7 @@ default_platform :ios
 
 platform :ios do
   before_all do
-    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
   end
 
   # CI の場合はライブラリのビルドもする
@@ -27,10 +27,15 @@ platform :ios do
       command: "bootstrap",
       platform: "iOS"
     )
+    
+    cocoapods(
+      clean: true,
+      podfile: "./Podfile"
+    )
 
     scan(
       scheme: "sunset",
-      project: "sunset.xcodeproj",
+      workspace: "sunset.xcworkspace",
       clean: true
     )
   end
@@ -40,7 +45,7 @@ platform :ios do
   lane :local_test do
     scan(
       scheme: "sunset",
-      project: "sunset.xcodeproj",
+      workspace: "sunset.xcworkspace",
       clean: true
     )
   end
