@@ -21,15 +21,15 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-  <string>1</string>
+	<string>1</string>
 	<key>Fabric</key>
 	<dict>
-		<key>APIKey</key>
-		<string></string>
-		<key>Kits</key>
-		<array>
-			<dict>
-				<key>KitInfo</key>
+	<key>APIKey</key>
+	<string></string>
+	<key>Kits</key>
+	<array>
+		<dict>
+			<key>KitInfo</key>
 				<dict>
 					<key>consumerKey</key>
 					<string></string>
