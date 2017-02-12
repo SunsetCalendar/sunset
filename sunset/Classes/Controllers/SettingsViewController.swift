@@ -50,22 +50,22 @@ class SettingsViewController: UITableViewController {
         }
     }
 
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        // Twitter
-//        if (indexPath.row == 2) {
-//            // Twitter 連携していない場合のみ, 押したらログイン遷移するようにする
-//            if (self.sessionStore.session()?.userID != nil) {
-//                Twitter.sharedInstance().logIn {
-//                    (session, error) -> Void in
-//                    if (session != nil) {
-//                        print("signed in: \(session?.userName)");
-//                    } else {
-//                        print("Error：\(error?.localizedDescription)");
-//                    }
-//                }
-//            }
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Twitter
+        if (indexPath.row == 2) {
+            // Twitter 連携していない場合のみ, 押したらログイン遷移するようにする
+            if (self.sessionStore.session()?.userID != nil) {
+                Twitter.sharedInstance().logIn {
+                    (session, error) -> Void in
+                    if (session != nil) {
+                        print("signed in: \(session?.userName)");
+                    } else {
+                        print("Error：\(error?.localizedDescription)");
+                    }
+                }
+            }
+        }
+    }
 
     // アカウント連携セル用
     private func insertAccountContents(indexPath: IndexPath) -> UITableViewCell {
