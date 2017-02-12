@@ -15,6 +15,7 @@ class SettingsViewController: UITableViewController {
     // 設定項目の見出しセルの index
     let optionIndex = [0, 2]
     let sessionStore = Twitter.sharedInstance().sessionStore
+    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,13 +55,14 @@ class SettingsViewController: UITableViewController {
         // Twitter
         if (indexPath.row == 2) {
             // Twitter 連携していない場合のみ, 押したらログイン遷移するようにする
-            if (self.sessionStore.session()?.userID != nil) {
+            if (self.sessionStore.session()?.userID == nil) {
                 Twitter.sharedInstance().logIn {
                     (session, error) -> Void in
                     if (session != nil) {
-                        print("signed in: \(session?.userName)");
+                        // NOTE: 遷移という名の Main 画面の再描画
+                        self.appDelegate.showMainView()
                     } else {
-                        print("Error：\(error?.localizedDescription)");
+                        print("Error：\(error?.localizedDescription)")
                     }
                 }
             }
