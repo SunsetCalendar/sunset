@@ -1,17 +1,10 @@
-//
-//  AccountsTableViewCell.swift
-//  sunset
-//
-//  Created by Homma Takuma on 2017/01/09.
-//  Copyright © 2017年 GMO Pepabo. All rights reserved.
-//
-
 import UIKit
 
 class AccountsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var checked: UILabel!
     @IBOutlet weak var accountInfo: UILabel!
+    @IBOutlet weak var logoutButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

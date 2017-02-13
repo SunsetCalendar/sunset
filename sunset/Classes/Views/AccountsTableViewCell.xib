@@ -31,10 +31,16 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7T-yx-d3c">
+                        <rect key="frame" x="224" y="7" width="46" height="30"/>
+                        <state key="normal" title="Button"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="gSx-NH-TNQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="22s-Eo-h7T"/>
                     <constraint firstItem="kWh-HI-DYe" firstAttribute="leading" secondItem="gSx-NH-TNQ" secondAttribute="trailing" constant="15" id="5gB-gZ-qbK"/>
+                    <constraint firstAttribute="trailing" secondItem="v7T-yx-d3c" secondAttribute="trailing" constant="50" id="BFO-Dy-KYI"/>
+                    <constraint firstItem="v7T-yx-d3c" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="LBb-6O-z4a"/>
                     <constraint firstItem="gSx-NH-TNQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="Olc-5X-EVl"/>
                     <constraint firstItem="kWh-HI-DYe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="jz3-i6-Aix"/>
                 </constraints>
@@ -42,6 +48,7 @@
             <connections>
                 <outlet property="accountInfo" destination="kWh-HI-DYe" id="M66-d2-rOW"/>
                 <outlet property="checked" destination="gSx-NH-TNQ" id="ofu-mK-lkg"/>
+                <outlet property="logoutButton" destination="v7T-yx-d3c" id="fAv-hH-cog"/>
             </connections>
         </tableViewCell>
     </objects>
