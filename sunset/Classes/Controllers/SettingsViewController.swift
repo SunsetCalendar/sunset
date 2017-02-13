@@ -78,11 +78,20 @@ class SettingsViewController: UITableViewController {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "accountsTableCell", for: indexPath) as! AccountsTableViewCell
+            // ログインしている状態
             if (self.sessionStore.session()?.userID != nil) {
+
+                // 連携しているアカウントには チェックマーク をつける
                 cell.checked.font = UIFont.fontAwesome(ofSize: 14)
                 cell.checked.text = String.fontAwesomeIcon(name: .check)
+                // ログアウトボタン
+                cell.logoutButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 16)
+                cell.logoutButton.setTitle(String.fontAwesomeIcon(name: .signOut), for: .normal)
+                cell.logoutButton.setTitleColor(UIColor.black, for: .normal)
+                cell.logoutButton.addTarget(self, action: #selector(self.tappedLogoutButton(sender:)), for: .touchUpInside)
             } else {
                 cell.checked.text = ""
+                cell.logoutButton.titleLabel?.text = ""
             }
             cell.accountInfo.text = settingsText[indexPath.row - 1]
             cell.accountInfo.font = UIFont(name: "HirakakuProN-W3", size: 11)
@@ -105,4 +114,27 @@ class SettingsViewController: UITableViewController {
             return cell
         }
     }
+
+    @objc internal func tappedLogoutButton(sender: UIButton) {
+        let alert: UIAlertController = UIAlertController(title: "アカウント連携解除", message: "ログアウトしてもいいですか？", preferredStyle:  UIAlertControllerStyle.alert)
+
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
+            (action: UIAlertAction!) -> Void in
+            let sessionStore = Twitter.sharedInstance().sessionStore
+            if let userId = sessionStore.session()?.userID {
+                sessionStore.logOutUserID(userId)
+            }
+        })
+        // キャンセルボタン
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler:{
+            // ボタンが押された時の処理 (なにもしない)
+            (action: UIAlertAction!) -> Void in
+        })
+
+        alert.addAction(cancelAction)
+        alert.addAction(defaultAction)
+
+        present(alert, animated: true, completion: nil)
+    }
+
 }
