@@ -47,7 +47,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="accountInfo" destination="kWh-HI-DYe" id="M66-d2-rOW"/>
-                <outlet property="checked" destination="gSx-NH-TNQ" id="ofu-mK-lkg"/>
+                <outlet property="loginStatus" destination="gSx-NH-TNQ" id="ofu-mK-lkg"/>
                 <outlet property="logoutButton" destination="v7T-yx-d3c" id="fAv-hH-cog"/>
             </connections>
         </tableViewCell>

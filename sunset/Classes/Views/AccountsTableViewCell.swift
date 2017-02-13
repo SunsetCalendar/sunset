@@ -2,7 +2,7 @@ import UIKit
 
 class AccountsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var checked: UILabel!
+    @IBOutlet weak var loginStatus: UILabel!
     @IBOutlet weak var accountInfo: UILabel!
     @IBOutlet weak var logoutButton: UIButton!
 
