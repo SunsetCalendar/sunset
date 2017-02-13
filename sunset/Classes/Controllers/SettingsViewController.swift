@@ -91,7 +91,7 @@ class SettingsViewController: UITableViewController {
                 cell.logoutButton.addTarget(self, action: #selector(self.tappedLogoutButton(sender:)), for: .touchUpInside)
             } else {
                 cell.checked.text = ""
-                cell.logoutButton.titleLabel?.text = ""
+                cell.logoutButton.setTitle("", for: .normal)
             }
             cell.accountInfo.text = settingsText[indexPath.row - 1]
             cell.accountInfo.font = UIFont(name: "HirakakuProN-W3", size: 11)
@@ -124,6 +124,7 @@ class SettingsViewController: UITableViewController {
             if let userId = sessionStore.session()?.userID {
                 sessionStore.logOutUserID(userId)
             }
+            self.appDelegate.showMainView()
         })
         // キャンセルボタン
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler:{
