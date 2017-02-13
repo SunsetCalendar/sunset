@@ -1,0 +1,69 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "2.14.2"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+  end
+
+  # CI の場合はライブラリのビルドもする
+  desc "Runs all the tests on CI server"
+  lane :ci_test do
+    carthage(
+      command: "bootstrap",
+      platform: "iOS"
+    )
+
+    scan(
+      scheme: "sunset",
+      project: "sunset.xcodeproj",
+      clean: true
+    )
+  end
+
+  # ローカルの場合はテストだけ
+  desc "Run all the tests only"
+  lane :local_test do
+    scan(
+      scheme: "sunset",
+      project: "sunset.xcodeproj",
+      clean: true
+    )
+  end
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    slack(
+      message: " :rocket::rocket: TEST SUCCESS :rocket::rocket:",
+      success: true,
+      payload: {
+        'Branch' => git_branch
+      },
+    )
+  end
+
+  error do |lane, exception|
+    slack(
+      message: exception.message,
+      success: false,
+      payload: {
+        'Branch' => git_branch
+      },
+    )
+  end
+end
