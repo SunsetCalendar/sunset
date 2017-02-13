@@ -56,7 +56,7 @@ class SettingsViewController: UITableViewController {
         if (indexPath.row == 2) {
             // Twitter 連携していない場合のみ, 押したらログイン遷移するようにする
             if (self.sessionStore.session()?.userID == nil) {
-                Twitter.sharedInstance().logIn {
+                Twitter.sharedInstance().logIn(withMethods: .webBased) {
                     (session, error) -> Void in
                     if (session != nil) {
                         // NOTE: 遷移という名の Main 画面の再描画
@@ -80,7 +80,6 @@ class SettingsViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "accountsTableCell", for: indexPath) as! AccountsTableViewCell
             // ログインしている状態
             if (self.sessionStore.session()?.userID != nil) {
-
                 // 連携しているアカウントには チェックマーク をつける
                 cell.loginStatus.font = UIFont.fontAwesome(ofSize: 14)
                 cell.loginStatus.text = String.fontAwesomeIcon(name: .check)
