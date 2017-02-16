@@ -10,7 +10,8 @@ import SlideMenuControllerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var micropostId: String?
+    var tweetID: String?
+    var userID: String?
     var targetDate: String?
     var calendarCellWidth: CGFloat?
     var calendarCellHeight: CGFloat?
