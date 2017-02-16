@@ -8,7 +8,6 @@ class MicropostViewController: UITableViewController {
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let realm: Realm = try! Realm()
     let sessionStore = Twitter.sharedInstance().sessionStore
-    let apiClient = APIClient()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +46,8 @@ class MicropostViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let tweets: [Tweet] = filterPosts(date: self.appDelegate.targetDate!)
-        appDelegate.micropostId = String(posts[indexPath.row].micropost_id)
+        appDelegate.tweetID = tweets[indexPath.row].tweet_id
+        appDelegate.userID = tweets[indexPath.row].user_id
     }
 
     private func updateCell(_ cell: UITableViewCell, indexPath: IndexPath) {
@@ -64,7 +64,7 @@ class MicropostViewController: UITableViewController {
         formatter.locale = Locale(identifier: "ja_JP")
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        self.apiClient.fetchUserTimeLine(tweets: {
+        APIClient.fetchUserTimeLine(tweets: {
             tws in
             for tw in tws {
                 let tweet: Tweet = Tweet()
@@ -87,7 +87,7 @@ class MicropostViewController: UITableViewController {
     }
     
     private func filterPosts(date: String) -> [Tweet] {
-        let fetchData: [Tweett] = realm.objects(Post.self).filter("created_at BEGINSWITH %@", date).map{$0}
+        let fetchData: [Tweet] = realm.objects(Tweet.self).filter("created_at BEGINSWITH %@", date).map{$0}
         return fetchData
     }
     
