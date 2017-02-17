@@ -8,7 +8,7 @@ class APIClient {
         
         var clientError: NSError?
         let endpoint = "https://api.twitter.com/1.1/statuses/user_timeline.json"
-        let params = ["include_rts": "false", "trim_user": "false"]
+        let params = ["include_rts": "false", "trim_user": "false", "count": "100"]
         let request = client.urlRequest(withMethod: "GET", url: endpoint, parameters: params, error: &clientError)
         
         client.sendTwitterRequest(request, completion: {
