@@ -17,6 +17,7 @@ class SettingsViewController: UITableViewController {
     let optionIndex = [0, 2]
     let sessionStore = Twitter.sharedInstance().sessionStore
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let realm: Realm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,7 @@ class SettingsViewController: UITableViewController {
                     (session, error) -> Void in
                     if (session != nil) {
                         // NOTE: 遷移という名の Main 画面の再描画
+                        self.savePosts()
                         self.appDelegate.showMainView()
                     } else {
                         print("Error：\(error?.localizedDescription)")
@@ -115,18 +117,43 @@ class SettingsViewController: UITableViewController {
         }
     }
 
+    private func savePosts() {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        APIClient.fetchUserTimeLine(tweets: {
+            tws in
+            for tw in tws {
+                let tweet: Tweet = Tweet()
+                tweet.content = tw.text
+                tweet.created_at = formatter.string(from: tw.createdAt)
+                tweet.user_id = tw.author.screenName
+                tweet.tweet_id = tw.tweetID
+
+                do {
+                    try self.realm.write() {
+                        self.realm.add(tweet, update: true)
+                    }
+                } catch {
+                    let error = error as NSError
+                    print("error: \(error), \(error.userInfo)")
+                }
+            }
+        })
+    }
+
     @objc internal func tappedLogoutButton(sender: UIButton) {
         let alert: UIAlertController = UIAlertController(title: "アカウント連携解除", message: "ログアウトしてもいいですか？", preferredStyle:  UIAlertControllerStyle.alert)
 
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
             (action: UIAlertAction!) -> Void in
             let sessionStore = Twitter.sharedInstance().sessionStore
-            let realm: Realm = try! Realm()
 
             if let userId = sessionStore.session()?.userID {
                 do {
-                    try realm.write() {
-                        realm.deleteAll()
+                    try self.realm.write() {
+                        self.realm.deleteAll()
                     }
                 } catch {
                     let error = error as NSError
