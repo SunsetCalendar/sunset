@@ -2,7 +2,6 @@ import UIKit
 import Foundation
 import FontAwesome
 import TwitterKit
-import RealmSwift
 
 extension UIColor {
     class func rgb(r: Int, g: Int, b: Int, alpha: CGFloat) -> UIColor{
@@ -17,7 +16,7 @@ class SettingsViewController: UITableViewController {
     let optionIndex = [0, 2]
     let sessionStore = Twitter.sharedInstance().sessionStore
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    let realm: Realm = try! Realm()
+    let tweet: Tweet = Tweet()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,14 +125,7 @@ class SettingsViewController: UITableViewController {
             let sessionStore = Twitter.sharedInstance().sessionStore
 
             if let userId = sessionStore.session()?.userID {
-                do {
-                    try self.realm.write() {
-                        self.realm.deleteAll()
-                    }
-                } catch {
-                    let error = error as NSError
-                    print("error: \(error), \(error.userInfo)")
-                }
+                self.tweet.deleteAll()
                 sessionStore.logOutUserID(userId)
             }
             self.appDelegate.showMainView()
