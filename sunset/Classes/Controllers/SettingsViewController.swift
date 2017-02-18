@@ -123,15 +123,17 @@ class SettingsViewController: UITableViewController {
             let sessionStore = Twitter.sharedInstance().sessionStore
             let realm: Realm = try! Realm()
 
-            do {
-                try realm.write() {
-                    realm.deleteAll()
+            if let userId = sessionStore.session()?.userID {
+                do {
+                    try realm.write() {
+                        realm.deleteAll()
+                    }
+                } catch {
+                    let error = error as NSError
+                    print("error: \(error), \(error.userInfo)")
                 }
-            } catch {
-                let error = error as NSError
-                print("error: \(error), \(error.userInfo)")
+                sessionStore.logOutUserID(userId)
             }
-            sessionStore.logOutUserID(userId)
             self.appDelegate.showMainView()
         })
         // キャンセルボタン
