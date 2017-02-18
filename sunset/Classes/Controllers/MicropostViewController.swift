@@ -12,7 +12,8 @@ class MicropostViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if (self.sessionStore.session()?.userID != nil) {
-            self.savePosts()
+            let twitterAPIClient: TwitterAPIClient = TwitterAPIClient()
+            twitterAPIClient.savePosts()
         }
         self.view.backgroundColor = UIColor.clear
         
@@ -58,34 +59,7 @@ class MicropostViewController: UITableViewController {
     @objc func updateView(_ notification: Notification) {
         self.tableView.reloadData()
     }
-    
-    private func savePosts() {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ja_JP")
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        APIClient.fetchUserTimeLine(tweets: {
-            tws in
-            for tw in tws {
-                let tweet: Tweet = Tweet()
-                tweet.content = tw.text
-                tweet.created_at = formatter.string(from: tw.createdAt)
-                tweet.user_id = tw.author.screenName
-                tweet.tweet_id = tw.tweetID
-                
-                do {
-                    try self.realm.write() {
-                        self.realm.add(tweet, update: true)
-                    }
-                } catch {
-                    let error = error as NSError
-                    print("error: \(error), \(error.userInfo)")
-                }
-                
-            }
-        })
-    }
-    
+
     private func filterPosts(date: String) -> [Tweet] {
         let fetchData: [Tweet] = realm.objects(Tweet.self).filter("created_at BEGINSWITH %@", date).map{$0}
         return fetchData
