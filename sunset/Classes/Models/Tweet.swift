@@ -15,15 +15,4 @@ class Tweet: Object {
     override static func indexedProperties() -> [String] {
         return ["created_at"]
     }
-
-    func deleteAll() {
-        do {
-            try realm?.write() {
-                realm?.deleteAll()
-            }
-        } catch {
-            let error = error as NSError
-            print("error: \(error), \(error.userInfo)")
-        }
-    }
 }
