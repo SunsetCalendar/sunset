@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A72BC743FFD1CB93051F32A /* Pods_sunset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BBA864FDA911B4F35925D14 /* Pods_sunset.framework */; };
 		1F81E5292283A65123CFA222 /* Pods_sunsetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60BB2EFAC9B303A020060EB0 /* Pods_sunsetTests.framework */; };
+		3106785B1E57542C00C829E6 /* settingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3106785A1E57542C00C829E6 /* settingsUITests.swift */; };
 		3162FBF51E50307300B05B5B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3162FBF41E50307300B05B5B /* SettingsViewController.swift */; };
 		31A936EE1E503EAD005A57B0 /* AccountsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A936EA1E503EAD005A57B0 /* AccountsTableViewCell.swift */; };
 		31A936EF1E503EAD005A57B0 /* AccountsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A936EB1E503EAD005A57B0 /* AccountsTableViewCell.xib */; };
@@ -16,13 +17,12 @@
 		31A936F11E503EAD005A57B0 /* SettingsTitlesViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A936ED1E503EAD005A57B0 /* SettingsTitlesViewCell.xib */; };
 		31A936F31E504230005A57B0 /* SlideMenuControllerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A936F21E504230005A57B0 /* SlideMenuControllerSwift.framework */; };
 		31A936F51E508CE1005A57B0 /* FontAwesome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A936F41E508CE1005A57B0 /* FontAwesome.framework */; };
+		31A937351E55DAA9005A57B0 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A937341E55DAA9005A57B0 /* Tweet.swift */; };
 		322A48301DAF264400AFA59B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322A482F1DAF264400AFA59B /* Realm.framework */; };
 		322A48341DAF35F800AFA59B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322A48331DAF35F800AFA59B /* RealmSwift.framework */; };
 		322A48361DAF5FE500AFA59B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322A48351DAF5FE500AFA59B /* Post.swift */; };
-		322AF8EF1D98EFC900E7034F /* Micropost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8EE1D98EFC900E7034F /* Micropost.swift */; };
-		322AF8F11D98FA1800E7034F /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F01D98FA1800E7034F /* APIClient.swift */; };
+		322AF8F11D98FA1800E7034F /* TwitterAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F01D98FA1800E7034F /* TwitterAPIClient.swift */; };
 		322AF8F31D99018C00E7034F /* MicropostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F21D99018C00E7034F /* MicropostViewController.swift */; };
-		322AF8F51D9B65A600E7034F /* micropostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322AF8F41D9B65A600E7034F /* micropostTests.swift */; };
 		3251BEDE1DACC2B2008ACF9F /* GradationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3251BEDD1DACC2B2008ACF9F /* GradationView.swift */; };
 		3251BEE01DACDEDB008ACF9F /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3251BEDF1DACDEDB008ACF9F /* ColorTheme.swift */; };
 		3251BEE21DAE19B2008ACF9F /* DaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3251BEE11DAE19B2008ACF9F /* DaysViewController.swift */; };
@@ -69,6 +69,7 @@
 		1BBA864FDA911B4F35925D14 /* Pods_sunset.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sunset.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D8837B588DC143050C4731C /* Pods-sunsetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sunsetTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sunsetTests/Pods-sunsetTests.debug.xcconfig"; sourceTree = "<group>"; };
 		22953F5B7DD2C790E394614E /* Pods-sunsetUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sunsetUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-sunsetUITests/Pods-sunsetUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3106785A1E57542C00C829E6 /* settingsUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsUITests.swift; sourceTree = "<group>"; };
 		3162FBF41E50307300B05B5B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		31A936EA1E503EAD005A57B0 /* AccountsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsTableViewCell.swift; sourceTree = "<group>"; };
 		31A936EB1E503EAD005A57B0 /* AccountsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsTableViewCell.xib; sourceTree = "<group>"; };
@@ -76,13 +77,12 @@
 		31A936ED1E503EAD005A57B0 /* SettingsTitlesViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTitlesViewCell.xib; sourceTree = "<group>"; };
 		31A936F21E504230005A57B0 /* SlideMenuControllerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SlideMenuControllerSwift.framework; path = Carthage/Build/iOS/SlideMenuControllerSwift.framework; sourceTree = "<group>"; };
 		31A936F41E508CE1005A57B0 /* FontAwesome.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FontAwesome.framework; path = Carthage/Build/iOS/FontAwesome.framework; sourceTree = "<group>"; };
+		31A937341E55DAA9005A57B0 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		322A482F1DAF264400AFA59B /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		322A48331DAF35F800AFA59B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		322A48351DAF5FE500AFA59B /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		322AF8EE1D98EFC900E7034F /* Micropost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Micropost.swift; sourceTree = "<group>"; };
-		322AF8F01D98FA1800E7034F /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		322AF8F01D98FA1800E7034F /* TwitterAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterAPIClient.swift; sourceTree = "<group>"; };
 		322AF8F21D99018C00E7034F /* MicropostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicropostViewController.swift; sourceTree = "<group>"; };
-		322AF8F41D9B65A600E7034F /* micropostTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = micropostTests.swift; sourceTree = "<group>"; };
 		322AF8F81D9B90F100E7034F /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		3251BEDD1DACC2B2008ACF9F /* GradationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradationView.swift; sourceTree = "<group>"; };
 		3251BEDF1DACDEDB008ACF9F /* ColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
@@ -227,7 +227,6 @@
 			children = (
 				332B1A3B1D815670007064CF /* calendarTests.swift */,
 				332B1A3D1D815670007064CF /* Info.plist */,
-				322AF8F41D9B65A600E7034F /* micropostTests.swift */,
 			);
 			path = sunsetTests;
 			sourceTree = "<group>";
@@ -238,6 +237,7 @@
 				332B1A461D815670007064CF /* sunsetUITests.swift */,
 				332B1A481D815670007064CF /* Info.plist */,
 				32D0D7E91D9CC37D00FF7F33 /* webviewUITests.swift */,
+				3106785A1E57542C00C829E6 /* settingsUITests.swift */,
 			);
 			path = sunsetUITests;
 			sourceTree = "<group>";
@@ -270,7 +270,7 @@
 		332B1A561D815749007064CF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				322AF8F01D98FA1800E7034F /* APIClient.swift */,
+				322AF8F01D98FA1800E7034F /* TwitterAPIClient.swift */,
 				33799FF81DA626AE003B0FBA /* DateAttributes.swift */,
 				3251BEDD1DACC2B2008ACF9F /* GradationView.swift */,
 				3251BEDF1DACDEDB008ACF9F /* ColorTheme.swift */,
@@ -282,8 +282,8 @@
 			isa = PBXGroup;
 			children = (
 				322A48351DAF5FE500AFA59B /* Post.swift */,
-				322AF8EE1D98EFC900E7034F /* Micropost.swift */,
 				33F3CD281D99103C00B8D7A5 /* DateManager.swift */,
+				31A937341E55DAA9005A57B0 /* Tweet.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -628,19 +628,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				322AF8EF1D98EFC900E7034F /* Micropost.swift in Sources */,
 				32D0D7EC1D9CDA6500FF7F33 /* WebViewController.swift in Sources */,
 				33799FF91DA626AE003B0FBA /* DateAttributes.swift in Sources */,
 				3251BEE21DAE19B2008ACF9F /* DaysViewController.swift in Sources */,
 				3367C3621D98EFE5007A13AF /* CalendarViewController.swift in Sources */,
 				322A48361DAF5FE500AFA59B /* Post.swift in Sources */,
+				31A937351E55DAA9005A57B0 /* Tweet.swift in Sources */,
 				3251BEE01DACDEDB008ACF9F /* ColorTheme.swift in Sources */,
 				33F3CD291D99103C00B8D7A5 /* DateManager.swift in Sources */,
 				3162FBF51E50307300B05B5B /* SettingsViewController.swift in Sources */,
 				31A936EE1E503EAD005A57B0 /* AccountsTableViewCell.swift in Sources */,
 				31A936F01E503EAD005A57B0 /* SettingsTitlesViewCell.swift in Sources */,
 				32B92AEE1DA625C000C17B1F /* CalendarCell.swift in Sources */,
-				322AF8F11D98FA1800E7034F /* APIClient.swift in Sources */,
+				322AF8F11D98FA1800E7034F /* TwitterAPIClient.swift in Sources */,
 				322AF8F31D99018C00E7034F /* MicropostViewController.swift in Sources */,
 				332B1A601D8157B5007064CF /* ViewController.swift in Sources */,
 				3251BEDE1DACC2B2008ACF9F /* GradationView.swift in Sources */,
@@ -652,7 +652,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				322AF8F51D9B65A600E7034F /* micropostTests.swift in Sources */,
 				332B1A3C1D815670007064CF /* calendarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,6 +660,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3106785B1E57542C00C829E6 /* settingsUITests.swift in Sources */,
 				332B1A471D815670007064CF /* sunsetUITests.swift in Sources */,
 				32D0D7EA1D9CC37D00FF7F33 /* webviewUITests.swift in Sources */,
 			);
