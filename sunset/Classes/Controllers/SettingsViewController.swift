@@ -2,6 +2,7 @@ import UIKit
 import Foundation
 import FontAwesome
 import TwitterKit
+import RealmSwift
 
 extension UIColor {
     class func rgb(r: Int, g: Int, b: Int, alpha: CGFloat) -> UIColor{
@@ -120,9 +121,17 @@ class SettingsViewController: UITableViewController {
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
             (action: UIAlertAction!) -> Void in
             let sessionStore = Twitter.sharedInstance().sessionStore
-            if let userId = sessionStore.session()?.userID {
-                sessionStore.logOutUserID(userId)
+            let realm: Realm = try! Realm()
+
+            do {
+                try realm.write() {
+                    realm.deleteAll()
+                }
+            } catch {
+                let error = error as NSError
+                print("error: \(error), \(error.userInfo)")
             }
+            sessionStore.logOutUserID(userId)
             self.appDelegate.showMainView()
         })
         // キャンセルボタン
