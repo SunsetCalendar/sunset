@@ -3,7 +3,7 @@ import TwitterKit
 import RealmSwift
 
 class TwitterAPIClient {
-    
+
     let realm: Realm = try! Realm()
 
     func savePosts() {
@@ -13,20 +13,15 @@ class TwitterAPIClient {
 
         self.fetchUserTimeLine(tweets: {
             tws in
-            for tw in tws {
-                let tweet: Tweet = Tweet()
-                tweet.content = tw.text
-                tweet.created_at = formatter.string(from: tw.createdAt)
-                tweet.user_id = tw.author.screenName
-                tweet.tweet_id = tw.tweetID
+            try! self.realm.write {
+                for tw in tws {
+                    let tweet: Tweet = Tweet()
+                    tweet.content = tw.text
+                    tweet.created_at = formatter.string(from: tw.createdAt)
+                    tweet.user_id = tw.author.screenName
+                    tweet.tweet_id = tw.tweetID
 
-                do {
-                    try self.realm.write() {
-                        self.realm.add(tweet, update: true)
-                    }
-                } catch {
-                    let error = error as NSError
-                    print("error: \(error), \(error.userInfo)")
+                    self.realm.add(tweet, update: true)
                 }
             }
         })
