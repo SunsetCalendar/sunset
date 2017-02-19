@@ -18,6 +18,7 @@
 		31A936F31E504230005A57B0 /* SlideMenuControllerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A936F21E504230005A57B0 /* SlideMenuControllerSwift.framework */; };
 		31A936F51E508CE1005A57B0 /* FontAwesome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A936F41E508CE1005A57B0 /* FontAwesome.framework */; };
 		31A937351E55DAA9005A57B0 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A937341E55DAA9005A57B0 /* Tweet.swift */; };
+		31FDC0A21E59B906007EE0F6 /* TweetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FDC0A11E59B906007EE0F6 /* TweetManager.swift */; };
 		322A48301DAF264400AFA59B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322A482F1DAF264400AFA59B /* Realm.framework */; };
 		322A48341DAF35F800AFA59B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322A48331DAF35F800AFA59B /* RealmSwift.framework */; };
 		322A48361DAF5FE500AFA59B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322A48351DAF5FE500AFA59B /* Post.swift */; };
@@ -78,6 +79,7 @@
 		31A936F21E504230005A57B0 /* SlideMenuControllerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SlideMenuControllerSwift.framework; path = Carthage/Build/iOS/SlideMenuControllerSwift.framework; sourceTree = "<group>"; };
 		31A936F41E508CE1005A57B0 /* FontAwesome.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FontAwesome.framework; path = Carthage/Build/iOS/FontAwesome.framework; sourceTree = "<group>"; };
 		31A937341E55DAA9005A57B0 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		31FDC0A11E59B906007EE0F6 /* TweetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetManager.swift; sourceTree = "<group>"; };
 		322A482F1DAF264400AFA59B /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		322A48331DAF35F800AFA59B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		322A48351DAF5FE500AFA59B /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				322A48351DAF5FE500AFA59B /* Post.swift */,
 				33F3CD281D99103C00B8D7A5 /* DateManager.swift */,
 				31A937341E55DAA9005A57B0 /* Tweet.swift */,
+				31FDC0A11E59B906007EE0F6 /* TweetManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				3162FBF51E50307300B05B5B /* SettingsViewController.swift in Sources */,
 				31A936EE1E503EAD005A57B0 /* AccountsTableViewCell.swift in Sources */,
 				31A936F01E503EAD005A57B0 /* SettingsTitlesViewCell.swift in Sources */,
+				31FDC0A21E59B906007EE0F6 /* TweetManager.swift in Sources */,
 				32B92AEE1DA625C000C17B1F /* CalendarCell.swift in Sources */,
 				322AF8F11D98FA1800E7034F /* TwitterAPIClient.swift in Sources */,
 				322AF8F31D99018C00E7034F /* MicropostViewController.swift in Sources */,
