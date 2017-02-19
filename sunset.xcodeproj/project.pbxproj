@@ -781,6 +781,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: asuforcegt@yahoo.co.jp (5QPQG45SHU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J43C2ZSKA6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -802,6 +803,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: asuforcegt@yahoo.co.jp (5QPQG45SHU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J43C2ZSKA6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
