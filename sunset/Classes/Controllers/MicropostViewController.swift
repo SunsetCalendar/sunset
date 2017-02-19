@@ -1,13 +1,12 @@
 import UIKit
 import TwitterKit
-import RealmSwift
 
 class MicropostViewController: UITableViewController {
 
     var tweets: [Tweet] = []
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let sessionStore = Twitter.sharedInstance().sessionStore
-    let realm: Realm = try! Realm()
+    let tweetManager: TweetManager = TweetManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +31,7 @@ class MicropostViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.filterPosts(date: self.appDelegate.targetDate!).count
+        return self.tweetManager.filter(date: self.appDelegate.targetDate!).count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,23 +45,18 @@ class MicropostViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let tweets: [Tweet] = self.filterPosts(date: self.appDelegate.targetDate!)
+        let tweets: [Tweet] = self.tweetManager.filter(date: self.appDelegate.targetDate!)
         appDelegate.tweetID = tweets[indexPath.row].tweet_id
         appDelegate.userID = tweets[indexPath.row].user_id
     }
 
     private func updateCell(_ cell: UITableViewCell, indexPath: IndexPath) {
-        let tweets: [Tweet] = self.filterPosts(date: self.appDelegate.targetDate!)
+        let tweets: [Tweet] = self.tweetManager.filter(date: self.appDelegate.targetDate!)
         cell.textLabel?.text = tweets[indexPath.row].content
     }
 
     @objc func updateView(_ notification: Notification) {
         self.tableView.reloadData()
-    }
-
-    private func filterPosts(date: String) -> [Tweet] {
-        let fetchData: [Tweet] = self.realm.objects(Tweet.self).filter("created_at BEGINSWITH %@", date).map{$0}
-        return fetchData
     }
 
     private func initialDate() -> String {
