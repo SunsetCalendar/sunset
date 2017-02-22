@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		0A72BC743FFD1CB93051F32A /* Pods_sunset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BBA864FDA911B4F35925D14 /* Pods_sunset.framework */; };
 		1F81E5292283A65123CFA222 /* Pods_sunsetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60BB2EFAC9B303A020060EB0 /* Pods_sunsetTests.framework */; };
+		3162FBF51E50307300B05B5B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3162FBF41E50307300B05B5B /* SettingsViewController.swift */; };
+		31A936EE1E503EAD005A57B0 /* AccountsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A936EA1E503EAD005A57B0 /* AccountsTableViewCell.swift */; };
+		31A936EF1E503EAD005A57B0 /* AccountsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A936EB1E503EAD005A57B0 /* AccountsTableViewCell.xib */; };
+		31A936F01E503EAD005A57B0 /* SettingsTitlesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A936EC1E503EAD005A57B0 /* SettingsTitlesViewCell.swift */; };
+		31A936F11E503EAD005A57B0 /* SettingsTitlesViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A936ED1E503EAD005A57B0 /* SettingsTitlesViewCell.xib */; };
+		31A936F31E504230005A57B0 /* SlideMenuControllerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A936F21E504230005A57B0 /* SlideMenuControllerSwift.framework */; };
+		31A936F51E508CE1005A57B0 /* FontAwesome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A936F41E508CE1005A57B0 /* FontAwesome.framework */; };
 		322A48301DAF264400AFA59B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322A482F1DAF264400AFA59B /* Realm.framework */; };
 		322A48341DAF35F800AFA59B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322A48331DAF35F800AFA59B /* RealmSwift.framework */; };
 		322A48361DAF5FE500AFA59B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322A48351DAF5FE500AFA59B /* Post.swift */; };
@@ -62,6 +69,13 @@
 		1BBA864FDA911B4F35925D14 /* Pods_sunset.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sunset.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D8837B588DC143050C4731C /* Pods-sunsetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sunsetTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sunsetTests/Pods-sunsetTests.debug.xcconfig"; sourceTree = "<group>"; };
 		22953F5B7DD2C790E394614E /* Pods-sunsetUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sunsetUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-sunsetUITests/Pods-sunsetUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3162FBF41E50307300B05B5B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		31A936EA1E503EAD005A57B0 /* AccountsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsTableViewCell.swift; sourceTree = "<group>"; };
+		31A936EB1E503EAD005A57B0 /* AccountsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsTableViewCell.xib; sourceTree = "<group>"; };
+		31A936EC1E503EAD005A57B0 /* SettingsTitlesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTitlesViewCell.swift; sourceTree = "<group>"; };
+		31A936ED1E503EAD005A57B0 /* SettingsTitlesViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTitlesViewCell.xib; sourceTree = "<group>"; };
+		31A936F21E504230005A57B0 /* SlideMenuControllerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SlideMenuControllerSwift.framework; path = Carthage/Build/iOS/SlideMenuControllerSwift.framework; sourceTree = "<group>"; };
+		31A936F41E508CE1005A57B0 /* FontAwesome.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FontAwesome.framework; path = Carthage/Build/iOS/FontAwesome.framework; sourceTree = "<group>"; };
 		322A482F1DAF264400AFA59B /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		322A48331DAF35F800AFA59B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		322A48351DAF5FE500AFA59B /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -110,6 +124,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31A936F51E508CE1005A57B0 /* FontAwesome.framework in Frameworks */,
+				31A936F31E504230005A57B0 /* SlideMenuControllerSwift.framework in Frameworks */,
 				322A48341DAF35F800AFA59B /* RealmSwift.framework in Frameworks */,
 				322A48301DAF264400AFA59B /* Realm.framework in Frameworks */,
 				32CDE1021D9513EA00A57C02 /* Alamofire.framework in Frameworks */,
@@ -156,6 +172,8 @@
 		32CDE0FE1D9513EA00A57C02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				31A936F41E508CE1005A57B0 /* FontAwesome.framework */,
+				31A936F21E504230005A57B0 /* SlideMenuControllerSwift.framework */,
 				322A48331DAF35F800AFA59B /* RealmSwift.framework */,
 				322A482F1DAF264400AFA59B /* Realm.framework */,
 				32D0D7E41D9BA7AE00FF7F33 /* OHHTTPStubs.framework */,
@@ -244,6 +262,7 @@
 				3367C3611D98EFE5007A13AF /* CalendarViewController.swift */,
 				32D0D7EB1D9CDA6500FF7F33 /* WebViewController.swift */,
 				3251BEE11DAE19B2008ACF9F /* DaysViewController.swift */,
+				3162FBF41E50307300B05B5B /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -279,6 +298,10 @@
 		332B1A591D815749007064CF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				31A936EA1E503EAD005A57B0 /* AccountsTableViewCell.swift */,
+				31A936EB1E503EAD005A57B0 /* AccountsTableViewCell.xib */,
+				31A936EC1E503EAD005A57B0 /* SettingsTitlesViewCell.swift */,
+				31A936ED1E503EAD005A57B0 /* SettingsTitlesViewCell.xib */,
 				32B92AED1DA625C000C17B1F /* CalendarCell.swift */,
 			);
 			path = Views;
@@ -417,7 +440,9 @@
 			files = (
 				332B1A5E1D8157A1007064CF /* Main.storyboard in Resources */,
 				332B1A2E1D815670007064CF /* Assets.xcassets in Resources */,
+				31A936EF1E503EAD005A57B0 /* AccountsTableViewCell.xib in Resources */,
 				32D0D7E81D9CBFEB00FF7F33 /* WebView.storyboard in Resources */,
+				31A936F11E503EAD005A57B0 /* SettingsTitlesViewCell.xib in Resources */,
 				332B1A5D1D8157A1007064CF /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +507,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SlideMenuControllerSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FontAwesome.framework",
 			);
 			outputPaths = (
 			);
@@ -609,6 +636,9 @@
 				322A48361DAF5FE500AFA59B /* Post.swift in Sources */,
 				3251BEE01DACDEDB008ACF9F /* ColorTheme.swift in Sources */,
 				33F3CD291D99103C00B8D7A5 /* DateManager.swift in Sources */,
+				3162FBF51E50307300B05B5B /* SettingsViewController.swift in Sources */,
+				31A936EE1E503EAD005A57B0 /* AccountsTableViewCell.swift in Sources */,
+				31A936F01E503EAD005A57B0 /* SettingsTitlesViewCell.swift in Sources */,
 				32B92AEE1DA625C000C17B1F /* CalendarCell.swift in Sources */,
 				322AF8F11D98FA1800E7034F /* APIClient.swift in Sources */,
 				322AF8F31D99018C00E7034F /* MicropostViewController.swift in Sources */,
