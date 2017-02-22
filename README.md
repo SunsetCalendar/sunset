@@ -10,6 +10,11 @@
 2. リポジトリをクローン
 3. ルートで`carthage update --platform iOS`
 
+### cocoapods
+
+1. リポジトリのルートにて `bundle install`
+2. `bundle exec pod install`
+
 ### mergepbx
 
 1. 下記のコマンドを実行([詳細](http://qiita.com/kaneshin/items/1deebde685c973fda6b8))
@@ -27,4 +32,17 @@ bundle install
 
 ```ruby
 fastlane タスク名
+```
+
+### 各種キーについて
+
+`.env`ファイルを用いて, Fabric や Twitter のキーを管理しています.
+プロジェクトの `Run script` のステップやプログラム内で上記のファイルから各種キーを環境変数として読み込んでいるので, このファイルは必須になります.
+
+`Cocoapods-keys` というライブラリでこれを実現しています. 以下のコマンドにより, 各種キーが定義されていることを確認してください.
+
+```shell
+1. cp .env_template .env
+2. キーの中身を埋める
+3. bundle exec pod keys
 ```

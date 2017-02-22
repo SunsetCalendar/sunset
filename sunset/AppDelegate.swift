@@ -1,16 +1,38 @@
 import UIKit
 import OHHTTPStubs
 import RealmSwift
+import Fabric
+import TwitterKit
+import Keys
+import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var micropostId: String?
+    var tweetID: String?
+    var userID: String?
     var targetDate: String?
     var calendarCellWidth: CGFloat?
     var calendarCellHeight: CGFloat?
     let realm: Realm = try! Realm()
+    let sunsetKeys: SunsetKeys = SunsetKeys()
+
+    // スライドメニューで設定メニュー出すための処理
+    func showMainView() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+
+        let mainViewController = storyboard.instantiateViewController(withIdentifier: "Main") as! ViewController
+        // 右からスワイプで表示される storyboard 用の controller
+        let rightViewController = storyboard.instantiateViewController(withIdentifier: "Settings") as! SettingsViewController
+        let navigationController: UINavigationController = UINavigationController(rootViewController: mainViewController)
+
+        // メイン画面でナビゲーションバーを扱っているので, rootViewController を main にした navigationController を mainViewController の引数として当てはめる
+        let slideMenuController = SlideMenuController(mainViewController: navigationController, rightMenuViewController: rightViewController)
+
+        self.window?.rootViewController = slideMenuController
+        self.window?.makeKeyAndVisible()
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -37,6 +59,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 )
             }
         }
+        Twitter.sharedInstance().start(withConsumerKey: sunsetKeys.consumerKey, consumerSecret: sunsetKeys.consumerSecret)
+        Fabric.with([Twitter.self])
+
+        // NOTE: 連携していなくても TwitterKit のメソッドを用いて, Twitter でログインしているかをチェックしているので, Fabric.with() の後でないと描画されない
+        self.showMainView()
         return true
     }
 
