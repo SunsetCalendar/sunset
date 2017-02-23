@@ -1,4 +1,5 @@
 import UIKit
+import Gecco
 
 @IBDesignable
 class ViewController: UIViewController {
@@ -32,6 +33,16 @@ class ViewController: UIViewController {
         gradationView.addGradation(view: self.view)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // 初回起動かのチェック
+        let userDefaults = UserDefaults.standard
+        if (userDefaults.bool(forKey: "firstLaunch")) {
+            showWalkThrough()
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -62,5 +73,10 @@ class ViewController: UIViewController {
         return thisDateString
     }
     
+    private func showWalkThrough() {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WalkThrough") as! WalkThroughViewController
+        viewController.alpha = 0.5
+        present(viewController, animated: true, completion: nil)
+    }
 }
 
