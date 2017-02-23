@@ -11,6 +11,9 @@
 		1F81E5292283A65123CFA222 /* Pods_sunsetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60BB2EFAC9B303A020060EB0 /* Pods_sunsetTests.framework */; };
 		3106785B1E57542C00C829E6 /* settingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3106785A1E57542C00C829E6 /* settingsUITests.swift */; };
 		3162FBF51E50307300B05B5B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3162FBF41E50307300B05B5B /* SettingsViewController.swift */; };
+		3173D1D01E5DEFB400FAC69D /* Spring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31914E641E5DB14C00D6ACC1 /* Spring.framework */; };
+		31914E631E5DB14000D6ACC1 /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31914E621E5DB14000D6ACC1 /* Gecco.framework */; };
+		31914E671E5DB3E100D6ACC1 /* WalkThroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31914E661E5DB3E100D6ACC1 /* WalkThroughViewController.swift */; };
 		31A936EE1E503EAD005A57B0 /* AccountsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A936EA1E503EAD005A57B0 /* AccountsTableViewCell.swift */; };
 		31A936EF1E503EAD005A57B0 /* AccountsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A936EB1E503EAD005A57B0 /* AccountsTableViewCell.xib */; };
 		31A936F01E503EAD005A57B0 /* SettingsTitlesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A936EC1E503EAD005A57B0 /* SettingsTitlesViewCell.swift */; };
@@ -72,6 +75,9 @@
 		22953F5B7DD2C790E394614E /* Pods-sunsetUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sunsetUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-sunsetUITests/Pods-sunsetUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3106785A1E57542C00C829E6 /* settingsUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsUITests.swift; sourceTree = "<group>"; };
 		3162FBF41E50307300B05B5B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		31914E621E5DB14000D6ACC1 /* Gecco.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gecco.framework; path = Carthage/Build/iOS/Gecco.framework; sourceTree = "<group>"; };
+		31914E641E5DB14C00D6ACC1 /* Spring.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spring.framework; path = Carthage/Build/iOS/Spring.framework; sourceTree = "<group>"; };
+		31914E661E5DB3E100D6ACC1 /* WalkThroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkThroughViewController.swift; sourceTree = "<group>"; };
 		31A936EA1E503EAD005A57B0 /* AccountsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsTableViewCell.swift; sourceTree = "<group>"; };
 		31A936EB1E503EAD005A57B0 /* AccountsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsTableViewCell.xib; sourceTree = "<group>"; };
 		31A936EC1E503EAD005A57B0 /* SettingsTitlesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTitlesViewCell.swift; sourceTree = "<group>"; };
@@ -126,6 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3173D1D01E5DEFB400FAC69D /* Spring.framework in Frameworks */,
+				31914E631E5DB14000D6ACC1 /* Gecco.framework in Frameworks */,
 				31A936F51E508CE1005A57B0 /* FontAwesome.framework in Frameworks */,
 				31A936F31E504230005A57B0 /* SlideMenuControllerSwift.framework in Frameworks */,
 				322A48341DAF35F800AFA59B /* RealmSwift.framework in Frameworks */,
@@ -174,6 +182,8 @@
 		32CDE0FE1D9513EA00A57C02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				31914E641E5DB14C00D6ACC1 /* Spring.framework */,
+				31914E621E5DB14000D6ACC1 /* Gecco.framework */,
 				31A936F41E508CE1005A57B0 /* FontAwesome.framework */,
 				31A936F21E504230005A57B0 /* SlideMenuControllerSwift.framework */,
 				322A48331DAF35F800AFA59B /* RealmSwift.framework */,
@@ -265,6 +275,7 @@
 				32D0D7EB1D9CDA6500FF7F33 /* WebViewController.swift */,
 				3251BEE11DAE19B2008ACF9F /* DaysViewController.swift */,
 				3162FBF41E50307300B05B5B /* SettingsViewController.swift */,
+				31914E661E5DB3E100D6ACC1 /* WalkThroughViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -512,6 +523,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SlideMenuControllerSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/FontAwesome.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Gecco.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Spring.framework",
 			);
 			outputPaths = (
 			);
@@ -646,6 +659,7 @@
 				32B92AEE1DA625C000C17B1F /* CalendarCell.swift in Sources */,
 				322AF8F11D98FA1800E7034F /* TwitterAPIClient.swift in Sources */,
 				322AF8F31D99018C00E7034F /* MicropostViewController.swift in Sources */,
+				31914E671E5DB3E100D6ACC1 /* WalkThroughViewController.swift in Sources */,
 				332B1A601D8157B5007064CF /* ViewController.swift in Sources */,
 				3251BEDE1DACC2B2008ACF9F /* GradationView.swift in Sources */,
 				332B1A271D815670007064CF /* AppDelegate.swift in Sources */,
@@ -689,6 +703,7 @@
 		332B1A491D815670007064CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -738,6 +753,7 @@
 		332B1A4A1D815670007064CF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
