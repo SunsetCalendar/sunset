@@ -13,6 +13,12 @@
 2. リポジトリをクローン
 3. ルートで`carthage bootstrap --no-use-binaries --platform iOS`
 
+開発中にライブラリをアップデートしたい場合には, 以下のコマンドを実行してください.
+```
+carthage update 対象パッケージ名 --platform iOS
+```
+
+
 ### cocoapods
 
 1. リポジトリのルートにて `bundle install -path vendor/bundle`
