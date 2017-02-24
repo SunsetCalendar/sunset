@@ -28,11 +28,8 @@
 		3251BEE01DACDEDB008ACF9F /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3251BEDF1DACDEDB008ACF9F /* ColorTheme.swift */; };
 		3251BEE21DAE19B2008ACF9F /* DaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3251BEE11DAE19B2008ACF9F /* DaysViewController.swift */; };
 		32B92AEE1DA625C000C17B1F /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B92AED1DA625C000C17B1F /* CalendarCell.swift */; };
-		32CDE1021D9513EA00A57C02 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE0FF1D9513EA00A57C02 /* Alamofire.framework */; };
-		32CDE1031D9513EA00A57C02 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1001D9513EA00A57C02 /* AlamofireImage.framework */; };
 		32CDE1041D9513EA00A57C02 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1011D9513EA00A57C02 /* SwiftyJSON.framework */; };
 		32D0D7E11D9B94E800FF7F33 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322AF8F81D9B90F100E7034F /* Nimble.framework */; };
-		32D0D7E51D9BA7AE00FF7F33 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D0D7E41D9BA7AE00FF7F33 /* OHHTTPStubs.framework */; };
 		32D0D7E81D9CBFEB00FF7F33 /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D0D7E71D9CBFEB00FF7F33 /* WebView.storyboard */; };
 		32D0D7EA1D9CC37D00FF7F33 /* webviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0D7E91D9CC37D00FF7F33 /* webviewUITests.swift */; };
 		32D0D7EC1D9CDA6500FF7F33 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0D7EB1D9CDA6500FF7F33 /* WebViewController.swift */; };
@@ -130,8 +127,6 @@
 				31A936F31E504230005A57B0 /* SlideMenuControllerSwift.framework in Frameworks */,
 				322A48341DAF35F800AFA59B /* RealmSwift.framework in Frameworks */,
 				322A48301DAF264400AFA59B /* Realm.framework in Frameworks */,
-				32CDE1021D9513EA00A57C02 /* Alamofire.framework in Frameworks */,
-				32CDE1031D9513EA00A57C02 /* AlamofireImage.framework in Frameworks */,
 				32CDE1041D9513EA00A57C02 /* SwiftyJSON.framework in Frameworks */,
 				0A72BC743FFD1CB93051F32A /* Pods_sunset.framework in Frameworks */,
 			);
@@ -141,7 +136,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32D0D7E51D9BA7AE00FF7F33 /* OHHTTPStubs.framework in Frameworks */,
 				32D0D7E11D9B94E800FF7F33 /* Nimble.framework in Frameworks */,
 				1F81E5292283A65123CFA222 /* Pods_sunsetTests.framework in Frameworks */,
 			);
@@ -503,11 +497,8 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SlideMenuControllerSwift.framework",
