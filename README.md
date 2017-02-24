@@ -4,6 +4,9 @@
 
 ## 開発環境構築
 
+各種ライブラリをインストールしてください.
+
+### iOS 関連のライブラリのインストール
 ### carthage
 
 1. Carthageをインストールする
@@ -23,6 +26,7 @@
 brew install mergepbx
 ```
 
+### その他
 ### fastlane
 タスクランナーとして, fastlane を使用しています. 以下のコマンドでインストールしてください.
 
@@ -48,3 +52,13 @@ fastlane タスク名
 2. キーの中身を埋める
 3. bundle exec pod keys
 ```
+
+### ビルド
+xcworkspace ファイルをオープンしてアプリをビルドしてください.
+```shell
+open sunset.xcworkspace
+```
+
+ここまでのステップを実行すると, アプリをビルドできる状態になっています.
+もしビルドできない際には, `Clean Build Folder` をするとうまくいくかもしれません.
+(`command + shift + option + k` もしくは Xcode の Project メニューにある clean を, option を押しながら実行)
