@@ -8,11 +8,11 @@
 
 1. Carthageをインストールする
 2. リポジトリをクローン
-3. ルートで`carthage update --platform iOS`
+3. ルートで`carthage bootstrap --no-use-binaries --platform iOS`
 
 ### cocoapods
 
-1. リポジトリのルートにて `bundle install`
+1. リポジトリのルートにて `bundle install -path vendor/bundle`
 2. `bundle exec pod install`
 
 ### mergepbx
@@ -29,6 +29,8 @@ brew install mergepbx
 ```ruby
 bundle install
 ```
+
+各ステップで定義したタスクは以下のようにして実行することができます.
 
 ```ruby
 fastlane タスク名
