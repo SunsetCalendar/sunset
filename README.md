@@ -21,7 +21,7 @@ carthage update 対象パッケージ名 --platform iOS
 
 ### cocoapods
 
-1. リポジトリのルートにて `bundle install -path vendor/bundle`
+1. リポジトリのルートにて `bundle install --path vendor/bundle`
 2. `bundle exec pod repo update`
 3. `bundle exec pod install`
 
