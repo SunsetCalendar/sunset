@@ -1,23 +1,5 @@
 import UIKit
 
-extension Date {
-    func monthAgoDate() -> Date {
-        let addValue: Int = -1
-        let calendar: Calendar = Calendar.current
-        var dateComponents: DateComponents = DateComponents()
-        dateComponents.month = addValue
-        return calendar.date(byAdding: dateComponents, to: self)!
-    }
-    
-    func monthLaterDate() -> Date {
-        let addValue: Int = 1
-        let calendar: Calendar = Calendar.current
-        var dateComponents: DateComponents = DateComponents()
-        dateComponents.month = addValue
-        return calendar.date(byAdding: dateComponents, to: self)!
-    }
-}
-
 class DateManager: NSObject {
     var currentMonthOfDates: [Date] = [] //表記する月の配列
     var selectedDate: Date = Date()
@@ -65,21 +47,7 @@ class DateManager: NSObject {
         formatter.dateFormat = "d"
         return formatter.string(from: currentMonthOfDates[indexPath.row])
     }
-    
-    // 先月の表示
-    func prevMonth(_ date: Date) -> Date {
-        currentMonthOfDates = []
-        selectedDate = date.monthAgoDate()
-        return selectedDate
-    }
-    
-    // 次月の表示
-    func nextMonth(_ date: Date) -> Date {
-        currentMonthOfDates = []
-        selectedDate = date.monthLaterDate()
-        return selectedDate
-    }
-    
+        
     // その月にしかない日を返す
     func ShowDayIfInThisMonth(_ row: Int) -> String {
         dateForCellAtIndexPath(numberOfItems)

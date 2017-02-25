@@ -14,27 +14,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
 
-    @IBOutlet var swipeLeftGesture: UISwipeGestureRecognizer!
-    @IBOutlet var swipeRightGesture: UISwipeGestureRecognizer!
     @IBOutlet weak var calendarCollectionView: UICollectionView!
-
-    // [左へスワイプ] 1ヶ月進む
-    @IBAction func swipedLeft(_ sender: UISwipeGestureRecognizer) {
-        selectedDate = dateManager.nextMonth(selectedDate)
-        calendarCollectionView.reloadData()
-        // 月が変更する際にnavigationBarのタイトルも更新
-        // navigationBarは親であるViewControllerが所持しているので、親の要素を書き換える
-        self.parent?.title = changeHeaderTitle(selectedDate)
-    }
-
-    // [右へスワイプ] 1ヶ月戻る
-    @IBAction func swipedRight(_ sender: UISwipeGestureRecognizer) {
-        selectedDate = dateManager.prevMonth(selectedDate)
-        calendarCollectionView.reloadData()
-        // 月が変更する際にnavigationBarのタイトルも更新
-        // navigationBarは親であるViewControllerが所持しているので、親の要素を書き換える
-        self.parent?.title = changeHeaderTitle(selectedDate)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +23,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         calendarCollectionView.dataSource = self
         calendarCollectionView.backgroundColor = UIColor.clear
         self.view.backgroundColor = UIColor.clear
-
-        let TapPrevBtnNotification = Notification.Name("TapPrevBtn")
-        let TapNextBtnNotification = Notification.Name("TapNextBtn")
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updatePrevView(_:)), name: TapPrevBtnNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateNextView(_:)), name: TapNextBtnNotification, object: nil)
 
         calendarCollectionView.reloadData()
     }
@@ -144,18 +119,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         let day: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[2])!
         appDelegate.targetDate = date + "-" + day
         NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
-    }
-
-    @objc func updatePrevView(_ notification: Notification) {
-        selectedDate = dateManager.prevMonth(selectedDate)
-        self.parent?.title = changeHeaderTitle(selectedDate)
-        calendarCollectionView.reloadData()
-    }
-
-    @objc func updateNextView(_ notification: Notification) {
-        selectedDate = dateManager.nextMonth(selectedDate)
-        self.parent?.title = changeHeaderTitle(selectedDate)
-        calendarCollectionView.reloadData()
     }
 
     // 選択されたセルに円を付与する
