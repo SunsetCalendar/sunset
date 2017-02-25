@@ -4,16 +4,12 @@ import Spring
 
 
 class WalkThroughViewController: SpotlightViewController {
-    
-    
+
     @IBOutlet var annotationViews: [UIView]!
-    
-    
     @IBOutlet weak var allowButton: SpringButton!
-    
-   
+
     var stepIndex: Int = 0
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
@@ -63,7 +59,6 @@ class WalkThroughViewController: SpotlightViewController {
         annotationViews.enumerated().forEach { index, view in
             UIView.animate(withDuration: animated ? 0.5 : 0) {
                 view.alpha = index == self.stepIndex ? 1 : 0
-                print("viewAlpha: \(view.alpha)")
             }
         }
     }
