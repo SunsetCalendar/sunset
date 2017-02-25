@@ -40,6 +40,8 @@ class ViewController: UIViewController {
         let userDefaults = UserDefaults.standard
         if (userDefaults.bool(forKey: "firstLaunch")) {
             showWalkThrough()
+            // 2回目以降は表示させないように
+            userDefaults.set(false, forKey: "firstLaunch")
         }
     }
 
