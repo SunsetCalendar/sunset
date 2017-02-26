@@ -350,8 +350,6 @@
                     </view>
                     <connections>
                         <outlet property="calendarCollectionView" destination="d8i-eT-QW8" id="PP7-HU-S1b"/>
-                        <outlet property="swipeLeftGesture" destination="TaG-eL-2Vj" id="Q9T-WI-zjF"/>
-                        <outlet property="swipeRightGesture" destination="ZA4-gX-bHY" id="uFK-jn-JGS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JtD-Th-qiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
