@@ -53,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
+
         Twitter.sharedInstance().start(withConsumerKey: sunsetKeys.consumerKey, consumerSecret: sunsetKeys.consumerSecret)
         Fabric.with([Twitter.self])
 

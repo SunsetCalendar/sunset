@@ -6,15 +6,15 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     let dateAttributes: DateAttributes = DateAttributes()
     let dateManager: DateManager = DateManager()
     let daysPerWeek: Int = 7
-    let cellMargin: CGFloat = -9.0
+    let cellMargin: CGFloat = 2.0
     var selectedDate: Date = Date()
-    var today: Date!
     var prevDay: String!
     var prevIndexPath: IndexPath?
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
     let realm: Realm = try! Realm()
     var notificationToken: NotificationToken? = nil
+    var startDate: Date!
 
     @IBOutlet weak var calendarCollectionView: UICollectionView!
 
@@ -45,28 +45,30 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dateManager.daysAcquisition() //ここは月によって異なる
+        var components = Calendar.current.dateComponents([.year, .month, .day], from: self.selectedDate)
+        components.day = 1
+        components.month = 1
+        components.year = 2016
+        self.startDate = Calendar.current.date(from: components)
+        return dateManager.countCellFromFirstDay(start: self.startDate!)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CalendarCell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCell
         cell.textLabel.textColor = dateAttributes.choiceDaysColor(row: indexPath.row)
-        cell.textLabel.text = ""
+        //cell.textLabel.text = ""
 
-        let day: String = dateManager.ShowDayIfInThisMonth(indexPath.row)         // その月の日付かどうかの振り分け
-        if (day != "") {
-            cell.textLabel.text = dateManager.conversionDateFormat(indexPath)
+        cell.textLabel.text = dateManager.conversionDateFormat(row: indexPath.row, startDate: self.startDate)
 
-            if (dateAttributes.existPosts(dayLabel: cell.textLabel.text!)) {
-                // 投稿があった日は太字 + 色を黒くする
-                cell.textLabel.font = UIFont(name: "HiraKakuProN-W6", size: 11.5)
-                cell.textLabel.textColor = UIColor.black
-            }
+//        if (dateAttributes.existPosts(dayLabel: cell.textLabel.text!)) {
+//            // 投稿があった日は太字 + 色を黒くする
+//            cell.textLabel.font = UIFont(name: "HiraKakuProN-W6", size: 11.5)
+//            cell.textLabel.textColor = UIColor.black
+//        }
 
-            if (prevDay == cell.textLabel.text) {
-                cell.circleImageView.image = UIImage(named: "circle")
-                prevIndexPath = indexPath
-            }
+        if (prevDay == cell.textLabel.text) {
+            cell.circleImageView.image = UIImage(named: "circle")
+            prevIndexPath = indexPath
         }
 
         return cell
@@ -78,7 +80,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
         appDelegate.calendarCellWidth = length
         appDelegate.calendarCellHeight = length
-
+        
         return CGSize(width: length, height: length)
     }
 
@@ -94,22 +96,22 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     // cellをtapした直後のアクション
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if (dateManager.ShowDayIfInThisMonth(indexPath.row) != "") {    // 数字の部分にのみ処理を行う
-            if (prevIndexPath != nil) {                                 // Deselectの役割
-                let cell: CalendarCell = collectionView.cellForItem(at: prevIndexPath!)! as! CalendarCell
-                cell.circleImageView.image = nil
-            }
-            addCircleToCell(collectionView, indexPath: indexPath)
-        }
+//        if (dateManager.ShowDayIfInThisMonth(indexPath.row) != "") {    // 数字の部分にのみ処理を行う
+//            if (prevIndexPath != nil) {                                 // Deselectの役割
+//                let cell: CalendarCell = collectionView.cellForItem(at: prevIndexPath!)! as! CalendarCell
+//                cell.circleImageView.image = nil
+//            }
+//            addCircleToCell(collectionView, indexPath: indexPath)
+//        }
         
-        let day: String = dateManager.ShowDayIfInThisMonth(indexPath.row)
-        if (day != "") {
-            let year: String = (appDelegate.targetDate?.components(separatedBy: "-")[0])!
-            let month: String = (appDelegate.targetDate?.components(separatedBy: "-")[1])!
-            appDelegate.targetDate = year + "-" + month + "-" + day
-
-            NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
-        }
+//        let day: String = dateManager.ShowDayIfInThisMonth(indexPath.row)
+//        if (day != "") {
+//            let year: String = (appDelegate.targetDate?.components(separatedBy: "-")[0])!
+//            let month: String = (appDelegate.targetDate?.components(separatedBy: "-")[1])!
+//            appDelegate.targetDate = year + "-" + month + "-" + day
+//
+//            NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
+//        }
     }
 
     //headerの月を変更
