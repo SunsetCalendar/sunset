@@ -16,6 +16,7 @@ class SettingsViewController: UITableViewController {
     let optionIndex = [0, 2]
     let sessionStore = Twitter.sharedInstance().sessionStore
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let tweetManager: TweetManager = TweetManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,8 @@ class SettingsViewController: UITableViewController {
                     (session, error) -> Void in
                     if (session != nil) {
                         // NOTE: 遷移という名の Main 画面の再描画
+                        let twitterAPIClient: TwitterAPIClient = TwitterAPIClient()
+                        twitterAPIClient.savePosts()
                         self.appDelegate.showMainView()
                     } else {
                         print("Error：\(error?.localizedDescription)")
@@ -120,7 +123,9 @@ class SettingsViewController: UITableViewController {
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
             (action: UIAlertAction!) -> Void in
             let sessionStore = Twitter.sharedInstance().sessionStore
+
             if let userId = sessionStore.session()?.userID {
+                self.tweetManager.deleteAll()
                 sessionStore.logOutUserID(userId)
             }
             self.appDelegate.showMainView()
@@ -136,5 +141,4 @@ class SettingsViewController: UITableViewController {
 
         present(alert, animated: true, completion: nil)
     }
-
 }

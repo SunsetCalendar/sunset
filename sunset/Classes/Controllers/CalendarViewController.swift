@@ -1,5 +1,5 @@
 import UIKit
-import CoreData
+import RealmSwift
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
@@ -13,17 +13,26 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     var prevIndexPath: IndexPath?
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
+    let realm: Realm = try! Realm()
+    var notificationToken: NotificationToken? = nil
 
     @IBOutlet weak var calendarCollectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let tweetModel = self.realm.objects(Tweet.self)
+
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
         calendarCollectionView.backgroundColor = UIColor.clear
         self.view.backgroundColor = UIColor.clear
 
+        // Realm の Tweet object の変化を監視し, 変化があったら中で定義したメソッドを実行
+        // ref. https://realm.io/jp/docs/swift/latest/#section-39
+        self.notificationToken = tweetModel.addNotificationBlock { notification in
+            self.calendarCollectionView.reloadData()
+        }
         calendarCollectionView.reloadData()
     }
 

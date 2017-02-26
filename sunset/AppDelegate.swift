@@ -1,5 +1,4 @@
 import UIKit
-import OHHTTPStubs
 import RealmSwift
 import Fabric
 import TwitterKit
@@ -10,7 +9,8 @@ import SlideMenuControllerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var micropostId: String?
+    var tweetID: String?
+    var userID: String?
     var targetDate: String?
     var calendarCellWidth: CGFloat?
     var calendarCellHeight: CGFloat?
@@ -36,7 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
+        let ud = UserDefaults.standard
+        let dic = ["firstLaunch": true]
+        ud.register(defaults: dic)
+
         if (ProcessInfo.processInfo.arguments.contains("STUB_HTTP_ENDPOINTS")) {
+            ud.set(false, forKey: "firstLaunch")
+
             let formatter: DateFormatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
 
@@ -45,17 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 try! realm.write() {
                     realm.delete(post)
                 }
-            }
-            
-            // 取ってくるやつに合わせる
-            let suffix: String = "T99-99-99"
-            
-            stub(condition: isScheme("https") && isHost("asuforce.xyz") && isPath("/api/users/5") && isMethodGET()){ _ in
-                return OHHTTPStubsResponse(
-                    jsonObject: ["feeds" : [["content" : "Test Post", "created_at": formatter.string(from: Date()) + suffix, "id": 9999], ["content": "Apple", "created_at": formatter.string(from: Date().monthAgoDate()) + suffix, "id": 5]]],
-                    statusCode: 200,
-                    headers: nil
-                )
             }
         }
         Twitter.sharedInstance().start(withConsumerKey: sunsetKeys.consumerKey, consumerSecret: sunsetKeys.consumerSecret)

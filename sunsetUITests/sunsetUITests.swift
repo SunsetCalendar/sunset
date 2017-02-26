@@ -64,20 +64,4 @@ class sunsetUITests: XCTestCase {
         app.navigationBars[prevDate].buttons["→"].tap()
         XCTAssertTrue(nowDateLabel.exists)
     }
-    
-    func testShowPosts() {
-        // STUBで定義された内容を元にテスト
-        
-        let app = XCUIApplication()
-        formatter.dateFormat = "MMM yyyy"
-        let nowDate: String = formatter.string(from: Date())
-        let prevDate: String = changeDate(date: nowDate, check: "-")
-
-        app.navigationBars[nowDate].buttons["←"].tap()
-        XCTAssertTrue(app.tables.staticTexts["Apple"].exists)
-        XCTAssertFalse(app.tables.staticTexts["Test Post"].exists)
-        app.navigationBars[prevDate].buttons["→"].tap()
-        XCTAssertTrue(app.tables.staticTexts["Test Post"].exists)
-        XCTAssertFalse(app.tables.staticTexts["Apple"].exists)
-    }
 }

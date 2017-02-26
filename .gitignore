@@ -68,3 +68,5 @@ fastlane/test_output
 # User files
 .DS_Store
 .env
+vendor/
+.bundle/
