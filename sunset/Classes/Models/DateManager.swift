@@ -26,8 +26,8 @@ class DateManager: NSObject {
         return firstDateMonth
     }
 
+    // 各セルが何日なのかを, 設定した基準日を用いて計算
     func dateForCellAtIndexPath(row: Int, startDate: Date) -> Date {
-        // 月の初日が週の何日目か を計算する
         let ordinalityOfFirstDay: Int = Calendar.current.ordinality(of: .day, in: .weekOfMonth, for: firstDateOfMonth(date: startDate))!
         var dateComponents: DateComponents = DateComponents()
         dateComponents.day = row - ordinalityOfFirstDay + 1
@@ -42,5 +42,11 @@ class DateManager: NSObject {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = "d"
         return formatter.string(from: date)
+    }
+
+    func tagForCell(date: Date) -> Int {
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = "YYYYMM"
+        return Int(formatter.string(from: date))!
     }
 }
