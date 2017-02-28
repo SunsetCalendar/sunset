@@ -15,7 +15,7 @@
 
 開発中にライブラリをアップデートしたい場合には, 以下のコマンドを実行してください.
 ```
-carthage update 対象パッケージ名 --platform iOS
+carthage update --platform iOS 対象パッケージ名
 ```
 
 
