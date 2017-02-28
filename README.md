@@ -11,7 +11,7 @@
 
 1. Carthageをインストールする
 2. リポジトリをクローン
-3. ルートで`carthage bootstrap --no-use-binaries --platform iOS`
+3. ルートで`carthage bootstrap --platform iOS`
 
 開発中にライブラリをアップデートしたい場合には, 以下のコマンドを実行してください.
 ```
