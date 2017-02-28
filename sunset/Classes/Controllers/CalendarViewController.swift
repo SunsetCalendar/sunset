@@ -6,37 +6,17 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     let dateAttributes: DateAttributes = DateAttributes()
     let dateManager: DateManager = DateManager()
     let daysPerWeek: Int = 7
-    let cellMargin: CGFloat = -9.0
+    let cellMargin: CGFloat = 2.0
     var selectedDate: Date = Date()
-    var today: Date!
     var prevDay: String!
     var prevIndexPath: IndexPath?
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
     let realm: Realm = try! Realm()
     var notificationToken: NotificationToken? = nil
+    let startDate: Date = Calendar.current.date(from: DateComponents(year: 2016, month: 01, day: 01))!
 
-    @IBOutlet var swipeLeftGesture: UISwipeGestureRecognizer!
-    @IBOutlet var swipeRightGesture: UISwipeGestureRecognizer!
     @IBOutlet weak var calendarCollectionView: UICollectionView!
-
-    // [左へスワイプ] 1ヶ月進む
-    @IBAction func swipedLeft(_ sender: UISwipeGestureRecognizer) {
-        selectedDate = dateManager.nextMonth(selectedDate)
-        calendarCollectionView.reloadData()
-        // 月が変更する際にnavigationBarのタイトルも更新
-        // navigationBarは親であるViewControllerが所持しているので、親の要素を書き換える
-        self.parent?.title = changeHeaderTitle(selectedDate)
-    }
-
-    // [右へスワイプ] 1ヶ月戻る
-    @IBAction func swipedRight(_ sender: UISwipeGestureRecognizer) {
-        selectedDate = dateManager.prevMonth(selectedDate)
-        calendarCollectionView.reloadData()
-        // 月が変更する際にnavigationBarのタイトルも更新
-        // navigationBarは親であるViewControllerが所持しているので、親の要素を書き換える
-        self.parent?.title = changeHeaderTitle(selectedDate)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,17 +28,11 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         calendarCollectionView.backgroundColor = UIColor.clear
         self.view.backgroundColor = UIColor.clear
 
-        let TapPrevBtnNotification = Notification.Name("TapPrevBtn")
-        let TapNextBtnNotification = Notification.Name("TapNextBtn")
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updatePrevView(_:)), name: TapPrevBtnNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateNextView(_:)), name: TapNextBtnNotification, object: nil)
-
         // Realm の Tweet object の変化を監視し, 変化があったら中で定義したメソッドを実行
         // ref. https://realm.io/jp/docs/swift/latest/#section-39
         self.notificationToken = tweetModel.addNotificationBlock { notification in
             self.calendarCollectionView.reloadData()
         }
-
         calendarCollectionView.reloadData()
     }
 
@@ -71,30 +45,32 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dateManager.daysAcquisition() //ここは月によって異なる
+        return dateManager.countCellFromFirstDay(start: self.startDate)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let date: Date = dateManager.dateForCellAtIndexPath(row: indexPath.row, startDate: self.startDate)
         let cell: CalendarCell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCell
+
         cell.textLabel.textColor = dateAttributes.choiceDaysColor(row: indexPath.row)
-        cell.textLabel.text = ""
+        cell.textLabel.text = dateManager.conversionDateFormat(row: indexPath.row, startDate: self.startDate)
+        cell.tag = dateManager.tagForCell(date: date)
 
-        let day: String = dateManager.ShowDayIfInThisMonth(indexPath.row)         // その月の日付かどうかの振り分け
-        if (day != "") {
-            cell.textLabel.text = dateManager.conversionDateFormat(indexPath)
+//        if (dateAttributes.existPosts(dayLabel: cell.textLabel.text!)) {
+//            // 投稿があった日は太字 + 色を黒くする
+//            cell.textLabel.font = UIFont(name: "HiraKakuProN-W6", size: 11.5)
+//            cell.textLabel.textColor = UIColor.black
+//        }
 
-            if (dateAttributes.existPosts(dayLabel: cell.textLabel.text!)) {
-                // 投稿があった日は太字 + 色を黒くする
-                cell.textLabel.font = UIFont(name: "HiraKakuProN-W6", size: 11.5)
-                cell.textLabel.textColor = UIColor.black
-            }
-
-            if (prevDay == cell.textLabel.text) {
-                cell.circleImageView.image = UIImage(named: "circle")
-                prevIndexPath = indexPath
-            }
-        }
-
+//        if (prevDay == cell.textLabel.text) {
+//            cell.circleImageView.image = UIImage(named: "circle")
+//            prevIndexPath = indexPath
+//        }
+//        if (prevIndexPath != nil) {                                 // Deselectの役割
+//            let cell: CalendarCell = collectionView.cellForItem(at: prevIndexPath!)! as! CalendarCell
+//            cell.circleImageView.image = nil
+//        }
+//        cell.circleImageView.image = UIImage(named: "circle")
         return cell
     }
 
@@ -104,7 +80,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
         appDelegate.calendarCellWidth = length
         appDelegate.calendarCellHeight = length
-
+        
         return CGSize(width: length, height: length)
     }
 
@@ -120,22 +96,22 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     // cellをtapした直後のアクション
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if (dateManager.ShowDayIfInThisMonth(indexPath.row) != "") {    // 数字の部分にのみ処理を行う
-            if (prevIndexPath != nil) {                                 // Deselectの役割
-                let cell: CalendarCell = collectionView.cellForItem(at: prevIndexPath!)! as! CalendarCell
-                cell.circleImageView.image = nil
-            }
-            addCircleToCell(collectionView, indexPath: indexPath)
-        }
+//        if (dateManager.ShowDayIfInThisMonth(indexPath.row) != "") {    // 数字の部分にのみ処理を行う
+//        if (prevIndexPath != nil) {                                 // Deselectの役割
+//            let cell: CalendarCell = collectionView.cellForItem(at: prevIndexPath!)! as! CalendarCell
+//            cell.circleImageView.image = nil
+//        }
+        addCircleToCell(collectionView, indexPath: indexPath)
+//        }
         
-        let day: String = dateManager.ShowDayIfInThisMonth(indexPath.row)
-        if (day != "") {
-            let year: String = (appDelegate.targetDate?.components(separatedBy: "-")[0])!
-            let month: String = (appDelegate.targetDate?.components(separatedBy: "-")[1])!
-            appDelegate.targetDate = year + "-" + month + "-" + day
-
-            NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
-        }
+//        let day: String = dateManager.ShowDayIfInThisMonth(indexPath.row)
+//        if (day != "") {
+//            let year: String = (appDelegate.targetDate?.components(separatedBy: "-")[0])!
+//            let month: String = (appDelegate.targetDate?.components(separatedBy: "-")[1])!
+//            appDelegate.targetDate = year + "-" + month + "-" + day
+//
+//            NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
+//        }
     }
 
     //headerの月を変更
@@ -154,18 +130,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         let day: String = (self.appDelegate.targetDate?.components(separatedBy: "-")[2])!
         appDelegate.targetDate = date + "-" + day
         NotificationCenter.default.post(name: TapCalendarCellNotification, object: nil)
-    }
-
-    @objc func updatePrevView(_ notification: Notification) {
-        selectedDate = dateManager.prevMonth(selectedDate)
-        self.parent?.title = changeHeaderTitle(selectedDate)
-        calendarCollectionView.reloadData()
-    }
-
-    @objc func updateNextView(_ notification: Notification) {
-        selectedDate = dateManager.nextMonth(selectedDate)
-        self.parent?.title = changeHeaderTitle(selectedDate)
-        calendarCollectionView.reloadData()
     }
 
     // 選択されたセルに円を付与する

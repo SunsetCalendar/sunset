@@ -1,8 +1,8 @@
 import UIKit
+import Gecco
 
 @IBDesignable
 class ViewController: UIViewController {
-
 
     @IBOutlet weak var headerPrevBtn: UIButton!
     @IBOutlet weak var headerNextBtn: UIButton!
@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     let TapNextBtnNotification = Notification.Name("TapNextBtn")
     @IBInspectable var top: UIColor = UIColor.darkOrange()
     @IBInspectable var bottom: UIColor = UIColor.lightIndigo()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,25 +31,23 @@ class ViewController: UIViewController {
         gradationView.addGradation(view: self.view)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // 初回起動かのチェック
+        let userDefaults = UserDefaults.standard
+        if (userDefaults.bool(forKey: "firstLaunch")) {
+            showWalkThrough()
+            // 2回目以降は表示させないように
+            userDefaults.set(false, forKey: "firstLaunch")
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func tappedPrevMonthBtn(_ sender: UIButton) {
-        let thisDate = generateTargetDate()
-        let prevDate: Date = formatter.date(from: thisDate)!.monthAgoDate()
-        appDelegate.targetDate = formatter.string(from: prevDate)
-        NotificationCenter.default.post(name: TapPrevBtnNotification, object: nil)
-    }
-    
-    @IBAction func tappedNextMonthBtn(_ sender: UIButton) {
-        let thisDate = generateTargetDate()
-        let nextDate: Date = formatter.date(from: thisDate)!.monthLaterDate()
-        appDelegate.targetDate = formatter.string(from: nextDate)
-        NotificationCenter.default.post(name: TapNextBtnNotification, object: nil)
-    }
-    
+
     private func generateTargetDate() -> String {
         formatter.dateFormat = "yyyy-MM-dd"
         let thisDate = appDelegate.targetDate
@@ -62,5 +59,10 @@ class ViewController: UIViewController {
         return thisDateString
     }
     
+    private func showWalkThrough() {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WalkThrough") as! WalkThroughViewController
+        viewController.alpha = 0.5
+        present(viewController, animated: true, completion: nil)
+    }
 }
 
