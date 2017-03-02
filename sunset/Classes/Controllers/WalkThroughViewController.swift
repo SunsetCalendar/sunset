@@ -30,7 +30,6 @@ class WalkThroughViewController: SpotlightViewController {
         // 四角形のY軸の中心点座標
         let calendarRectCenterY: CGFloat = screenSize.height * 0.31
         let postRectCenterY:CGFloat = screenSize.height * 0.77
-        print("stepindex: \(self.stepIndex)")
         
         switch stepIndex {
         case 0:
