@@ -31,8 +31,6 @@
 		3251BEE01DACDEDB008ACF9F /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3251BEDF1DACDEDB008ACF9F /* ColorTheme.swift */; };
 		3251BEE21DAE19B2008ACF9F /* DaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3251BEE11DAE19B2008ACF9F /* DaysViewController.swift */; };
 		32B92AEE1DA625C000C17B1F /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B92AED1DA625C000C17B1F /* CalendarCell.swift */; };
-		32CDE1021D9513EA00A57C02 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE0FF1D9513EA00A57C02 /* Alamofire.framework */; };
-		32CDE1031D9513EA00A57C02 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1001D9513EA00A57C02 /* AlamofireImage.framework */; };
 		32CDE1041D9513EA00A57C02 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1011D9513EA00A57C02 /* SwiftyJSON.framework */; };
 		32D0D7E11D9B94E800FF7F33 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322AF8F81D9B90F100E7034F /* Nimble.framework */; };
 		32D0D7E51D9BA7AE00FF7F33 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D0D7E41D9BA7AE00FF7F33 /* OHHTTPStubs.framework */; };
@@ -138,8 +136,6 @@
 				31A936F31E504230005A57B0 /* SlideMenuControllerSwift.framework in Frameworks */,
 				322A48341DAF35F800AFA59B /* RealmSwift.framework in Frameworks */,
 				322A48301DAF264400AFA59B /* Realm.framework in Frameworks */,
-				32CDE1021D9513EA00A57C02 /* Alamofire.framework in Frameworks */,
-				32CDE1031D9513EA00A57C02 /* AlamofireImage.framework in Frameworks */,
 				32CDE1041D9513EA00A57C02 /* SwiftyJSON.framework in Frameworks */,
 				0A72BC743FFD1CB93051F32A /* Pods_sunset.framework in Frameworks */,
 			);
