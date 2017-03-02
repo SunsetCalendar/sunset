@@ -29,7 +29,7 @@ class WalkThroughViewController: SpotlightViewController {
         
         // 四角形のY軸の中心点座標
         let calendarRectCenterY: CGFloat = screenSize.height * 0.31
-        let postRectCenterY:CGFloat = screenSize.height * 0.77
+        let postRectCenterY: CGFloat = screenSize.height * 0.77
         
         switch stepIndex {
         case 0:
@@ -39,9 +39,10 @@ class WalkThroughViewController: SpotlightViewController {
         case 2:
             spotlightView.move(Spotlight.RoundedRect(center: CGPoint(x: screenSize.width * 0.96, y: postRectCenterY), size: CGSize(width: settingRectWidth, height: rectHeight), cornerRadius: 6))
 
+            self.allowButton.layer.position = CGPoint(x: screenSize.width * 0.95, y: screenSize.height * 0.75)
             self.allowButton.setTitleColor(UIColor.white, for: .normal)
             self.allowButton.animation = "slideLeft"
-            self.allowButton.repeatCount = 5
+            self.allowButton.repeatCount = 10
             self.allowButton.animate()
             
         case 3:
