@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aqD-JG-Vi7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aqD-JG-Vi7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -154,7 +154,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1jM-jQ-Mmh" id="Fr8-ta-IsT">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -168,6 +168,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fTH-Fh-cv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1156" y="898"/>
+        </scene>
+        <!--Walk Through View Controller-->
+        <scene sceneID="zol-tm-oVZ">
+            <objects>
+                <viewController storyboardIdentifier="WalkThrough" id="Mge-GO-9W9" customClass="WalkThroughViewController" customModule="sunset" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oUg-q9-zPE"/>
+                        <viewControllerLayoutGuide type="bottom" id="QgM-iC-hPo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ahE-Th-35f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カレンダーは上のボタンか 横スワイプで移動できるよ！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEh-ig-Pki">
+                                <rect key="frame" x="0.0" y="439" width="375" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アカウント連携はここから！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCR-TH-5WG">
+                                <rect key="frame" x="75" y="323" width="226" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ew3-lN-akg" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="313" y="482" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="←">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ここにその日の投稿が表示されるよ！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rX-rO-xIp">
+                                <rect key="frame" x="0.0" y="207" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="WEh-ig-Pki" secondAttribute="trailing" id="Iqa-fr-aH4"/>
+                            <constraint firstItem="wCR-TH-5WG" firstAttribute="top" secondItem="0rX-rO-xIp" secondAttribute="bottom" constant="95" id="JCW-3y-k9s"/>
+                            <constraint firstItem="WEh-ig-Pki" firstAttribute="leading" secondItem="ahE-Th-35f" secondAttribute="leading" id="K4E-ZE-PDC"/>
+                            <constraint firstAttribute="trailing" secondItem="0rX-rO-xIp" secondAttribute="trailing" id="Vo5-cd-IYy"/>
+                            <constraint firstItem="WEh-ig-Pki" firstAttribute="top" secondItem="wCR-TH-5WG" secondAttribute="bottom" constant="95" id="daq-Zf-dao"/>
+                            <constraint firstItem="0rX-rO-xIp" firstAttribute="leading" secondItem="ahE-Th-35f" secondAttribute="leading" id="qqE-os-XbO"/>
+                            <constraint firstItem="wCR-TH-5WG" firstAttribute="centerY" secondItem="ahE-Th-35f" secondAttribute="centerY" id="tCm-pr-tv4"/>
+                            <constraint firstItem="wCR-TH-5WG" firstAttribute="centerX" secondItem="ahE-Th-35f" secondAttribute="centerX" id="zgb-qA-5iU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="allowButton" destination="Ew3-lN-akg" id="fm2-32-Y1F"/>
+                        <outletCollection property="annotationViews" destination="WEh-ig-Pki" collectionClass="NSMutableArray" id="F1F-IG-lyx"/>
+                        <outletCollection property="annotationViews" destination="0rX-rO-xIp" collectionClass="NSMutableArray" id="8GK-zR-nS9"/>
+                        <outletCollection property="annotationViews" destination="wCR-TH-5WG" collectionClass="NSMutableArray" id="zfb-TZ-4g9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FwM-lo-fc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2060" y="1097.9010494752624"/>
         </scene>
         <!--WebView-->
         <scene sceneID="kLI-nM-Aib">
