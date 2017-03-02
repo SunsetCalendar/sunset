@@ -18,18 +18,18 @@ class WalkThroughViewController: SpotlightViewController {
     func next(_ labelAnimated: Bool) {
         updateAnnotationView(labelAnimated)
         
-        let screenSize = UIScreen.main.bounds.size
+        let screenSize: CGSize = UIScreen.main.bounds.size
         
         // カレンダーと投稿画面の比から計算
         // コーチマークの四角形の幅と高さ
-        let rectWidth = screenSize.width * 0.95
-        let rectHeight = screenSize.height * 0.46
+        let rectWidth: CGFloat = screenSize.width * 0.95
+        let rectHeight: CGFloat = screenSize.height * 0.46
         
-        let settingRectWidth = screenSize.width * 0.1
+        let settingRectWidth: CGFloat = screenSize.width * 0.1
         
         // 四角形のY軸の中心点座標
-        let calendarRectCenterY = screenSize.height * 0.31
-        let postRectCenterY = screenSize.height * 0.77
+        let calendarRectCenterY: CGFloat = screenSize.height * 0.31
+        let postRectCenterY:CGFloat = screenSize.height * 0.77
         print("stepindex: \(self.stepIndex)")
         
         switch stepIndex {
