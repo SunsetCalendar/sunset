@@ -405,19 +405,19 @@
 				TargetAttributes = {
 					332B1A221D815670007064CF = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = J43C2ZSKA6;
+						DevelopmentTeam = K728KPF3AV;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					332B1A361D815670007064CF = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = J43C2ZSKA6;
+						DevelopmentTeam = K728KPF3AV;
 						LastSwiftMigration = 0800;
 						TestTargetID = 332B1A221D815670007064CF;
 					};
 					332B1A411D815670007064CF = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = J43C2ZSKA6;
+						DevelopmentTeam = K728KPF3AV;
 						LastSwiftMigration = 0800;
 						TestTargetID = 332B1A221D815670007064CF;
 					};
@@ -718,7 +718,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = J43C2ZSKA6;
+				DEVELOPMENT_TEAM = K728KPF3AV;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -768,7 +768,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = J43C2ZSKA6;
+				DEVELOPMENT_TEAM = K728KPF3AV;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -795,7 +795,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: asuforcegt@yahoo.co.jp (5QPQG45SHU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = J43C2ZSKA6;
+				DEVELOPMENT_TEAM = K728KPF3AV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -803,7 +803,7 @@
 				INFOPLIST_FILE = sunset/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.asuforce.sunset;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asuforce.sunsetcalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -817,7 +817,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: asuforcegt@yahoo.co.jp (5QPQG45SHU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = J43C2ZSKA6;
+				DEVELOPMENT_TEAM = K728KPF3AV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -825,7 +825,7 @@
 				INFOPLIST_FILE = sunset/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.asuforce.sunset;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asuforce.sunsetcalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
