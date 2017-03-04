@@ -7,6 +7,7 @@ class DateManagerTests: XCTestCase {
     
     let formatter = DateFormatter()
     let currentDate: Date = Date()
+    let dateManager: DateManager = DateManager()
     
     override func setUp() {
         super.setUp()
@@ -36,5 +37,11 @@ class DateManagerTests: XCTestCase {
         let laterMonthDate = formatter.string(from: date.monthLaterDate())
         let expectedDate = String(components.year! + 1) + "01"
         XCTAssertEqual(laterMonthDate, "\(expectedDate)", "Expect \(laterMonthDate) to equal \(expectedDate)")
+    }
+    
+    func testFirstDateOfMonth() {
+        formatter.dateFormat = "dd"
+        let firstDate = formatter.string(from: self.dateManager.firstDateOfMonth())
+        XCTAssertEqual(firstDate, "01")
     }
 }
