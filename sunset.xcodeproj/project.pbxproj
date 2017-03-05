@@ -42,7 +42,6 @@
 		32D0D7EC1D9CDA6500FF7F33 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0D7EB1D9CDA6500FF7F33 /* WebViewController.swift */; };
 		332B1A271D815670007064CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A261D815670007064CF /* AppDelegate.swift */; };
 		332B1A2E1D815670007064CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 332B1A2D1D815670007064CF /* Assets.xcassets */; };
-		332B1A3C1D815670007064CF /* calendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A3B1D815670007064CF /* calendarTests.swift */; };
 		332B1A471D815670007064CF /* sunsetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A461D815670007064CF /* sunsetUITests.swift */; };
 		332B1A5D1D8157A1007064CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332B1A5B1D8157A1007064CF /* LaunchScreen.storyboard */; };
 		332B1A5E1D8157A1007064CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332B1A5C1D8157A1007064CF /* Main.storyboard */; };
@@ -112,7 +111,6 @@
 		332B1A2D1D815670007064CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		332B1A321D815670007064CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		332B1A371D815670007064CF /* sunsetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sunsetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		332B1A3B1D815670007064CF /* calendarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarTests.swift; sourceTree = "<group>"; };
 		332B1A3D1D815670007064CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		332B1A421D815670007064CF /* sunsetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sunsetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		332B1A461D815670007064CF /* sunsetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sunsetUITests.swift; sourceTree = "<group>"; };
@@ -260,7 +258,6 @@
 			children = (
 				3192F1201E69BD9E00BA6E31 /* Helpers */,
 				3192F11F1E69BD8C00BA6E31 /* Models */,
-				332B1A3B1D815670007064CF /* calendarTests.swift */,
 				332B1A3D1D815670007064CF /* Info.plist */,
 			);
 			path = sunsetTests;
@@ -692,7 +689,6 @@
 			files = (
 				3192F1271E6AE44E00BA6E31 /* DateAttributesTests.swift in Sources */,
 				3192F12F1E6B2B8B00BA6E31 /* TweetManagerTests.swift in Sources */,
-				332B1A3C1D815670007064CF /* calendarTests.swift in Sources */,
 				3192F1221E69BE6800BA6E31 /* DateManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
