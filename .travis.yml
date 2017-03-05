@@ -1,0 +1,18 @@
+language: ruby
+rvm: 2.3.1
+
+os: osx
+osx_image: xcode8.2
+
+before_install:
+  - bundle install --path vendor/bundle
+  - brew upgrade carthage
+
+cache:
+  directories:
+    - vendor/bundle
+    - Pods
+    - Carthage
+
+script:
+  - bundle exec fastlane ci_test
