@@ -1,12 +1,10 @@
+os: osx
+osx_image: xcode8.2
 language: ruby
 rvm: 2.3.1
 
-os: osx
-osx_image: xcode8.2
-
 before_install:
   - bundle install --path vendor/bundle
-  - brew upgrade carthage
 
 cache:
   directories:
@@ -16,3 +14,7 @@ cache:
 
 script:
   - bundle exec fastlane ci_test
+
+notifications:
+  slack:
+    secure: e8n/uXuE0cbTlC+ubz9CKBzCwAIW6KVhlTrEvFhfyF/OHvt6XntPhAf/UjjsIng/F6OT4HhVNNi1BjvjHMNHp2Aa/3GoILvDSIfq2nIM9RgUol5enqIWHWsiOaGOQ/x6Byi4iECbg95Mxfco4lXy8YzxB5Z1rqDvJtGzpdCF3y3Lm5206mjt76flCBWGU9nQpfHPgKrOgQABabwBjcW6ZPZzbEUFmBGgJOGvr2+yrOhCsnj5wKSYhQEr2eXZVHBB/lnQK67sDaIhNUCPu55VlfLxS+WtmPbtGjCIwPWJc200giYz8nhGShUysf0ybjJEFNXELrX98R6YxAFOnhAxVSDPQ5+qGU5zgtPX4u6iBDLpIM2XzrJimATD+HOil7g1Bo4id0dPHZVuIGw01b1W2Fmt3qs58YNXxG88yGAD7uromm520Gkgr8moxbJekHdkDPdTdguF32y4Z4ao8xVyKnxspBFg7j1trViPbkuO4RIITpmhKUlHlZKXPRUew2j1a9ow/oBGq6kZ5PhD6GXhZpu2k9gJ4VlNSwjs8yr8GHvO2tl1XE4tJnsFIbYxHHYCh7F8iwMz4HzO869Rm0pZWOrHKfoYlv0hM13V3Gp7bcV3WTr6HGjgs/sS8ANAaMWMVl3dNf/+6/S2OSLC/8qSZ+YW6ZQEAyCFbPFqMqCzuhs=
