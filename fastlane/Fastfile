@@ -38,7 +38,7 @@ platform :ios do
       scheme: "sunset",
       workspace: "sunset.xcworkspace",
       clean: true,
-      devices ["iPhone 7"]
+      devices: ["iPhone 7"]
     )
   end
 
@@ -49,7 +49,7 @@ platform :ios do
       scheme: "sunset",
       workspace: "sunset.xcworkspace",
       clean: true,
-      devices ["iPhone 7"]
+      devices: ["iPhone 7"]
     )
   end
 
