@@ -3,7 +3,7 @@ import RealmSwift
 
 @testable import sunset
 
-class TweetManagerTEsts: XCTestCase {
+class TweetManagerTests: XCTestCase {
     
     let realm: Realm = try! Realm()
     let tweetManager: TweetManager = TweetManager()
@@ -36,7 +36,7 @@ class TweetManagerTEsts: XCTestCase {
         XCTAssertEqual(oneTweet[0].user_id, self.tweet.user_id)
         XCTAssertEqual(oneTweet[0].tweet_id, self.tweet.tweet_id)
         
-        let zeroTweets = self.tweetManager.filter(date: "2017-01-02")
+        let zeroTweets: [Tweet] = self.tweetManager.filter(date: "2017-01-02")
         XCTAssertEqual(zeroTweets.count, 0)
     }
 }

@@ -5,7 +5,7 @@ import Foundation
 
 class DateManagerTests: XCTestCase {
     
-    let formatter = DateFormatter()
+    let formatter: DateFormatter = DateFormatter()
     let currentDate: Date = Date()
     let dateManager: DateManager = DateManager()
     
@@ -23,8 +23,8 @@ class DateManagerTests: XCTestCase {
         components.month = 01
         formatter.dateFormat = "YYYYMM"
         let date: Date = Calendar.current.date(from: components)!
-        let lastMonthDate = formatter.string(from: date.monthAgoDate())
-        let expectedDate = String(components.year! - 1) + "12"
+        let lastMonthDate: String = formatter.string(from: date.monthAgoDate())
+        let expectedDate: String = String(components.year! - 1) + "12"
         XCTAssertEqual(lastMonthDate, expectedDate, "Expect \(lastMonthDate) to equal \(expectedDate)")
     }
 
@@ -34,14 +34,14 @@ class DateManagerTests: XCTestCase {
         components.month = 12
         formatter.dateFormat = "YYYYMM"
         let date: Date = Calendar.current.date(from: components)!
-        let laterMonthDate = formatter.string(from: date.monthLaterDate())
-        let expectedDate = String(components.year! + 1) + "01"
+        let laterMonthDate: String = formatter.string(from: date.monthLaterDate())
+        let expectedDate: String = String(components.year! + 1) + "01"
         XCTAssertEqual(laterMonthDate, "\(expectedDate)", "Expect \(laterMonthDate) to equal \(expectedDate)")
     }
     
     func testFirstDateOfMonth() {
         formatter.dateFormat = "dd"
-        let firstDate = formatter.string(from: self.dateManager.firstDateOfMonth())
+        let firstDate: String = formatter.string(from: self.dateManager.firstDateOfMonth())
         XCTAssertEqual(firstDate, "01")
     }
 }
