@@ -1,5 +1,5 @@
 import UIKit
-import CoreData
+import RealmSwift
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
@@ -13,6 +13,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     var prevIndexPath: IndexPath?
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
+    let realm: Realm = try! Realm()
+    var notificationToken: NotificationToken? = nil
 
     @IBOutlet var swipeLeftGesture: UISwipeGestureRecognizer!
     @IBOutlet var swipeRightGesture: UISwipeGestureRecognizer!
@@ -39,6 +41,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let tweetModel = self.realm.objects(Tweet.self)
+
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
         calendarCollectionView.backgroundColor = UIColor.clear
@@ -48,6 +52,12 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         let TapNextBtnNotification = Notification.Name("TapNextBtn")
         NotificationCenter.default.addObserver(self, selector: #selector(self.updatePrevView(_:)), name: TapPrevBtnNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateNextView(_:)), name: TapNextBtnNotification, object: nil)
+
+        // Realm の Tweet object の変化を監視し, 変化があったら中で定義したメソッドを実行
+        // ref. https://realm.io/jp/docs/swift/latest/#section-39
+        self.notificationToken = tweetModel.addNotificationBlock { notification in
+            self.calendarCollectionView.reloadData()
+        }
 
         calendarCollectionView.reloadData()
     }
