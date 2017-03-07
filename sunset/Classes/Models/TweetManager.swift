@@ -4,7 +4,8 @@ import RealmSwift
 class TweetManager {
 
     let realm: Realm = try! Realm()
-
+    
+    // NOTE: 雑に全部消してる
     func deleteAll() {
         do {
             try self.realm.write() {

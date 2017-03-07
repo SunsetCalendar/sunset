@@ -30,6 +30,7 @@ platform :ios do
 
     cocoapods(
       clean: true,
+      repo_update: true,
       podfile: "./Podfile"
     )
 
