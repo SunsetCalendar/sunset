@@ -2,14 +2,14 @@ import XCTest
 
 class webviewUITests: XCTestCase {
 
-    let formatter = DateFormatter()
+    let formatter: DateFormatter = DateFormatter()
 
     override func setUp() {
         super.setUp()
 
         continueAfterFailure = false
 
-        let app = XCUIApplication()
+        let app: XCUIApplication = XCUIApplication()
         app.launchArguments = [ "STUB_HTTP_ENDPOINTS" ]
         app.launch()
     }

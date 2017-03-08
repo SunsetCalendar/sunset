@@ -5,7 +5,7 @@ import Foundation
 
 class sunsetTests: XCTestCase {
     
-    let calendarShortened = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    let calendarShortened: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     
     override func setUp() {
         super.setUp()
@@ -19,22 +19,22 @@ class sunsetTests: XCTestCase {
     
     func testMoveMonth() {
         // 現在の年月日を取得
-        let date = Date()
+        let date: Date = Date()
         
         // 1ヶ月前、後の年月日を取得
-        let lastMonthDate = date.monthAgoDate(), nextMonthdate = date.monthLaterDate()
+        let lastMonthDate: Date = date.monthAgoDate(), nextMonthdate = date.monthLaterDate()
         
         // 取得した年月日からから月だけ抽出するように (1, 2など)
-        let formatter = DateFormatter()
+        let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = "MMM"
         
-        let thisMonth = formatter.string(from: date)
-        let lastMonth = formatter.string(from: lastMonthDate)
-        let laterMonth = formatter.string(from: nextMonthdate)
+        let thisMonth: String = formatter.string(from: date)
+        let lastMonth: String = formatter.string(from: lastMonthDate)
+        let laterMonth: String = formatter.string(from: nextMonthdate)
         
         // 今の月との差異
-        let agoDiffCheck = abs(calendarShortened.index(of: thisMonth)! - calendarShortened.index(of: lastMonth)! % 12)
-        let laterDiffCheck = abs(calendarShortened.index(of: laterMonth)! - calendarShortened.index(of: thisMonth)! % 12)
+        let agoDiffCheck: Int = abs(calendarShortened.index(of: thisMonth)! - calendarShortened.index(of: lastMonth)! % 12)
+        let laterDiffCheck: Int = abs(calendarShortened.index(of: laterMonth)! - calendarShortened.index(of: thisMonth)! % 12)
         
         XCTAssertEqual(agoDiffCheck, 1)
         XCTAssertEqual(laterDiffCheck, 1)
@@ -51,7 +51,7 @@ class sunsetTests: XCTestCase {
         
         // 年が変わるまで進める
         for _ in 1...(12 - calendarShortened.index(of: thisMonth)!) {
-          date = date.monthLaterDate()
+            date = date.monthLaterDate()
         }
         
         let nextYear = Int(formatter.string(from: date).components(separatedBy: " ")[1])!

@@ -12,7 +12,7 @@ class sunsetUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        let app = XCUIApplication()
+        let app: XCUIApplication = XCUIApplication()
         app.launchArguments = [ "STUB_HTTP_ENDPOINTS" ]
         app.launch()
 
@@ -26,9 +26,9 @@ class sunsetUITests: XCTestCase {
 
     func changeDate(date: String, check: String) -> String {
         let month: String = date.components(separatedBy: " ")[0]
-        let year = Int(date.components(separatedBy: " ")[1])!
+        let year: Int = Int(date.components(separatedBy: " ")[1])!
         
-        var calendarShortened = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        var calendarShortened: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         
         if check == "+" {
             if month == "Dec" {
@@ -56,8 +56,8 @@ class sunsetUITests: XCTestCase {
         formatter.dateFormat = "MMM yyyy"
         let nowDate: String = formatter.string(from: Date())
         let prevDate: String = changeDate(date: nowDate, check: "-")
-        let nowDateLabel = app.staticTexts[nowDate]
-        let prevDateLabel = app.staticTexts[prevDate]
+        let nowDateLabel: XCUIElement = app.staticTexts[nowDate]
+        let prevDateLabel: XCUIElement = app.staticTexts[prevDate]
         XCTAssertTrue(nowDateLabel.exists)
         app.navigationBars[nowDate].buttons["←"].tap()
         XCTAssertTrue(prevDateLabel.exists)
