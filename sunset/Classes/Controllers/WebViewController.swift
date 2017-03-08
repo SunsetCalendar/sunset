@@ -9,16 +9,16 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         
         self.webView.delegate = self
         
-        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        let tweetId = appDelegate.tweetID
-        let userId = appDelegate.userID
+        let tweetId: String? = appDelegate.tweetID
+        let userId: String? = appDelegate.userID
         
         let baseUrl: String = "https://twitter.com/"
         
-        let initUrl = URL(string: baseUrl + userId! + "/status/" + tweetId!)
+        let initUrl: URL? = URL(string: baseUrl + userId! + "/status/" + tweetId!)
         
-        let request = URLRequest(url: initUrl!)
+        let request: URLRequest = URLRequest(url: initUrl!)
         self.webView.loadRequest(request)
     }
     

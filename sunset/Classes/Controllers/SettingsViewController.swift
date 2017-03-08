@@ -11,10 +11,10 @@ extension UIColor {
 
 class SettingsViewController: UITableViewController {
     
-    let settingsText = ["アカウント", "Twitter"]
+    let settingsText: [String] = ["アカウント", "Twitter"]
     // 設定項目の見出しセルの index
-    let optionIndex = [0, 2]
-    let sessionStore = Twitter.sharedInstance().sessionStore
+    let optionIndex: [Int] = [0, 2]
+    let sessionStore: TWTRSessionStore = Twitter.sharedInstance().sessionStore
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let tweetManager: TweetManager = TweetManager()
 
@@ -36,18 +36,18 @@ class SettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 設定タイトル
         if (indexPath.row == 0) {
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "settingsTitlesViewCell", for: indexPath) as! SettingsTitlesViewCell
+            let cell: SettingsTitlesViewCell = self.tableView.dequeueReusableCell(withIdentifier: "settingsTitlesViewCell", for: indexPath) as! SettingsTitlesViewCell
             cell.backgroundColor = UIColor(red: 255 / 255, green: 250 / 255, blue: 250 / 255, alpha: 1.0)
             cell.settingsTitleLabel.font = UIFont.fontAwesome(ofSize: 16)
             cell.settingsTitleLabel.text = String.fontAwesomeIcon(name: .cog)
             return cell
         // アカウント連携セル
         } else if (indexPath.row < 3) {
-            let cell = insertAccountContents(indexPath: indexPath)
+            let cell: UITableViewCell = insertAccountContents(indexPath: indexPath)
             return cell
         // その他
         } else {
-            let cell = insertThemeContents(indexPath: indexPath)
+            let cell: UITableViewCell = insertThemeContents(indexPath: indexPath)
             return cell
         }
     }
@@ -75,12 +75,12 @@ class SettingsViewController: UITableViewController {
     // アカウント連携セル用
     private func insertAccountContents(indexPath: IndexPath) -> UITableViewCell {
         if (self.optionIndex.contains(indexPath.row - 1)) {
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "settingsTitlesViewCell", for: indexPath) as! SettingsTitlesViewCell
+            let cell: SettingsTitlesViewCell = self.tableView.dequeueReusableCell(withIdentifier: "settingsTitlesViewCell", for: indexPath) as! SettingsTitlesViewCell
             cell.settingsTitleLabel.text = settingsText[indexPath.row - 1]
             cell.settingsTitleLabel.font = UIFont(name: "HirakakuProN-W6", size: 12)
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "accountsTableCell", for: indexPath) as! AccountsTableViewCell
+            let cell: AccountsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "accountsTableCell", for: indexPath) as! AccountsTableViewCell
             // ログインしている状態
             if (self.sessionStore.session()?.userID != nil) {
                 // 連携しているアカウントには チェックマーク をつける
@@ -104,12 +104,12 @@ class SettingsViewController: UITableViewController {
     // テーマ選択セル用
     private func insertThemeContents(indexPath: IndexPath) -> UITableViewCell {
         if (self.optionIndex.contains(indexPath.row - 1)) {
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "settingsTitlesViewCell", for: indexPath) as! SettingsTitlesViewCell
+            let cell: SettingsTitlesViewCell = self.tableView.dequeueReusableCell(withIdentifier: "settingsTitlesViewCell", for: indexPath) as! SettingsTitlesViewCell
             cell.settingsTitleLabel.text = settingsText[indexPath.row - 1]
             cell.settingsTitleLabel.font = UIFont(name: "HirakakuProN-W6", size: 12)
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "accountsTableCell", for: indexPath) as! AccountsTableViewCell
+            let cell: AccountsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "accountsTableCell", for: indexPath) as! AccountsTableViewCell
             cell.loginStatus.text = ""
             cell.accountInfo.text = settingsText[indexPath.row - 1]
             cell.accountInfo.font = UIFont(name: "HirakakuProN-W3", size: 11)
@@ -122,9 +122,9 @@ class SettingsViewController: UITableViewController {
 
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
             (action: UIAlertAction!) -> Void in
-            let sessionStore = Twitter.sharedInstance().sessionStore
+            let sessionStore: TWTRSessionStore = Twitter.sharedInstance().sessionStore
 
-            if let userId = sessionStore.session()?.userID {
+            if let userId: String = sessionStore.session()?.userID {
                 self.tweetManager.deleteAll()
                 sessionStore.logOutUserID(userId)
             }
