@@ -27,16 +27,18 @@ platform :ios do
       command: "bootstrap",
       platform: "iOS"
     )
-    
+
     cocoapods(
       clean: true,
+      repo_update: true,
       podfile: "./Podfile"
     )
 
     scan(
       scheme: "sunset",
       workspace: "sunset.xcworkspace",
-      clean: true
+      clean: true,
+      devices: ["iPhone 7"]
     )
   end
 
@@ -46,7 +48,8 @@ platform :ios do
     scan(
       scheme: "sunset",
       workspace: "sunset.xcworkspace",
-      clean: true
+      clean: true,
+      devices: ["iPhone 7"]
     )
   end
 

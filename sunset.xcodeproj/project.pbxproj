@@ -11,6 +11,12 @@
 		1F81E5292283A65123CFA222 /* Pods_sunsetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60BB2EFAC9B303A020060EB0 /* Pods_sunsetTests.framework */; };
 		3106785B1E57542C00C829E6 /* settingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3106785A1E57542C00C829E6 /* settingsUITests.swift */; };
 		3162FBF51E50307300B05B5B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3162FBF41E50307300B05B5B /* SettingsViewController.swift */; };
+		31914E631E5DB14000D6ACC1 /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31914E621E5DB14000D6ACC1 /* Gecco.framework */; };
+		31914E671E5DB3E100D6ACC1 /* WalkThroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31914E661E5DB3E100D6ACC1 /* WalkThroughViewController.swift */; };
+		3192F1221E69BE6800BA6E31 /* DateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192F1211E69BE6800BA6E31 /* DateManagerTests.swift */; };
+		3192F1251E6AE3C000BA6E31 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322A482F1DAF264400AFA59B /* Realm.framework */; };
+		3192F1271E6AE44E00BA6E31 /* DateAttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192F1261E6AE44E00BA6E31 /* DateAttributesTests.swift */; };
+		3192F12F1E6B2B8B00BA6E31 /* TweetManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192F12E1E6B2B8B00BA6E31 /* TweetManagerTests.swift */; };
 		31A936EE1E503EAD005A57B0 /* AccountsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A936EA1E503EAD005A57B0 /* AccountsTableViewCell.swift */; };
 		31A936EF1E503EAD005A57B0 /* AccountsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A936EB1E503EAD005A57B0 /* AccountsTableViewCell.xib */; };
 		31A936F01E503EAD005A57B0 /* SettingsTitlesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A936EC1E503EAD005A57B0 /* SettingsTitlesViewCell.swift */; };
@@ -28,13 +34,13 @@
 		3251BEE01DACDEDB008ACF9F /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3251BEDF1DACDEDB008ACF9F /* ColorTheme.swift */; };
 		3251BEE21DAE19B2008ACF9F /* DaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3251BEE11DAE19B2008ACF9F /* DaysViewController.swift */; };
 		32B92AEE1DA625C000C17B1F /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B92AED1DA625C000C17B1F /* CalendarCell.swift */; };
+		32C81F261E682FA800FC2EA7 /* Spring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31914E641E5DB14C00D6ACC1 /* Spring.framework */; };
 		32CDE1041D9513EA00A57C02 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDE1011D9513EA00A57C02 /* SwiftyJSON.framework */; };
 		32D0D7E11D9B94E800FF7F33 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322AF8F81D9B90F100E7034F /* Nimble.framework */; };
 		32D0D7E81D9CBFEB00FF7F33 /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D0D7E71D9CBFEB00FF7F33 /* WebView.storyboard */; };
 		32D0D7EC1D9CDA6500FF7F33 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0D7EB1D9CDA6500FF7F33 /* WebViewController.swift */; };
 		332B1A271D815670007064CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A261D815670007064CF /* AppDelegate.swift */; };
 		332B1A2E1D815670007064CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 332B1A2D1D815670007064CF /* Assets.xcassets */; };
-		332B1A3C1D815670007064CF /* calendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A3B1D815670007064CF /* calendarTests.swift */; };
 		332B1A471D815670007064CF /* sunsetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332B1A461D815670007064CF /* sunsetUITests.swift */; };
 		332B1A5D1D8157A1007064CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332B1A5B1D8157A1007064CF /* LaunchScreen.storyboard */; };
 		332B1A5E1D8157A1007064CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332B1A5C1D8157A1007064CF /* Main.storyboard */; };
@@ -68,6 +74,12 @@
 		22953F5B7DD2C790E394614E /* Pods-sunsetUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sunsetUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-sunsetUITests/Pods-sunsetUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3106785A1E57542C00C829E6 /* settingsUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsUITests.swift; sourceTree = "<group>"; };
 		3162FBF41E50307300B05B5B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		31914E621E5DB14000D6ACC1 /* Gecco.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gecco.framework; path = Carthage/Build/iOS/Gecco.framework; sourceTree = "<group>"; };
+		31914E641E5DB14C00D6ACC1 /* Spring.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spring.framework; path = Carthage/Build/iOS/Spring.framework; sourceTree = "<group>"; };
+		31914E661E5DB3E100D6ACC1 /* WalkThroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkThroughViewController.swift; sourceTree = "<group>"; };
+		3192F1211E69BE6800BA6E31 /* DateManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManagerTests.swift; sourceTree = "<group>"; };
+		3192F1261E6AE44E00BA6E31 /* DateAttributesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateAttributesTests.swift; sourceTree = "<group>"; };
+		3192F12E1E6B2B8B00BA6E31 /* TweetManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetManagerTests.swift; sourceTree = "<group>"; };
 		31A936EA1E503EAD005A57B0 /* AccountsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsTableViewCell.swift; sourceTree = "<group>"; };
 		31A936EB1E503EAD005A57B0 /* AccountsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsTableViewCell.xib; sourceTree = "<group>"; };
 		31A936EC1E503EAD005A57B0 /* SettingsTitlesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTitlesViewCell.swift; sourceTree = "<group>"; };
@@ -86,7 +98,10 @@
 		3251BEDF1DACDEDB008ACF9F /* ColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		3251BEE11DAE19B2008ACF9F /* DaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysViewController.swift; sourceTree = "<group>"; };
 		32B92AED1DA625C000C17B1F /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		32CDE0FF1D9513EA00A57C02 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		32CDE1001D9513EA00A57C02 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		32CDE1011D9513EA00A57C02 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		32D0D7E41D9BA7AE00FF7F33 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		32D0D7E71D9CBFEB00FF7F33 /* WebView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WebView.storyboard; sourceTree = "<group>"; };
 		32D0D7EB1D9CDA6500FF7F33 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		332B1A231D815670007064CF /* sunset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sunset.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,7 +109,6 @@
 		332B1A2D1D815670007064CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		332B1A321D815670007064CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		332B1A371D815670007064CF /* sunsetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sunsetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		332B1A3B1D815670007064CF /* calendarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarTests.swift; sourceTree = "<group>"; };
 		332B1A3D1D815670007064CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		332B1A421D815670007064CF /* sunsetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sunsetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		332B1A461D815670007064CF /* sunsetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sunsetUITests.swift; sourceTree = "<group>"; };
@@ -118,6 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32C81F261E682FA800FC2EA7 /* Spring.framework in Frameworks */,
+				31914E631E5DB14000D6ACC1 /* Gecco.framework in Frameworks */,
 				31A936F51E508CE1005A57B0 /* FontAwesome.framework in Frameworks */,
 				31A936F31E504230005A57B0 /* SlideMenuControllerSwift.framework in Frameworks */,
 				322A48341DAF35F800AFA59B /* RealmSwift.framework in Frameworks */,
@@ -131,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3192F1251E6AE3C000BA6E31 /* Realm.framework in Frameworks */,
 				32D0D7E11D9B94E800FF7F33 /* Nimble.framework in Frameworks */,
 				1F81E5292283A65123CFA222 /* Pods_sunsetTests.framework in Frameworks */,
 			);
@@ -160,14 +177,38 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3192F11F1E69BD8C00BA6E31 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3192F1211E69BE6800BA6E31 /* DateManagerTests.swift */,
+				3192F12E1E6B2B8B00BA6E31 /* TweetManagerTests.swift */,
+			);
+			name = Models;
+			path = models;
+			sourceTree = "<group>";
+		};
+		3192F1201E69BD9E00BA6E31 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3192F1261E6AE44E00BA6E31 /* DateAttributesTests.swift */,
+			);
+			name = Helpers;
+			path = helpers;
+			sourceTree = "<group>";
+		};
 		32CDE0FE1D9513EA00A57C02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				31914E641E5DB14C00D6ACC1 /* Spring.framework */,
+				31914E621E5DB14000D6ACC1 /* Gecco.framework */,
 				31A936F41E508CE1005A57B0 /* FontAwesome.framework */,
 				31A936F21E504230005A57B0 /* SlideMenuControllerSwift.framework */,
 				322A48331DAF35F800AFA59B /* RealmSwift.framework */,
 				322A482F1DAF264400AFA59B /* Realm.framework */,
+				32D0D7E41D9BA7AE00FF7F33 /* OHHTTPStubs.framework */,
 				322AF8F81D9B90F100E7034F /* Nimble.framework */,
+				32CDE0FF1D9513EA00A57C02 /* Alamofire.framework */,
+				32CDE1001D9513EA00A57C02 /* AlamofireImage.framework */,
 				32CDE1011D9513EA00A57C02 /* SwiftyJSON.framework */,
 				1BBA864FDA911B4F35925D14 /* Pods_sunset.framework */,
 				60BB2EFAC9B303A020060EB0 /* Pods_sunsetTests.framework */,
@@ -213,7 +254,8 @@
 		332B1A3A1D815670007064CF /* sunsetTests */ = {
 			isa = PBXGroup;
 			children = (
-				332B1A3B1D815670007064CF /* calendarTests.swift */,
+				3192F1201E69BD9E00BA6E31 /* Helpers */,
+				3192F11F1E69BD8C00BA6E31 /* Models */,
 				332B1A3D1D815670007064CF /* Info.plist */,
 			);
 			path = sunsetTests;
@@ -250,6 +292,7 @@
 				32D0D7EB1D9CDA6500FF7F33 /* WebViewController.swift */,
 				3251BEE11DAE19B2008ACF9F /* DaysViewController.swift */,
 				3162FBF41E50307300B05B5B /* SettingsViewController.swift */,
+				31914E661E5DB3E100D6ACC1 /* WalkThroughViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -383,19 +426,19 @@
 				TargetAttributes = {
 					332B1A221D815670007064CF = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = J43C2ZSKA6;
+						DevelopmentTeam = K728KPF3AV;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					332B1A361D815670007064CF = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = J43C2ZSKA6;
+						DevelopmentTeam = K728KPF3AV;
 						LastSwiftMigration = 0800;
 						TestTargetID = 332B1A221D815670007064CF;
 					};
 					332B1A411D815670007064CF = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = J43C2ZSKA6;
+						DevelopmentTeam = K728KPF3AV;
 						LastSwiftMigration = 0800;
 						TestTargetID = 332B1A221D815670007064CF;
 					};
@@ -494,6 +537,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SlideMenuControllerSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/FontAwesome.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Gecco.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Spring.framework",
 			);
 			outputPaths = (
 			);
@@ -628,6 +673,7 @@
 				32B92AEE1DA625C000C17B1F /* CalendarCell.swift in Sources */,
 				322AF8F11D98FA1800E7034F /* TwitterAPIClient.swift in Sources */,
 				322AF8F31D99018C00E7034F /* MicropostViewController.swift in Sources */,
+				31914E671E5DB3E100D6ACC1 /* WalkThroughViewController.swift in Sources */,
 				332B1A601D8157B5007064CF /* ViewController.swift in Sources */,
 				3251BEDE1DACC2B2008ACF9F /* GradationView.swift in Sources */,
 				332B1A271D815670007064CF /* AppDelegate.swift in Sources */,
@@ -638,7 +684,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				332B1A3C1D815670007064CF /* calendarTests.swift in Sources */,
+				3192F1271E6AE44E00BA6E31 /* DateAttributesTests.swift in Sources */,
+				3192F12F1E6B2B8B00BA6E31 /* TweetManagerTests.swift in Sources */,
+				3192F1221E69BE6800BA6E31 /* DateManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,6 +718,7 @@
 		332B1A491D815670007064CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -691,7 +740,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = J43C2ZSKA6;
+				DEVELOPMENT_TEAM = K728KPF3AV;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -719,6 +768,7 @@
 		332B1A4A1D815670007064CF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -740,7 +790,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = J43C2ZSKA6;
+				DEVELOPMENT_TEAM = K728KPF3AV;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -767,7 +817,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: asuforcegt@yahoo.co.jp (5QPQG45SHU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = J43C2ZSKA6;
+				DEVELOPMENT_TEAM = K728KPF3AV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -775,7 +825,7 @@
 				INFOPLIST_FILE = sunset/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.asuforce.sunset;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asuforce.sunsetcalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -789,7 +839,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: asuforcegt@yahoo.co.jp (5QPQG45SHU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = J43C2ZSKA6;
+				DEVELOPMENT_TEAM = K728KPF3AV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -797,7 +847,7 @@
 				INFOPLIST_FILE = sunset/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.asuforce.sunset;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asuforce.sunsetcalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
