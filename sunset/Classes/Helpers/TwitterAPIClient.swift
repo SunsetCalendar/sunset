@@ -27,7 +27,7 @@ class TwitterAPIClient {
         })
     }
 
-    private func fetchUserTimeLine(tweets: @escaping ([TWTRTweet]) -> ()) {
+    func fetchUserTimeLine(tweets: @escaping ([TWTRTweet]) -> ()) {
         let client = TWTRAPIClient(userID:  Twitter.sharedInstance().sessionStore.session()?.userID)
 
         var clientError: NSError?

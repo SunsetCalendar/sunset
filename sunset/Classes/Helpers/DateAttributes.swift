@@ -6,6 +6,8 @@ class DateAttributes {
     let realm: Realm = try! Realm()
     
     // その日に投稿があったか
+    // NOTE: appDelegate 経由で年月を取得している
+
     func existPosts(dayLabel: String) -> Bool {
         var day: String = dayLabel
         // 1桁の場合、接頭辞として'0'を付与
@@ -27,6 +29,7 @@ class DateAttributes {
     }
 
     // 曜日の色の振り分け
+    // NOTE: UIColor 省略できる
     func choiceDaysColor(row: Int) -> UIColor {
         switch (row % 7) {
         case 0:
