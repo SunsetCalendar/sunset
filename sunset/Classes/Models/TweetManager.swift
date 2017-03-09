@@ -12,7 +12,7 @@ class TweetManager {
                 self.realm.deleteAll()
             }
         } catch {
-            let error = error as NSError
+            let error: NSError = error as NSError
             print("error: \(error), \(error.userInfo)")
         }
 

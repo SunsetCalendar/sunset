@@ -5,7 +5,7 @@ class MicropostViewController: UITableViewController {
 
     var tweets: [Tweet] = []
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    let sessionStore = Twitter.sharedInstance().sessionStore
+    let sessionStore: TWTRSessionStore = Twitter.sharedInstance().sessionStore
     let tweetManager: TweetManager = TweetManager()
 
     override func viewDidLoad() {
@@ -21,7 +21,7 @@ class MicropostViewController: UITableViewController {
             appDelegate.targetDate = initialDate()
         }
 
-        let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
+        let TapCalendarCellNotification: Notification.Name = Notification.Name("TapCelandarCell")
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateView(_:)), name: TapCalendarCellNotification, object: nil)
         self.tableView.reloadData()
     }
@@ -35,7 +35,7 @@ class MicropostViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "micropostCell", for: indexPath)
+        let cell: UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "micropostCell", for: indexPath)
         if (self.sessionStore.session()?.userID != nil) {
             updateCell(cell, indexPath: indexPath)
         }

@@ -2,7 +2,7 @@ import XCTest
 
 class micropostUITests: XCTestCase {
     
-    let formatter = DateFormatter()
+    let formatter: DateFormatter = DateFormatter()
     
     override func setUp() {
         super.setUp()
@@ -12,7 +12,7 @@ class micropostUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        let app = XCUIApplication()
+        let app: XCUIApplication = XCUIApplication()
         app.launchArguments = [ "STUB_HTTP_ENDPOINTS" ]
         app.launch()
         
@@ -25,9 +25,9 @@ class micropostUITests: XCTestCase {
     }
     
     func testShowSettingsWhenSwipeFromLeft() {
-        let app = XCUIApplication()
-        let accountLabel = app.staticTexts["アカウント"]
-        let twitterCell = app.tables.cells.staticTexts["Twitter"]
+        let app: XCUIApplication = XCUIApplication()
+        let accountLabel: XCUIElement = app.staticTexts["アカウント"]
+        let twitterCell: XCUIElement = app.tables.cells.staticTexts["Twitter"]
         
         app.swipeLeft()
         XCTAssertTrue(accountLabel.exists)
