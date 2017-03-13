@@ -66,10 +66,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         super.didReceiveMemoryWarning()
     }
 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dateManager.daysAcquisition() //ここは月によって異なる
     }
