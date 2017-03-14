@@ -12,7 +12,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     var prevDay: String!
     var prevIndexPath: IndexPath?
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    let TapCalendarCellNotification = Notification.Name("TapCelandarCell")
+    let TapCalendarCellNotification: Notification.Name = Notification.Name("TapCelandarCell")
     let realm: Realm = try! Realm()
     var notificationToken: NotificationToken? = nil
 
@@ -41,15 +41,15 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let tweetModel = self.realm.objects(Tweet.self)
+        let tweetModel: Results<Tweet> = self.realm.objects(Tweet.self)
 
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
         calendarCollectionView.backgroundColor = UIColor.clear
         self.view.backgroundColor = UIColor.clear
 
-        let TapPrevBtnNotification = Notification.Name("TapPrevBtn")
-        let TapNextBtnNotification = Notification.Name("TapNextBtn")
+        let TapPrevBtnNotification: Notification.Name = Notification.Name("TapPrevBtn")
+        let TapNextBtnNotification: Notification.Name = Notification.Name("TapNextBtn")
         NotificationCenter.default.addObserver(self, selector: #selector(self.updatePrevView(_:)), name: TapPrevBtnNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateNextView(_:)), name: TapNextBtnNotification, object: nil)
 
@@ -64,10 +64,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

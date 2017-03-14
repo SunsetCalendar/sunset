@@ -15,12 +15,4 @@ class GradationView {
         gradientLayer.frame = view.bounds
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
-
-    func addGradation(view: UITableView) {
-        addGradation(view: view as UIView)
-    }
-
-    func addGradation(view: UICollectionView) {
-        addGradation(view: view as UIView)
-    }
 }
